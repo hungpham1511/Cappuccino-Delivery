@@ -6,7 +6,7 @@
 - Message nên là một câu mệnh lệnh nha (Giống với cách github generate commit message cho mình) example: "Implement 'Checkout'" hay "Fix forgot password button in 'Login'"
 - Message nhớ viết hoa đầu câu và đừng "." ở cuối câu nha mn
 - Sửa đổi, cài đặt, hay xóa, thêm nội dụng trong một file hay trong một tính năng nào đó thì nên highlight file/tính năng đó lên, như ở trên là sửa tính năng forgot password trong login thì commit message sẽ là "Fix forgot password button in 'Login'" tính năng/trang login sẽ được highlight bằng dấu '' để có kiếm commit thì dễ traceback ra
-> *Lưu ý: nhớ commit thường xuyên :> chứ gom 1 cục lại mới commit thì không viết nên viết message như thế nào đâu :v*
+> *Lưu ý: nhớ commit thường xuyên :> chứ gom 1 cục lại mới commit thì không biết nên viết message như thế nào đâu :v*
 
 ## Ming Ngok's laravel implement tutorial 
 Clone về phải làm mấy cái này mới chạy được
