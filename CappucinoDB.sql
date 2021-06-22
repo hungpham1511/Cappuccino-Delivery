@@ -9,9 +9,9 @@ USE CAPPUCINO;
 
 -- ---
 
--- Table structure for table `Admin`
+-- Table structure for table `admin`
 
-CREATE TABLE IF NOT EXISTS `Admin` (
+CREATE TABLE IF NOT EXISTS `admin` (
   `idAdmin` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
   `password` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS `Admin` (
 
 -- ---
 
--- Table structure for table `User`
+-- Table structure for table `user`
 
-CREATE TABLE IF NOT EXISTS `User` (
+CREATE TABLE IF NOT EXISTS `users` (
   `idUser` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
   `password` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS `User` (
 
 -- ---
 
--- Table structure for table `Receipt`
+-- Table structure for table `receipt`
 
-CREATE TABLE IF NOT EXISTS `Receipt` (
+CREATE TABLE IF NOT EXISTS `receipt` (
   `idReceipt` INT(11) NOT NULL AUTO_INCREMENT,
   `idUser` INT(11) NOT NULL,
   `receiptDate` DATETIME NOT NULL,
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `Receipt` (
 
 -- ---
 
--- Table structure for table `Detail_Receipt`
+-- Table structure for table `detail_receipt`
 
-CREATE TABLE IF NOT EXISTS `Detail_Receipt` (
+CREATE TABLE IF NOT EXISTS `detail_receipt` (
   `idDetailReceipt` INT(11) NOT NULL AUTO_INCREMENT,
   `idDrink` INT(11) NOT NULL,
   `idReceipt` INT(11) NOT NULL,
@@ -72,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `Detail_Receipt` (
 
 -- ---
 
--- Table structure for table `Detail_Topping`
+-- Table structure for table `detail_topping`
 
-CREATE TABLE IF NOT EXISTS `Detail_Topping` (
+CREATE TABLE IF NOT EXISTS `detail_topping` (
   `idDetailTopping` INT(11) NOT NULL AUTO_INCREMENT,
   `idTopping` INT(11) NOT NULL,
   `idDetailReceipt` INT(11) NOT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE IF NOT EXISTS `Detail_Topping` (
 
 -- --
 
--- Table structure for table `Menu`
+-- Table structure for table `menu`
 
-CREATE TABLE IF NOT EXISTS `Menu` (
+CREATE TABLE IF NOT EXISTS `menu` (
   `idDrink` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
   `category` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `Menu` (
 
 -- --- 
 
--- Table structure for table `Topping`
+-- Table structure for table `topping`
 
-CREATE TABLE IF NOT EXISTS `Topping` (
+CREATE TABLE IF NOT EXISTS `topping` (
   `idTopping` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
   `price` DECIMAL(10,2) NOT NULL,
@@ -108,9 +108,9 @@ CREATE TABLE IF NOT EXISTS `Topping` (
 
 -- --- 
 
--- Table structure for table `Promotion`
+-- Table structure for table `promotion`
 
-CREATE TABLE IF NOT EXISTS `Promotion` (
+CREATE TABLE IF NOT EXISTS `promotion` (
   `idPromotion` INT(11) NOT NULL AUTO_INCREMENT,
   `promotionType` BOOLEAN NOT NULL,
   `percentPromo` INT,
@@ -122,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `Promotion` (
 
 -- --- 
 
--- Table structure for table `Detail_WeeklyBook`
+-- Table structure for table `detail_weekly_book`
 
-CREATE TABLE IF NOT EXISTS `Detail_WeeklyBook` (
+CREATE TABLE IF NOT EXISTS `detail_weekly_book` (
   `idDetailWeeklyBook` INT(11) NOT NULL AUTO_INCREMENT,
   `startDay` DATE NOT NULL,
   `finishDay` DATE NOT NULL,
@@ -140,31 +140,31 @@ CREATE TABLE IF NOT EXISTS `Detail_WeeklyBook` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Constraints for table `Receipt`
+-- Constraints for table `receipt`
 --
-ALTER TABLE `Receipt`
-ADD CONSTRAINT `FK_Receipt_User` FOREIGN KEY (`idUser`) REFERENCES `User` (`idUser`);
+ALTER TABLE `receipt`
+ADD CONSTRAINT `FK_Receipt_User` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`);
 
-ALTER TABLE `Receipt`
-ADD CONSTRAINT `FK_Receipt_Promotion` FOREIGN KEY (`idPromotion`) REFERENCES `Promotion` (`idPromotion`);
+ALTER TABLE `receipt`
+ADD CONSTRAINT `FK_Receipt_Promotion` FOREIGN KEY (`idPromotion`) REFERENCES `promotion` (`idPromotion`);
 
-ALTER TABLE `Receipt`
-ADD CONSTRAINT `FK_Receipt_DetailWeeklyBook` FOREIGN KEY (`idDetailWeeklyBook`) REFERENCES `Detail_WeeklyBook` (`idDetailWeeklyBook`);
-
---
--- Constraints for table `Detail_Receipt`
---
-ALTER TABLE `Detail_Receipt`
-ADD CONSTRAINT `FK_Detail_Receipt_Menu` FOREIGN KEY (`idDrink`) REFERENCES `Menu` (`idDrink`);
-
-ALTER TABLE `Detail_Receipt`
-ADD CONSTRAINT `FK_Detail_Receipt_Receipt` FOREIGN KEY (`idReceipt`) REFERENCES `Receipt` (`idReceipt`);
+ALTER TABLE `receipt`
+ADD CONSTRAINT `FK_Receipt_DetailWeeklyBook` FOREIGN KEY (`idDetailWeeklyBook`) REFERENCES `detail_weekly_book` (`idDetailWeeklyBook`);
 
 --
--- Constraints for table `Detail_Topping`
+-- Constraints for table `detail_receipt`
 --
-ALTER TABLE `Detail_Topping`
-ADD CONSTRAINT `FK_Detail_Topping_Topping` FOREIGN KEY (`idTopping`) REFERENCES `Topping` (`idTopping`);
+ALTER TABLE `detail_receipt`
+ADD CONSTRAINT `FK_Detail_Receipt_Menu` FOREIGN KEY (`idDrink`) REFERENCES `menu` (`idDrink`);
 
-ALTER TABLE `Detail_Topping`
-ADD CONSTRAINT `FK_Detail_Topping_Detail_Receipt` FOREIGN KEY (`idDetailReceipt`) REFERENCES `Detail_Receipt` (`idDetailReceipt`);
+ALTER TABLE `detail_receipt`
+ADD CONSTRAINT `FK_Detail_Receipt_Receipt` FOREIGN KEY (`idReceipt`) REFERENCES `receipt` (`idReceipt`);
+
+--
+-- Constraints for table `detail_topping`
+--
+ALTER TABLE `detail_topping`
+ADD CONSTRAINT `FK_Detail_Topping_Topping` FOREIGN KEY (`idTopping`) REFERENCES `topping` (`idTopping`);
+
+ALTER TABLE `detail_topping`
+ADD CONSTRAINT `FK_Detail_Topping_Detail_Receipt` FOREIGN KEY (`idDetailReceipt`) REFERENCES `detail_receipt` (`idDetailReceipt`);
