@@ -9,9 +9,9 @@ USE CAPPUCINO;
 
 -- ---
 
--- Table structure for table `admin`
+-- Table structure for table `admins`
 
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE IF NOT EXISTS `admins` (
   `idAdmin` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
   `password` VARCHAR(50) NOT NULL COLLATE utf8_unicode_ci,
