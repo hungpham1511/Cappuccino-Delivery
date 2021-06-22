@@ -15,13 +15,13 @@ Route::group(['middleware' => 'adminauth'], function () {
 });
 
 Route::group(['middleware' => 'adminauth'], function () {
-	// Admin product control
-	Route::get('/products','ProductController@index')->name('products.index');
-	Route::get('/products/create','ProductController@create')->name('products.create');
-	Route::post('/products/store','ProductController@store')->name('products.store');
-	Route::get('/products/{product}/edit','ProductController@edit')->name('products.edit');
-	Route::put('/products/{product}','ProductController@update')->name('products.update');
-	Route::delete('/products/{product}','ProductController@destroy')->name('products.destroy');
+	// Admin menu control
+	Route::get('/menu','MenuController@index')->name('menu.index');
+	Route::get('/menu/create','MenuController@create')->name('menu.create');
+	Route::post('/menu/store','MenuController@store')->name('menu.store');
+	Route::get('/menu/{drink}/edit','MenuController@edit')->name('menu.edit');
+	Route::put('/menu/{drink}','MenuController@update')->name('menu.update');
+	Route::delete('/menu/{drink}','MenuController@destroy')->name('menu.destroy');
 });
 
 Route::group(['middleware' => 'adminauth'], function () {

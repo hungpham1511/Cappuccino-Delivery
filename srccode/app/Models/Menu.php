@@ -5,25 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Menu extends Model
 {
     use HasFactory;
 
-    protected $table = 'products';
+    protected $table = 'menu';
     public $timestamps = true;
 
     protected $casts = [
-        'Price' => 'float'
+        'price' => 'float'
     ];
 
-    protected $primaryKey = 'IdDrink';
+    protected $primaryKey = 'idDrink';
 
     protected $fillable = [
-        'Name',
-        'Category',
-        'Description',
-        'Price',
-        'Picture',
+        'name',
+        'category',
+        'description',
+        'price',
+        'picture',
         'created_at'
     ];
 }

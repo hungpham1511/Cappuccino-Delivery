@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('products.index') }}">
+                <a class="nav-link" href="{{ route('menu.index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Menu</span></a>
             </li>

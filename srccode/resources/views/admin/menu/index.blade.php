@@ -9,7 +9,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Menu</h1>
         <div class="pull-left">
-            <a class="btn btn-primary" href="{{ route('products.create') }}" title="Create a product"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Drinks</i></a>
+            <a class="btn btn-primary" href="{{ route('menu.create') }}" title="Create a drink"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Drinks</i></a>
         </div>
     </div>
     
@@ -25,7 +25,7 @@
                             <div>
                                 <div class="mx-auto pull-right">
                                     <div class="">
-                                        <form action="{{ route('products.index') }}" method="GET" role="search">
+                                        <form action="{{ route('menu.index') }}" method="GET" role="search">
                                             <div class="input-group">
                                                 <span class="input-group-btn mr-2">
                                                     <button class="btn btn-primary" type="submit" title="Search projects">
@@ -33,7 +33,7 @@
                                                     </button>
                                                 </span>
                                                 <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
-                                                <a href="{{ route('products.index') }}">
+                                                <a href="{{ route('menu.index') }}">
                                                     <span class="input-group-btn ml-2">
                                                         <button class="btn btn-danger" type="button" title="Refresh page">
                                                             <span class="fas fa-sync-alt"></span>
@@ -65,27 +65,27 @@
                                     <th>Action</th>
                                     
                                 </tr>
-                                @foreach ($products as $product)
+                                @foreach ($drinks as $product)
                                 <tr>
-                                    <td>{{ $product->Category }}</td>
-                                    <td>{{ $product->IdDrink }}</td>
-                                    <td>{{ $product->Name }}</td>
-                                    <td>{{ $product->Picture }}</td>
-                                    <td>{{ $product->Price }}</td>
-                                    <td>{{ $product->Description }}</td>
+                                    <td>{{ $product->category }}</td>
+                                    <td>{{ $product->idDrink }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->picture }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->description }}</td>
                                     <td>
-                                        <form action="{{ route('products.destroy',$product->IdDrink) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('products.edit',$product->IdDrink) }}">Edit</a>
+                                        <form action="{{ route('menu.destroy',$product->idDrink) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('menu.edit',$product->idDrink) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this drink?')">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @endforeach
                             </table>
                             <div class="d-flex justify-content-center">
-                                {!! $products->links() !!}
+                                {!! $drinks->links() !!}
                             </div>
                         </div>
                     </div>
