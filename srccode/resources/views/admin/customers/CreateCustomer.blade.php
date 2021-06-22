@@ -27,13 +27,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Full Name</strong>
-                    <input type="text" name="fullname" class="form-control" placeholder="Nguyễn Văn A">
+                    <input type="text" name="fullName" class="form-control" placeholder="Nguyễn Văn A">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Username</strong>
-                    <input type="text" name="name" class="form-control" placeholder="NVA123">
+                    <input type="text" name="username" class="form-control" placeholder="NVA123">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

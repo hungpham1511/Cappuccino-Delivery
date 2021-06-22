@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0">Add New Order</h1>
+        <h1 class="h3 mb-0">Add New Receipt</h1>
         <div class="pull-left">
-            <a class="btn btn-primary" href="{{ route('orders.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+            <a class="btn btn-primary" href="{{ route('receipts.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
         </div>
     </div>
 
@@ -20,38 +20,38 @@
     </div>
     @endif
   
-    <form action="{{ route('orders.store') }}" method="POST" >
+    <form action="{{ route('receipts.store') }}" method="POST" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ReceiptDate</strong>
-                    <input type="text" name="ReceiptDate" class="form-control" placeholder="20/02/2012">
+                    <input type="text" name="receiptDate" class="form-control" placeholder="20/02/2012">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Payment</strong>
-                    <input type="number" name="Payment" class="form-control" placeholder="1: COD    2: Momo    3: Bank">
+                    <input type="number" name="payment" class="form-control" placeholder="1: COD    2: Momo    3: Bank">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Note</strong>
-                    <input type="text" name="Note" class="form-control" placeholder="Before 5pm.">
+                    <input type="text" name="note" class="form-control" placeholder="Before 5pm.">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                    <input type="number" name="Status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finish">
+                    <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finish">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Total</strong>
-                    <input type="number" name="Total" class="form-control" placeholder="100000">
+                    <input type="number" name="total" class="form-control" placeholder="100000">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

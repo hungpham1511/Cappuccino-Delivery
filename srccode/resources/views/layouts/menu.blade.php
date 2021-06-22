@@ -36,7 +36,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -48,7 +48,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('menu.index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Menu</span></a>
@@ -57,11 +57,18 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Receipt -->
             <li class="nav-item">
-                <a class="nav-link"  href="{{ route('orders.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Orders</span></a>
+                <a class="nav-link"  href="{{ route('receipts.index') }}">
+                    <i class="fas fa-money-check-alt"></i>
+                    <span>Receipts</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Topping -->
+            <li class="nav-item">
+                <a class="nav-link"  href="{{ route('topping.index') }}">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span>Topping</span></a>
             </li>
 
             <hr class="sidebar-divider">

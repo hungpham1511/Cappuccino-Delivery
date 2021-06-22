@@ -29,17 +29,25 @@ Route::group(['middleware' => 'adminauth'], function () {
 	Route::get('/customers','UserManagementController@index')->name('customers.index');
 	Route::get('/customers/create','UserManagementController@create')->name('customers.create');
 	Route::post('/customers/store','UserManagementController@store')->name('customers.store');
-	Route::get('/customers/{customer}/edit','UserManagementController@edit')->name('customers.edit');
-	Route::put('/customers/{customer}','UserManagementController@update')->name('customers.update');
 	Route::delete('/customers/{customer}','UserManagementController@destroy')->name('customers.destroy');
 });
 
 Route::group(['middleware' => 'adminauth'], function () {
-	// Admin order control
-	Route::get('/orders','OrderController@index')->name('orders.index');
-	Route::get('/orders/create','OrderController@create')->name('orders.create');
-	Route::post('/orders/store','OrderController@store')->name('orders.store');
-	Route::get('/orders/{order}/edit','OrderController@edit')->name('orders.edit');
-	Route::put('/orders/{order}','OrderController@update')->name('orders.update');
-	Route::delete('/orders/{order}','OrderController@destroy')->name('orders.destroy');
+	// Admin receipt control
+	Route::get('/receipts','ReceiptController@index')->name('receipts.index');
+	Route::get('/receipts/create','ReceiptController@create')->name('receipts.create');
+	Route::post('/receipts/store','ReceiptController@store')->name('receipts.store');
+	Route::get('/receipts/{receipt}/edit','ReceiptController@edit')->name('receipts.edit');
+	Route::put('/receipts/{receipt}','ReceiptController@update')->name('receipts.update');
+	Route::delete('/receipts/{receipt}','ReceiptController@destroy')->name('receipts.destroy');
+});
+
+Route::group(['middleware' => 'adminauth'], function () {
+	// Admin topping control
+	Route::get('/topping','ToppingController@index')->name('topping.index');
+	Route::get('/topping/create','ToppingController@create')->name('topping.create');
+	Route::post('/topping/store','ToppingController@store')->name('topping.store');
+	Route::get('/topping/{data}/edit','ToppingController@edit')->name('topping.edit');
+	Route::put('/topping/{data}','ToppingController@update')->name('topping.update');
+	Route::delete('/topping/{data}','ToppingController@destroy')->name('topping.destroy');
 });

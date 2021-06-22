@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Receipt extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders';
+    protected $table = 'receipt';
     public $timestamps = true;
 
-    protected $primaryKey = 'IdReceipt';
+    protected $primaryKey = 'idReceipt';
 
     protected $fillable = [
-        'ReceiptDate',
-        'Payment',
-        'Note',
-        'Status',
-        'Total',
+        'receiptDate',
+        'payment',
+        'note',
+        'status',
+        'total',
         'created_at'
     ];
 }

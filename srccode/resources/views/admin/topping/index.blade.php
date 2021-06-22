@@ -1,22 +1,18 @@
 @extends('layouts.menu')
 
 @section('content')
-<div id="wrapper">  
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Customers</h1>
-            <div class="pull-left">
-                <a class="btn btn-primary" href="{{ route('customers.create') }}" title="Create a customer"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Customers</i></a>
-            </div>
-        </div>
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Topping</h1>
+        <div class="pull-left">
+            <a class="btn btn-primary" href="{{ route('topping.create') }}" title="Create a topping"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Topping</i></a>
         </div>
-    @endif    
+    </div>
+    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         {{-- <button class="btn add" data-toggle="modal" data-target="#addModal"><i class="add-btn fas fa-plus"></i></button> --}}
@@ -29,7 +25,7 @@
                             <div>
                                 <div class="mx-auto pull-right">
                                     <div class="">
-                                        <form action="{{ route('customers.index') }}" method="GET" role="search">
+                                        <form action="{{ route('topping.index') }}" method="GET" role="search">
                                             <div class="input-group">
                                                 <span class="input-group-btn mr-2">
                                                     <button class="btn btn-primary" type="submit" title="Search projects">
@@ -37,7 +33,7 @@
                                                     </button>
                                                 </span>
                                                 <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
-                                                <a href="{{ route('customers.index') }}">
+                                                <a href="{{ route('topping.index') }}">
                                                     <span class="input-group-btn ml-2">
                                                         <button class="btn btn-danger" type="button" title="Refresh page">
                                                             <span class="fas fa-sync-alt"></span>
@@ -49,41 +45,39 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- <div class="dataTable_filter" id="dataTables_filter">
+                                <label>Search:
+                                    <input type="search" class="form-control form-control-sm" placeholder aria-controls="dataTable">
+                                </label>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
-                                    <th>IdUser</th>
-                                    <th>Full Name</th>
-                                    <th>Gender</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>  
-                                    <th>Email</th>
-                                    <th>Action</th>
-                                    
+                                    <th>IdTopping</th>
+                                    <th>Name</th>
+                                    <th>Price</th>                               
                                 </tr>
-                                @foreach ($customers as $customer)
+                                @foreach ($data as $product)
                                 <tr>
-                                    <td>{{ $customer->id }}</td>
-                                    <td>{{ $customer->fullName }}</td>
-                                    <td>{{ $customer->gender }}</td>
-                                    <td>{{ $customer->phone }}</td>
-                                    <td>{{ $customer->address }}</td>
-                                    <td>{{ $customer->email }}</td>
+                                    <td>{{ $product->idTopping }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->price }}</td>
                                     <td>
-                                        <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
+                                        <form action="{{ route('topping.destroy',$product->idTopping) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('topping.edit',$product->idTopping) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this topping?')">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @endforeach
                             </table>
                             <div class="d-flex justify-content-center">
-                                {!! $customers->links() !!}
+                                {!! $data->links() !!}
                             </div>
                         </div>
                     </div>
@@ -92,7 +86,7 @@
         </div>
     </div>
 </div>
-
-<!-- End of Main Content -->
 </div>
+<!-- End of Main Content -->
+
 @endsection

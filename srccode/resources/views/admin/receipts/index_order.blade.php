@@ -7,9 +7,9 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Orders</h1>
+            <h1 class="h3 mb-0 text-gray-800">Receipts</h1>
             <div class="pull-left">
-                <a class="btn btn-primary" href="{{ route('orders.create') }}" title="Create an order"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Orders</i></a>
+                <a class="btn btn-primary" href="{{ route('receipts.create') }}" title="Create an receipt"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Receipts</i></a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                             <div>
                                 <div class="mx-auto pull-right">
                                     <div class="">
-                                        <form action="{{ route('orders.index') }}" method="GET" role="search">
+                                        <form action="{{ route('receipts.index') }}" method="GET" role="search">
                                             <div class="input-group">
                                                 <span class="input-group-btn mr-2">
                                                     <button class="btn btn-primary" type="submit" title="Search projects">
@@ -38,7 +38,7 @@
                                                     </button>
                                                 </span>
                                                 <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
-                                                <a href="{{ route('orders.index') }}">
+                                                <a href="{{ route('receipts.index') }}">
                                                     <span class="input-group-btn ml-2">
                                                         <button class="btn btn-danger" type="button" title="Refresh page">
                                                             <span class="fas fa-sync-alt"></span>
@@ -65,17 +65,17 @@
                                     <th>Action</th>
                                     
                                 </tr>
-                                @foreach ($orders as $order)
+                                @foreach ($receipts as $receipt)
                                 <tr>
-                                    <td>{{ $order->IdReceipt }}</td>
-                                    <td>{{ $order->ReceiptDate }}</td>
-                                    <td>{{ $order->Payment }}</td>
-                                    <td>{{ $order->Note }}</td>
-                                    <td>{{ $order->Status }}</td>
-                                    <td>{{ $order->Total }}</td>
+                                    <td>{{ $receipt->idReceipt }}</td>
+                                    <td>{{ $receipt->receiptDate }}</td>
+                                    <td>{{ $receipt->payment }}</td>
+                                    <td>{{ $receipt->note }}</td>
+                                    <td>{{ $receipt->status }}</td>
+                                    <td>{{ $receipt->total }}</td>
                                     <td>
-                                        <form action="{{ route('orders.destroy',$order->IdReceipt) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('orders.edit',$order->IdReceipt) }}">Edit</a>
+                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
@@ -85,7 +85,7 @@
                                 @endforeach
                             </table>
                             <div class="d-flex justify-content-center">
-                                {!! $orders->links() !!}
+                                {!! $receipts->links() !!}
                             </div>
                         </div>
                     </div>

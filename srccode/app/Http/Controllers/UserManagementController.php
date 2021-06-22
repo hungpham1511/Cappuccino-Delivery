@@ -17,10 +17,10 @@ class UserManagementController extends Controller
     public function index(Request $request)
     {
         $customers = User::where([
-            ['fullname', '!=', Null],
+            ['fullName', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere('fullName', 'LIKE', '%' . $term . '%')->get();
                 }
             }]
         ])
@@ -39,10 +39,10 @@ class UserManagementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=> 'required',
+            'username'=> 'required',
             'email'=> 'required',
             'password'=> 'required',
-            'fullname' => 'required',
+            'fullName' => 'required',
             'gender' => 'required',
             'phone' => 'required',
             'address' => 'required',
@@ -57,25 +57,12 @@ class UserManagementController extends Controller
 
     public function edit(User $customer)
     {
-        return view('admin.customers.EditCustomer', compact('customer'));
+        //
     }
     
     public function update(Request $request, User $customer)
     {
-        $request->validate([
-            'name'=> 'required',
-            'email'=> 'required',
-            'password'=> 'required',
-            'fullname' => 'required',
-            'gender' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'email' => 'required'
-        ]);
-        $customer->update($request->all());
-
-        return redirect()->route('customers.index')
-            ->with('success', 'Congratulate! Customer has been updated successfully.');
+       //
     }
     
     public function destroy(User $customer)
