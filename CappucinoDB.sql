@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `Topping` (
 CREATE TABLE IF NOT EXISTS `Promotion` (
   `idPromotion` INT(11) NOT NULL AUTO_INCREMENT,
   `promotionType` BOOLEAN NOT NULL,
-  `percentPormo` INT,
+  `percentPromo` INT,
   `moneyPromo` DECIMAL(10,2),
   `moneyLimit` DECIMAL(10,2),
   `expireDay` DATETIME NOT NULL,
