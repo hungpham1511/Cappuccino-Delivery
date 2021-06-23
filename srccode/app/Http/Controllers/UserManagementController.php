@@ -24,7 +24,7 @@ class UserManagementController extends Controller
                 }
             }]
         ])
-        ->orderBy("id", "desc")
+        ->orderBy("idUser", "desc")
         ->paginate(10);
 
         return view('admin.customers.index_customer', compact('customers'))
