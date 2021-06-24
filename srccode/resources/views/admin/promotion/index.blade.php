@@ -18,7 +18,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="{{ route('menu.index') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Menu</span></a>
@@ -28,7 +28,7 @@
         <hr class="sidebar-divider">
 
         <!-- Nav Item - Receipt -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link"  href="{{ route('receipts.index') }}">
                 <i class="fas fa-money-check-alt"></i>
                 <span>Receipts</span></a>
@@ -53,31 +53,34 @@
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
         <!-- Nav Item - Promotions -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="{{ route('promotion.index') }}">
                 <i class="fas fa-tags"></i>
                 <span>Promotion</span>
+                
             </a>
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
+
+
     </ul>
 @endsection
 
 @section('content')
-<div id="wrapper">  
-    
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Receipts</h1>
-            <div class="pull-left">
-                <a class="btn btn-primary" href="{{ route('receipts.create') }}" title="Create an receipt"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Receipts</i></a>
-            </div>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Menu</h1>
+        <div class="pull-left">
+            <a class="btn btn-primary" href="{{ route('promotion.create') }}" title="Create promotion"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Promotion</i></a>
         </div>
-   
+    </div>
+    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         {{-- <button class="btn add" data-toggle="modal" data-target="#addModal"><i class="add-btn fas fa-plus"></i></button> --}}
@@ -90,7 +93,7 @@
                             <div>
                                 <div class="mx-auto pull-right">
                                     <div class="">
-                                        <form action="{{ route('receipts.index') }}" method="GET" role="search">
+                                        <form action="{{ route('promotion.index') }}" method="GET" role="search">
                                             <div class="input-group">
                                                 <span class="input-group-btn mr-2">
                                                     <button class="btn btn-primary" type="submit" title="Search projects">
@@ -98,7 +101,7 @@
                                                     </button>
                                                 </span>
                                                 <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
-                                                <a href="{{ route('receipts.index') }}">
+                                                <a href="{{ route('promotion.index') }}">
                                                     <span class="input-group-btn ml-2">
                                                         <button class="btn btn-danger" type="button" title="Refresh page">
                                                             <span class="fas fa-sync-alt"></span>
@@ -110,42 +113,47 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- <div class="dataTable_filter" id="dataTables_filter">
+                                <label>Search:
+                                    <input type="search" class="form-control form-control-sm" placeholder aria-controls="dataTable">
+                                </label>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
-                                    <th>IdReceipt</th>
-                                    <th>ReceiptDate</th>
-                                    <th>Payment</th>
-                                    <th>Note</th>
-                                    <th>Status</th>  
-                                    <th>Total</th>
+                                    <th>IdPromotion</th>
+                                    <th>Promotion Type</th>
+                                    <th>Percent discount</th>
+                                    <th>Money discout</th>
+                                    <th>Money limit</th>
+                                    <th>Expire Day</th>  
                                     <th>Action</th>
                                     
                                 </tr>
-                                @foreach ($receipts as $receipt)
+                                @foreach ($data as $product)
                                 <tr>
-                                    <td>{{ $receipt->idReceipt }}</td>
-                                    <td>{{ $receipt->receiptDate }}</td>
-                                    <td>{{ $receipt->payment }}</td>
-                                    <td>{{ $receipt->note }}</td>
-                                    <td>{{ $receipt->status }}</td>
-                                    <td>{{ $receipt->total }}</td>
+                                    <td>{{ $product->idPromotion }}</td>
+                                    <td>{{ $product->promotionType }}</td>
+                                    <td>{{ $product->percentPromo }}</td>
+                                    <td>{{ $product->moneyPromo }}</td>
+                                    <td>{{ $product->moneyLimit }}</td>
+                                    <td>{{ $product->expireDay }}</td>
                                     <td>
-                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
+                                        <form action="{{ route('promotion.destroy',$product->idPromotion) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('promotion.edit',$product->idPromotion) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this promotion?')">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @endforeach
                             </table>
                             <div class="d-flex justify-content-center">
-                                {!! $receipts->links() !!}
+                                {!! $data->links() !!}
                             </div>
                         </div>
                     </div>
@@ -154,7 +162,7 @@
         </div>
     </div>
 </div>
-
-<!-- End of Main Content -->
 </div>
+<!-- End of Main Content -->
+
 @endsection

@@ -51,3 +51,13 @@ Route::group(['middleware' => 'adminauth'], function () {
 	Route::put('/topping/{data}','ToppingController@update')->name('topping.update');
 	Route::delete('/topping/{data}','ToppingController@destroy')->name('topping.destroy');
 });
+
+Route::group(['middleware' => 'adminauth'], function () {
+	// Admin menu control
+	Route::get('/promotion','PromotionController@index')->name('promotion.index');
+	Route::get('/promotion/create','PromotionController@create')->name('promotion.create');
+	Route::post('/promotion/store','PromotionController@store')->name('promotion.store');
+	Route::get('/promotion/{data}/edit','PromotionController@edit')->name('promotion.edit');
+	Route::put('/promotion/{data}','PromotionController@update')->name('promotion.update');
+	Route::delete('/promotion/{data}','PromotionController@destroy')->name('promotion.destroy');
+});

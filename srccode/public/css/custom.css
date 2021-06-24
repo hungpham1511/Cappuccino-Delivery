@@ -38,3 +38,10 @@
 .del-btn{
     color: var(--danger);
 }
+.bg-primary{
+    background-color: #704c2ad2!important;
+}
+.btn-primary{
+    background-color: #705235!important;
+    border-color: #705235!important;
+}

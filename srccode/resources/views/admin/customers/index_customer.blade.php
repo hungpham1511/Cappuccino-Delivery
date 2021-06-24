@@ -3,7 +3,7 @@
 @section('sidebar')
     @parent
 
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
@@ -50,7 +50,15 @@
                 <span>Customers</span>
             </a>
         </li>
-
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+        <!-- Nav Item - Promotions -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('promotion.index') }}">
+                <i class="fas fa-tags"></i>
+                <span>Promotion</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -70,11 +78,6 @@
             </div>
         </div>
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         {{-- <button class="btn add" data-toggle="modal" data-target="#addModal"><i class="add-btn fas fa-plus"></i></button> --}}
