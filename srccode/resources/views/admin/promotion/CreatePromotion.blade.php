@@ -18,7 +18,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('menu.index') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Menu</span></a>
@@ -97,7 +97,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" class="form-control" placeholder="Daily">
+                    <input type="text" name="promotionType" class="form-control" placeholder="1:Daily   2:Monthly">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -121,7 +121,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="text" name="expireDay" class="form-control" placeholder="">
+                    <input type="text" name="expireDay" class="form-control" placeholder="yyyy-mm-dd">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

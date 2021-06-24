@@ -18,7 +18,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('menu.index') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Menu</span></a>
@@ -75,7 +75,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Menu</h1>
+        <h1 class="h3 mb-0 text-gray-800">Promotion</h1>
         <div class="pull-left">
             <a class="btn btn-primary" href="{{ route('promotion.create') }}" title="Create promotion"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Promotion</i></a>
         </div>

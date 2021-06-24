@@ -88,7 +88,7 @@
         </div>
     @endif
 
-    <form action="{{ route('menu.update',$data->idPromotion) }}" method="POST">
+    <form action="{{ route('promotion.update',$data->idPromotion) }}" method="POST">
         @csrf
         @method('PUT')
 
