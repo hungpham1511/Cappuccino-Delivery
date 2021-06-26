@@ -137,7 +137,9 @@
                                     <td>{{ $product->category }}</td>
                                     <td>{{ $product->idDrink }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->picture }}</td>
+                                    <td>
+                                        <img src="{{ $product->picture }}" alt="Drink picture">
+                                    </td>
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->description }}</td>
                                     <td>

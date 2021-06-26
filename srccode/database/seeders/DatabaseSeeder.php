@@ -22,5 +22,24 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
+        DB::table('menu')->insert([
+            [
+                'name'=> 'Affogato',
+                'category'=> 'Coffee',
+                'description'=> 'an Italian coffee-based dessert.',
+                'price'=> '50000',
+                'picture'=> 'https://bitly.com.vn/w6mhfd',
+            ]
+        ]);
+
+        DB::table('menu')->insert([
+            [
+                'name'=> 'Cappuccino',
+                'category'=> 'Coffee',
+                'description'=> 'one-third espresso, one-third heated milk, one-third milk foam.',
+                'price'=> '50000',
+                'picture'=> 'https://bitly.com.vn/18xixr',
+            ]
+        ]);
     }
 }
