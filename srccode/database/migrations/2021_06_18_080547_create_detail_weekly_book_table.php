@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWeeklyBookTable extends Migration
+class CreateDetailWeeklyBookTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateWeeklyBookTable extends Migration
     public function up()
     {
         Schema::create('detail_weekly_book', function (Blueprint $table) {
-            $table->increments('isDetailWeeklyBook');
+            $table->increments('idDetailWeeklyBook');
             $table->date('startDay');
             $table->date('finishDay');
             $table->time('deliveryTime',$precision=0);

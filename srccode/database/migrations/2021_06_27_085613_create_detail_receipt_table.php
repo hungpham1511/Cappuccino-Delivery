@@ -15,8 +15,8 @@ class CreateDetailReceiptTable extends Migration
     {
         Schema::create('detail_receipt', function (Blueprint $table) {
             $table->increments('idDetailReceipt');
-            $table->integer('idDrink');
-            $table->integer('idReceipt');
+            $table->integer('idDrink')->unsigned();
+            $table->integer('idReceipt')->unsigned();
             $table->foreign('idDrink')->references('idDrink')->on('Menu');
             $table->foreign('idReceipt')->references('idReceipt')->on('Receipt');
             $table->integer('Amount');
@@ -25,7 +25,6 @@ class CreateDetailReceiptTable extends Migration
             $table->tinyInteger('Size');
             $table->text('DrinkNote');
             $table->decimal('Price', 22)->default(0.00);
-            $table->timestamps();
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateDetailToppingTable extends Migration
     {
         Schema::create('detail_topping', function (Blueprint $table) {
             $table->increments('idDetailTopping');
+            $table->integer('idTopping')->unsigned();
+            $table->integer('idDetailReceipt')->unsigned();
             $table->foreign('idTopping')->references('idTopping')->on('topping');
             $table->foreign('idDetailReceipt')->references('idDetailReceipt')->on('detail_receipt');
             $table->timestamps();
