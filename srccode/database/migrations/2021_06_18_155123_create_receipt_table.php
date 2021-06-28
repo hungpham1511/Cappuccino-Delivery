@@ -15,11 +15,15 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipt', function (Blueprint $table) {
             $table->increments('idReceipt');
+            $table->foreign('idUser')->references('idUser')->on('users');
             $table->dateTime('receiptDate', $precision = 0);
             $table->tinyInteger('payment');
-            $table->string('note');
+            $table->text('note');
+            $table->foreign('idPromotion')->references('idPromotion')->on('promotion');
             $table->tinyInteger('status');
-            $table->integer('total');
+            $table->decimal('total', 10)->default(0.00);
+            $table->boolean('isWeeklyBook');
+            $table->foreign('idDetailWeeklyBook')->references('idDetailWeeklyBook')->on('detail_weekly_book');
             $table->timestamps();
         });
     }
