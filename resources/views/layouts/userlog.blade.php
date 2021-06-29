@@ -46,9 +46,7 @@
 
         <main class="py-4" style="margin-bottom: 10%;">
             @yield('content')
-            <!-- <div class="row menu-item">
-                @yield('menuItems')
-            </div> -->
+            @yield('menu')
         </main>
 
 </body>

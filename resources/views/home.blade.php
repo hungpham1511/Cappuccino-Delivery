@@ -30,17 +30,17 @@
     </div>
 
 @endsection
-<!--
-@section('menuItems')
-    {{-- Show Coffee --}}
-    @foreach ($coffees as $coffee)
+
+@section('menu')
+<div class="row menu-item">
+    @foreach ($coffee as $c)
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src={{$coffee->picture}} alt="..."></a>
+            <a href="#"><img class="card-img-top" src={{$c->picture}} alt="..."></a>
             <div class="card-body">
-                <h4 class="card-title">{{$coffee->name}}</h4>
-                <p class="card-text">{{$coffee->description}}<span id="span-affogato"></span></p>
-                <h5 id="item-price">{{$coffee->price}} VND</h5>
+                <h4 class="card-title">{{$c->name}}</h4>
+                <p class="card-text">{{$c->description}}<span id="span-affogato"></span></p>
+                <h5 id="item-price">{{$c->price}} VND</h5>
             </div>
             <div class="card-footer">
                 <button type="button" class="button-order">Order</button>
@@ -49,15 +49,14 @@
     </div>
     @endforeach
 
-    {{-- Show Ice Blended --}}
-    @foreach ($iceBlendeds as $iceBlended)
+    @foreach ($iceBlended as $i)
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src={{$iceBlended->picture}} alt="..."></a>
+            <a href="#"><img class="card-img-top" src={{$i->picture}} alt="..."></a>
             <div class="card-body">
-                <h4 class="card-title">{{$iceBlended->name}}</h4>
-                <p class="card-text">{{$iceBlended->description}}<span id="span-affogato"></span></p>
-                <h5 id="item-price">{{$iceBlended->price}} VND</h5>
+                <h4 class="card-title">{{$i->name}}</h4>
+                <p class="card-text">{{$i->description}}<span id="span-affogato"></span></p>
+                <h5 id="item-price">{{$i->price}} VND</h5>
             </div>
             <div class="card-footer">
                 <button type="button" class="button-order">Order</button>
@@ -66,15 +65,14 @@
     </div>
     @endforeach
 
-    {{-- Show Tea --}}
-    @foreach ($teas as $tea)
+    @foreach ($tea as $t)
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src={{$tea->picture}} alt="..."></a>
+            <a href="#"><img class="card-img-top" src={{$t->picture}} alt="..."></a>
             <div class="card-body">
-                <h4 class="card-title">{{$tea->name}}</h4>
-                <p class="card-text">{{$tea->description}}<span id="span-affogato"></span></p>
-                <h5 id="item-price">{{$tea->price}} VND</h5>
+                <h4 class="card-title">{{$t->name}}</h4>
+                <p class="card-text">{{$t->description}}<span id="span-affogato"></span></p>
+                <h5 id="item-price">{{$t->price}} VND</h5>
             </div>
             <div class="card-footer">
                 <button type="button" class="button-order">Order</button>
@@ -83,15 +81,14 @@
     </div>
     @endforeach
 
-    {{-- Show Smoothie --}}
-    @foreach ($smoothies as $smoothie)
+    @foreach ($smoothie as $s)
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src={{$smoothie->picture}} alt="..."></a>
+            <a href="#"><img class="card-img-top" src={{$s->picture}} alt="..."></a>
             <div class="card-body">
-                <h4 class="card-title">{{$smoothie->name}}</h4>
-                <p class="card-text">{{$smoothie->description}}<span id="span-affogato"></span></p>
-                <h5 id="item-price">{{$smoothie->price}} VND</h5>
+                <h4 class="card-title">{{$s->name}}</h4>
+                <p class="card-text">{{$s->description}}<span id="span-affogato"></span></p>
+                <h5 id="item-price">{{$s->price}} VND</h5>
             </div>
             <div class="card-footer">
                 <button type="button" class="button-order">Order</button>
@@ -99,4 +96,5 @@
         </div>
     </div>
     @endforeach
-@endsection -->
+</div>
+@endsection

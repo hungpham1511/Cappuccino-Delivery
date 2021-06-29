@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuItemController;
 
 
 
@@ -26,9 +26,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/home', [MenuController::class, 'coffee']);
-// Route::get('/home', [MenuController::class, 'iceBlended']);
-// Route::get('/home', [MenuController::class, 'tea']);
-// Route::get('/home', [MenuController::class, 'smoothie']);
-
