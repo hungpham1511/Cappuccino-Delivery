@@ -1,0 +1,265 @@
+/* Created by Hung Pham on 29/06/2021 */
+
+/* Body header style */
+
+header {
+    background-color: #cfc6b7;
+    height: 189px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 26px;
+}
+
+.logo-name {
+    font-family: Righteous;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    text-align: center;
+}
+
+/* Main structure */
+
+h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #603813;
+    margin: 4% 5%;
+}
+
+h4 {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 40px;
+    color: #603813;
+}
+
+.title {
+    width: 100%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+}
+
+.nav-back {
+    margin-top: 1.75rem;
+    margin-left: 2.5rem;
+    position: absolute;
+    border: none;
+    background-color: #ffffff;
+}
+.nav-back img {
+    cursor: pointer;
+}
+
+.mainrow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row-multi-cards {
+    justify-content: space-between;
+    width: 95%;
+}
+
+.col-25 {
+    flex: 25%;
+    margin: 20px 10px 20px 20px;
+}
+
+.col-60 {
+    flex: 60%;
+    margin: 20px 10px 20px 20px;
+}
+
+.container {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: 0px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+}
+
+.container-center {
+    align-items: center;
+    justify-content: center;
+}
+
+/* User information style */
+
+.payment {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 29px;
+    color: #000000;
+}
+
+input[type="text"] {
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #603813;
+}
+
+/* Modal style */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 5%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.modal-image {
+    width: 100%;
+}
+
+/* Receipt & confirmation style */
+
+.receipt-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #000000;
+}
+
+.money-out-table {
+    margin-left: 2%;
+    margin-right: 3%;
+    width: 85%;
+}
+
+.mt-3 {
+    margin-top: 3%;
+}
+
+table {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+}
+
+th {
+    padding-bottom: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+tr:nth-child(1) {
+    border: none;
+    border-bottom: 1px solid#000;
+}
+
+tr:nth-child(2) {
+    margin-top: 100px;
+}
+
+tr:nth-last-child(1) {
+    border: none;
+    border-bottom: 1px solid#000;
+}
+
+.table-m {
+    border-collapse: collapse;
+    width: 91%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.drink-name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+}
+
+.btn {
+    height: 42px;
+    background-color: #b78546;
+    font-family: Roboto;
+    font-style: normal;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+}
+
+/* Google map style */
+
+#map {
+    height: 400px;
+    width: 95%;
+    margin: 30px 0px 30px 0px;
+}
+
+/* Receipt float when on PC */
+@media (min-width: 600px) {
+    .col-25 {
+        overflow-x: auto;
+    }
+}
+
+/* Flex row turn in to column for mobile */
+@media (max-width: 600px) {
+    .mainrow {
+        flex-direction: column-reverse;
+    }
+
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}
