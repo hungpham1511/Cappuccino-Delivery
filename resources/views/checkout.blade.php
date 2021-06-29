@@ -25,7 +25,7 @@
                             <input type="text" class="form-control" id="phone" placeholder="Your phone number">
                         </div>
                     </div>
-                    <textarea class="form-control" rows="3" id="note" type="text" placeholder="Your note for us" required></textarea>
+                    <textarea class="form-control mt-2" rows="3" id="note" type="text" placeholder="Your note for us" required></textarea>
                 </div>
                 <!-- Payment method -->
                 <div class="container-fluid border py-3 px-3 mb-4">
@@ -44,7 +44,7 @@
                 <!-- Weekly book -->
                 <div class="container-fluid border py-3 px-3">
                     <h3>3. Weeklybook</h3>
-                    <div class="form-check">
+                    <div class="form-check form-switch ml-3">
                         <input class="form-check-input" type="checkbox" id="isWeeklyBook" name="isWeeklyBook" onclick="weeklybook()">
                         <label class="form-check-label" for="isWeeklyBook">Use our weeklybook service</label>
                     </div>
