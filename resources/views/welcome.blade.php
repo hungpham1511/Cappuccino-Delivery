@@ -140,7 +140,7 @@
               <a href="#" class="building"><i class="bi bi-building bx bxl-building"></i>&nbsp;86-88 Cao Thắng, phường 4, quận 3, Hồ Chí Minh</a><br>
             </div>
     </div>
-  </footer><!-- End Footer --> 
+  </footer><!-- End Footer -->
 
   <!-- Vendor JS Files -->
   <script src="{{asset ('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
@@ -158,7 +158,7 @@
 
 </html>
 
-    
-        
-  
+
+
+
 

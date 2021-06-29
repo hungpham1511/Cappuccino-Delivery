@@ -27,8 +27,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [MenuController::class, 'coffee']);
-Route::get('/home', [MenuController::class, 'iceBlended']);
-Route::get('/home', [MenuController::class, 'tea']);
-Route::get('/home', [MenuController::class, 'smoothie']);
+// Route::get('/home', [MenuController::class, 'coffee']);
+// Route::get('/home', [MenuController::class, 'iceBlended']);
+// Route::get('/home', [MenuController::class, 'tea']);
+// Route::get('/home', [MenuController::class, 'smoothie']);
 

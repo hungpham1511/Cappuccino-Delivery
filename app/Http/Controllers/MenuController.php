@@ -13,7 +13,7 @@ class MenuController extends Controller
     {
         $this->middleware('adminauth');
     }
-    
+
     public function index(Request $request)
     {
         $drinks = Menu::where([
@@ -57,7 +57,7 @@ class MenuController extends Controller
     {
         return view('admin.menu.EditMenu', compact('drink'));
     }
-    
+
     public function update(Request $request, Menu $drink)
     {
         $request->validate([
@@ -72,7 +72,7 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
             ->with('success', 'Congratulate! Drink has been updated successfully.');
     }
-    
+
     public function destroy(Menu $drink)
     {
         $drink->delete();
@@ -81,39 +81,39 @@ class MenuController extends Controller
             ->with('success', 'Drink has been deleted successfully.');
     }
     // Show Coffee
-    public function coffee(){
-        $coffeeData = DB::table('menu')
-                        ->select('*')
-                        ->where('category','=','Coffee')
-                        ->get();
-         return view('home',['coffees'=>$coffeeData]);
-    }
-    
+    // public function coffee(){
+    //     $coffeeData = DB::table('menu')
+    //                     ->select('*')
+    //                     ->where('category','=','Coffee')
+    //                     ->get();
+    //      return view('home',['coffees'=>$coffeeData]);
+    // }
+
     //Show  Ice Blended
-    public function iceBlended(){
-        $iceBlendedData = DB::table('menu')
-                        ->select('*')
-                        ->where('category','=','Ice Blended')
-                        ->get();
-         return view('home',['iceBlendeds'=>$iceBlendedData]);
-    }
-    
+    // public function iceBlended(){
+    //     $iceBlendedData = DB::table('menu')
+    //                     ->select('*')
+    //                     ->where('category','=','Ice Blended')
+    //                     ->get();
+    //      return view('home',['iceBlendeds'=>$iceBlendedData]);
+    // }
+
     // Show Tea
-    public function tea(){
-        $teaData = DB::table('menu')
-                        ->select('*')
-                        ->where('category','=','Tea')
-                        ->get();
-         return view('home',['teas'=>$teaData]);
-    }
-    
+    // public function tea(){
+    //     $teaData = DB::table('menu')
+    //                     ->select('*')
+    //                     ->where('category','=','Tea')
+    //                     ->get();
+    //      return view('home',['teas'=>$teaData]);
+    // }
+
     // Show Smoothie
-    public function smoothie (){
-        $smoothieData = DB::table('menu')
-                        ->select('*')
-                        ->where('category','=','Smoothie')
-                        ->get();
-         return view('home',['smoothies'=>$smoothieData]);
-    }
+    // public function smoothie (){
+    //     $smoothieData = DB::table('menu')
+    //                     ->select('*')
+    //                     ->where('category','=','Smoothie')
+    //                     ->get();
+    //      return view('home',['smoothies'=>$smoothieData]);
+    // }
 
 }

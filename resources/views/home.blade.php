@@ -14,7 +14,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    
+
                     <a class="btn btn-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -30,7 +30,7 @@
     </div>
 
 @endsection
- 
+<!--
 @section('menuItems')
     {{-- Show Coffee --}}
     @foreach ($coffees as $coffee)
@@ -99,4 +99,4 @@
         </div>
     </div>
     @endforeach
-@endsection
+@endsection -->
