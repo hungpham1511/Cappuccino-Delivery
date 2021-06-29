@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-
 class MenuController extends Controller
 {
     public function __construct()
@@ -81,4 +80,40 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
             ->with('success', 'Drink has been deleted successfully.');
     }
+    // Show Coffee
+    public function coffee(){
+        $coffeeData = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Coffee')
+                        ->get();
+         return view('home',['coffees'=>$coffeeData]);
+    }
+    
+    //Show  Ice Blended
+    public function iceBlended(){
+        $iceBlendedData = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Ice Blended')
+                        ->get();
+         return view('home',['iceBlendeds'=>$iceBlendedData]);
+    }
+    
+    // Show Tea
+    public function tea(){
+        $teaData = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Tea')
+                        ->get();
+         return view('home',['teas'=>$teaData]);
+    }
+    
+    // Show Smoothie
+    public function smoothie (){
+        $smoothieData = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Smoothie')
+                        ->get();
+         return view('home',['smoothies'=>$smoothieData]);
+    }
+
 }
