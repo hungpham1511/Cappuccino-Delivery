@@ -6,7 +6,6 @@ use App\Http\Controllers\MenuItemController;
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +24,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');

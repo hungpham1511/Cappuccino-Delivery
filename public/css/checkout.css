@@ -1,0 +1,74 @@
+/* Created by Hung Pham on 29/06/2021 */
+
+.btn-brand-color {
+    background-color: #b78546 !important;
+    color: #ffffff !important;
+}
+
+input[type="radio"] {
+    background-color: #ffffff !important;
+}
+
+input[type="radio"]:checked {
+    background-color: #b78546 !important;
+    border-color: #b78546 !important;
+}
+
+input[type="checkbox"] {
+    background-color: #ffffff !important;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #b78546 !important;
+    border-color: #b78546 !important;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.logo-name {
+    font-family: Righteous;
+    font-style: Regular;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    text-align: center;
+}
+
+header {
+    background-color: #cfc6b7;
+    height: 189px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 26px;
+}
+
+h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #603813;
+}
+
+.title {
+    width: 100%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+}
