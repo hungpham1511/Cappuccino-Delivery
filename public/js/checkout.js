@@ -17,7 +17,7 @@ window.onclick = function (event) {
     }
 };
 
-//Weekly book
+//Weekly book hide
 function weeklybook() {
     var checkBox = document.getElementById("isWeeklyBook");
     var detailBook = document.getElementById("weekday");
