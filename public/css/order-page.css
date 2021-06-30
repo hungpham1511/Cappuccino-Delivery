@@ -1,0 +1,441 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+}
+
+
+/* Header Style */
+
+.header {
+    position: relative;
+    background-color: #CFC6B7;
+    height: 189px;
+}
+
+.cart {
+    cursor: pointer;
+}
+
+#logo-img1 {
+    display: block;
+    margin: 0 auto;
+    padding-top: 26px;
+}
+
+#logo-name1 {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.header>div>span {
+    z-index: 3;
+    position: absolute;
+    top: 10%;
+    right: 4.7%;
+}
+
+#grocery-icon {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    color: #603813;
+    font-size: 40px;
+}
+
+.order-history{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 21px;
+    padding: 5px;
+    color: #603813;
+    cursor: pointer;
+}
+
+/* Select coffee */
+
+#select-cf {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Navigation Style */
+
+.list-group {
+    box-shadow: 0px 1px 7px 0px #888888;
+}
+
+#nav-menu-web {
+    position: sticky;
+    top: 15%;
+    left: 1%;
+}
+
+#nav-menu-mobile {
+    display: none;
+}
+
+#link-menu {
+    text-align: center;
+    color: #000;
+}
+
+.navbar {
+    padding: 0% !important;
+}
+
+.nav-item {
+    color: #000;
+}
+
+
+/* Page Content Style */
+
+.container-fluid {
+    padding: 0% !important;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+#search {
+    width: 50%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.card {
+    border: none !important;
+}
+
+.card-img-top {
+    display: block;
+    width: 60% !important;
+    border: 11px solid #CFC6B7;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-footer {
+    border: none !important;
+    background-color: #fff !important;
+}
+
+.button-order {
+    background-color: #603813;
+    color: #fff;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#span-affogato,
+#span-latte,
+#span-americano,
+#span-mocha,
+#span-frappuccino,
+#span-milk-tea {
+    display: inline-block;
+}
+
+
+/* Grocery Store Style */
+
+#grocery-store {
+    position: sticky;
+    top: 15%;
+    left: 1%;
+}
+.col-lg-4{
+    padding-right: 0 !important;
+}
+.row{
+    margin-right: 0 !important;
+}
+#amount,
+#cost {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#img-item {
+    width: 50px;
+    height: 50px;
+}
+
+#promotion-code {
+    width: 60%;
+    height: 47px;
+}
+
+#button-submit {
+    background-color: #B78546;
+    color: #fff;
+    width: 27%;
+}
+
+#button-view {
+    background-color: #B78546;
+    color: #fff;
+    width: 90%;
+    height: 47px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#span-amount1,
+#span-cost,
+#span-img-item,
+#span-item-name,
+#span-amount2,
+#span-price,
+#span-sum1,
+#span-sum2,
+#span-shipping1,
+#span-shipping2,
+#span-promotion,
+#span-button-submit,
+#span-total1,
+#span-total2,
+#span-button-view,
+#span-logo-img,
+#span-logo-name1,
+#span-logo-name2,
+#span-facebook,
+#span-instagram,
+#span-phone,
+#span-building {
+    display: inline-block;
+}
+
+#span-amount1 {
+    width: 58%;
+}
+
+#span-cost {
+    width: 10%;
+}
+
+#span-img-item {
+    width: 5%;
+}
+
+#span-item-name {
+    width: 5%;
+}
+
+#span-amount2 {
+    width: 30%;
+}
+
+#span-price {
+    width: 14%;
+}
+
+#span-sum1 {
+    width: 5%;
+}
+
+#span-sum2 {
+    width: 65%;
+}
+
+#span-shipping1 {
+    width: 5%;
+}
+
+#span-shipping2 {
+    width: 66%;
+}
+
+#span-promotion {
+    width: 5%;
+}
+
+#span-button-submit {
+    width: 3%;
+}
+
+#span-total1 {
+    width: 5%;
+}
+
+#span-total2 {
+    width: 65%;
+}
+
+#span-button-view {
+    width: 0%;
+}
+
+#span-logo-img {
+    width: 55%;
+}
+
+#span-logo-name1 {
+    width: 46%;
+}
+
+#span-logo-name2 {
+    width: 51%;
+}
+
+#span-facebook,
+#span-instagram,
+#span-phone,
+#span-building {
+    width: 3%;
+}
+
+
+/* Page Footer Style */
+
+.footer {
+    background-color: #CFC6B7;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#logo-img2 {
+    padding-top: 20px;
+}
+
+#logo-name2 {
+    font-family: 'Righteous', cursive;
+    padding-top: 20px;
+}
+
+.fab,.fas,.fa {
+    display: block !important;
+}
+.fab{
+    font-weight: 900 !important;
+}
+.footer-contact {
+    font-size: 24px !important;
+    padding-bottom: 18px;
+    padding-left: 5%;
+}
+
+
+
+
+/* Responsive */
+
+@media (max-width: 400px) {
+    .header>div>span {
+        right: 12.2%;
+    }
+    #nav-menu-web {
+        display: none;
+    }
+    #nav-menu-mobile {
+        display: block;
+        position: sticky;
+        z-index: 10;
+        top: 0%;
+    }
+    #link-menu {
+        display: none;
+    }
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+    .nav-name {
+        font-size: 12px;
+        font-weight: 400;
+        padding-left: 31.5px;
+        padding-top: 9px;
+    }
+    .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .card {
+        display: grid !important;
+        grid-template-areas: 'img body' 'img order';
+    }
+    .card-img-top {
+        grid-area: img;
+        width: 125px !important;
+        border: 7px solid #CFC6B7;
+        margin-left: 0%;
+    }
+    .card-body {
+        grid-area: body;
+        text-align: left;
+    }
+    .card-text {
+        font-size: 12px;
+    }
+    .card-footer {
+        grid-area: order;
+        padding: 0% !important;
+    }
+    .button-order {
+        font-size: 12px;
+    }
+    #grocery-store {
+        display: none;
+    }
+    #span-affogato {
+        width: 6px;
+    }
+    #span-latte {
+        width: 30px;
+    }
+    #span-americano {
+        width: 47px;
+    }
+    #span-mocha {
+        width: 19px;
+    }
+    #span-frappuccino {
+        width: 79px;
+    }
+    #span-milk-tea {
+        width: 31px;
+    }
+    #span-logo-img {
+        width: 36%;
+    }
+    #span-logo-name1 {
+        width: 25%;
+    }
+    #span-logo-name2 {
+        width: 31%;
+    }
+}
+
+@media (max-width:1100px) {
+    #span-amount1 {
+        width: 53%;
+    }
+    #span-amount2 {
+        width: 11%;
+    }
+    #span-price {
+        width: 11%;
+    }
+    #span-sum2 {
+        width: 52%;
+    }
+    #span-shipping2 {
+        width: 54%;
+    }
+    #span-total2 {
+        width: 51%;
+    }
+}
+
+
+/* Boostrap Style */
