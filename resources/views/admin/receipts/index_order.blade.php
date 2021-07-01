@@ -132,7 +132,6 @@
                                     <th>Status</th> 
                                     <th>Weekly Book</th> 
                                     <th>Total</th>                                   
-                                    
                                     <th>Action</th>
                                     
                                 </tr>
@@ -141,9 +140,21 @@
                                     <td>{{ $receipt->idReceipt }}</td>
                                     <td>{{ $receipt->idUser }}</td>
                                     <td>{{ $receipt->receiptDate }}</td>
-                                    <td>{{ $receipt->payment }}</td>
+                                    @if ($receipt->payment == 1)
+                                        <td>COD</td>
+                                    @elseif ($receipt->payment == 2)
+                                        <td>Momo</td>
+                                    @else <td>Bank</td>
+                                    @endif
                                     <td>{{ $receipt->note }}</td>
-                                    <td>{{ $receipt->status }}</td>
+                                    @if ($receipt->status == 1)
+                                        <td>Order Received</td>
+                                    @elseif ($receipt->status == 2)
+                                        <td>Payment Received</td>
+                                    @elseif ($receipt->status == 3)
+                                        <td>Delivering</td>
+                                    @else <td>Finish</td>
+                                    @endif
                                     @if ($receipt->isWeeklyBook==true)
                                         <td class="delivered">
                                          Booked

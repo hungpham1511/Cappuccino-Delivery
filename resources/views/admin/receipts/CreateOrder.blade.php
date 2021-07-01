@@ -132,7 +132,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Weekly book</strong>
-                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0:none 1:booked">
+                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0: None    1: Booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
