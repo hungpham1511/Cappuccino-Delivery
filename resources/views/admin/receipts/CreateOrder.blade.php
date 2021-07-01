@@ -101,14 +101,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>IdUser</strong>
+                    <strong>Id User</strong>
                     <input type="number" name="idUser" class="form-control" placeholder="1">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>ReceiptDate</strong>
-                    <input type="text" name="receiptDate" class="form-control" placeholder="20/02/2012">
+                    <strong>Receipt Date</strong>
+                    <input type="date" name="receiptDate" class="form-control" min="2020-07-11" max="2022-12-31">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -127,6 +127,12 @@
                 <div class="form-group">
                     <strong>Status</strong>
                     <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finish">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Weekly book</strong>
+                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0:none 1:booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

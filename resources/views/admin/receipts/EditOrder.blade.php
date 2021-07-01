@@ -101,19 +101,19 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>IdUser</strong>
+                    <strong>Id User</strong>
                     <input type="number" name="idUser" value="{{ $receipt->idUser }}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>IdReceipt</strong>
+                    <strong>Id Receipt</strong>
                     <input type="text" name="idReceipt" value="{{ $receipt->idReceipt }}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>ReceiptDate</strong>
+                    <strong>Receipt Date</strong>
                     <input type="text" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
                 </div>
             </div>
@@ -133,6 +133,12 @@
                 <div class="form-group">
                     <strong>Status</strong>
                     <input type="number" name="status" value="{{ $receipt->status }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Weekly book</strong>
+                    <input type="number" name="isWeeklyBook" value="{{ $receipt->isWeeklyBook }}" class="form-control" placeholder="0: none 1: booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
