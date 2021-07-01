@@ -15,6 +15,7 @@ class Receipt extends Model
     protected $primaryKey = 'idReceipt';
 
     protected $fillable = [
+        'idUser',
         'receiptDate',
         'payment',
         'note',

@@ -101,6 +101,12 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>IdUser</strong>
+                    <input type="number" name="idUser" class="form-control" placeholder="1">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>ReceiptDate</strong>
                     <input type="text" name="receiptDate" class="form-control" placeholder="20/02/2012">
                 </div>
