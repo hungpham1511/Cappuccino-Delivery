@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -97,7 +97,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" class="form-control" placeholder="1:Daily   2:Monthly">
+                    <input type="text" name="promotionType" class="form-control" placeholder="1:Discount   2:Freeship">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Promotion Code</strong>
+                    <input type="text" name="promotionCode" class="form-control" placeholder="DELI123">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -124,6 +130,7 @@
                     <input type="text" name="expireDay" class="form-control" placeholder="yyyy-mm-dd">
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

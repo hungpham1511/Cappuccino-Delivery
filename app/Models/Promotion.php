@@ -15,9 +15,11 @@ class Promotion extends Model
 
     protected $fillable = [
         'promotionType',
+        'promotionCode',
         'percentPromo',
         'moneyPromo',
         'moneyLimit',
         'expireDay',
+        'status'
     ];
 }

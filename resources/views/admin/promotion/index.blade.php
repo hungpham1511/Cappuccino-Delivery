@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -124,23 +124,44 @@
                         <div class="col-sm-12">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
-                                    <th>IdPromotion</th>
+                                    <th>Id</th>
                                     <th>Promotion Type</th>
+                                    <th>Promotion Code</th>
                                     <th>Percent discount</th>
-                                    <th>Money discout</th>
+                                    <th>Money discount</th>
                                     <th>Money limit</th>
-                                    <th>Expire Day</th>  
+                                    <th>Status</th>  
+                                    <th>Expire Day</th> 
                                     <th>Action</th>
                                     
                                 </tr>
                                 @foreach ($data as $product)
                                 <tr>
                                     <td>{{ $product->idPromotion }}</td>
-                                    <td>{{ $product->promotionType }}</td>
+                                    @if ($product->promotionType==1)
+                                    <td>
+                                     Discount
+                                    </td>
+                                    @elseif ($product->promotionType==2) 
+                                    <td>
+                                     Freeship
+                                    </td>
+                                    @endif
+                                    <td>{{ $product->promotionCode }}</td>
                                     <td>{{ $product->percentPromo }}</td>
                                     <td>{{ $product->moneyPromo }}</td>
                                     <td>{{ $product->moneyLimit }}</td>
-                                    <td>{{ $product->expireDay }}</td>
+                                                           
+                                    @if ($product->status==1)
+                                        <td class="delivered">
+                                         Current
+                                        </td>
+                                    @else 
+                                        <td class="cancel">
+                                        Expired
+                                        </td>
+                                    @endif
+                                    <td>{{ $product->expireDay }}</td>    
                                     <td>
                                         <form action="{{ route('promotion.destroy',$product->idPromotion) }}" method="POST">
                                             <a class="btn btn-warning" href="{{ route('promotion.edit',$product->idPromotion) }}">Edit</a>

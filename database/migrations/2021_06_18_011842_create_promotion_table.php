@@ -16,10 +16,12 @@ class CreatePromotionTable extends Migration
         Schema::create('promotion', function (Blueprint $table) {
             $table->increments('idPromotion');
             $table->tinyInteger('promotionType');
+            $table->string('promotionCode');
             $table->integer('percentPromo');
             $table->decimal('moneyPromo', 10)->default(0.00);
             $table->decimal('moneyLimit', 10)->default(0.00);
             $table->datetime('expireDay');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

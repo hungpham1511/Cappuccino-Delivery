@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 @section('sidebar')
     @parent
 
