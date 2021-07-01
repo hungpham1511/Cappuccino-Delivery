@@ -13,9 +13,18 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
         
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -123,29 +132,9 @@
                                     <th>Action</th>
                                     
                                 </tr>
-                                @foreach ($receipts as $receipt)
-                                <tr>
-                                    @if
-                                    <td>{{ $receipt->idReceipt }}</td>
-                                    <td>{{ $receipt->receiptDate }}</td>
-                                    <td>{{ $receipt->payment }}</td>
-                                    <td>{{ $receipt->note }}</td>
-                                    <td>{{ $receipt->status }}</td>
-                                    <td>{{ $receipt->total }}</td>
-                                    <td>
-                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                
                             </table>
-                            <div class="d-flex justify-content-center">
-                                {!! $receipts->links() !!}
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
