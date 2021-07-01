@@ -129,8 +129,10 @@
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
                                     <th>Note</th>
-                                    <th>Status</th>  
-                                    <th>Total</th>
+                                    <th>Status</th> 
+                                    <th>Weekly Book</th> 
+                                    <th>Total</th>                                   
+                                    
                                     <th>Action</th>
                                     
                                 </tr>
@@ -142,7 +144,17 @@
                                     <td>{{ $receipt->payment }}</td>
                                     <td>{{ $receipt->note }}</td>
                                     <td>{{ $receipt->status }}</td>
+                                    @if ($receipt->isWeeklyBook==true)
+                                        <td class="delivered">
+                                         Booked
+                                        </td>
+                                    @else 
+                                        <td>
+                                        None
+                                        </td>
+                                    @endif
                                     <td>{{ $receipt->total }}</td>
+                                    
                                     <td>
                                         <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
                                             <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>

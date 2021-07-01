@@ -119,22 +119,56 @@
                             </div>
                         </div>
                     </div>
+                   
                     <div class="row">
                         <div class="col-sm-12">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
-                                    <th>Id</th>
+                                    <th>IdReceipt</th>
+                                    <th>IdUser</th>
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
                                     <th>Note</th>
-                                    <th>Status</th>  
-                                    <th>Total</th>
+                                    <th>Status</th> 
+                                    <th>Weekly Book</th> 
+                                    <th>Total</th>                                   
+                                    
                                     <th>Action</th>
                                     
                                 </tr>
-                                
+                                @foreach ($receipts as $receipt)
+                                <tr>
+                                    <td>{{ $receipt->idReceipt }}</td>
+                                    <td>{{ $receipt->idUser }}</td>
+                                    <td>{{ $receipt->receiptDate }}</td>
+                                    <td>{{ $receipt->payment }}</td>
+                                    <td>{{ $receipt->note }}</td>
+                                    <td>{{ $receipt->status }}</td>
+                                    @if ($receipt->isWeeklyBook==true)
+                                        <td class="delivered">
+                                         Booked
+                                        </td>
+                                    @else 
+                                        <td>
+                                        None
+                                        </td>
+                                    @endif
+                                    <td>{{ $receipt->total }}</td>
+                                    
+                                    <td>
+                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </table>
-                           
+                            <div class="d-flex justify-content-center">
+                                {!! $receipts->links() !!}
+                            </div>
                         </div>
                     </div>
                 </div>
