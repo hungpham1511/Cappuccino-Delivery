@@ -1,5 +1,4 @@
 <!-- Created by Hung Pham on 29/06/2021 -->
-<!-- W3C Markup validation verified -->
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -51,7 +50,7 @@
         <main class="py-4" style="margin-bottom: 10%;">
             <div class="row">
                 <div class="col-auto position-absolute">
-                    <button onclick="location.href = '/User/OrderPage/index.html'" class="btn"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <button onclick="location.href = s" class="btn"><i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div class="col-12">
@@ -59,9 +58,9 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <form class="border-0">
+                <form action="{{ route('checkout.createreceipt') }}" method="POST">
+                    <div class="row">
+                        <div class="col-lg-8">
                             <!-- Customer infomation -->
                             <div class="container-fluid border py-3 px-3 mb-4">
                                 <h3 class="mb-3">1. Please confirm your order</h3>
@@ -156,68 +155,74 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="container-fluid border py-3 px-3">
-                            <h3 class="mb-3">4. Receipt</h3>
-                            <table class="table-m">
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th class="receipt-text">Amount</th>
-                                    <th class="receipt-text">Cost</th>
-                                </tr>
-                                <tr>
-                                    <td class="td-bt">
-                                        <img src="Assets/Frappe.png" alt="Frappe" />
-                                    </td>
-                                    <td class="drink-name td-bt">Frappé</td>
-                                    <td class="receipt-text td-bt">1</td>
-                                    <td class="receipt-text td-bt">50.000 VND</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-bt">
-                                        <img src="Assets/Cappuchino.png" alt="Cappuchino" />
-                                    </td>
-                                    <td class="drink-name td-bt">Cappuchino</td>
-                                    <td class="receipt-text td-bt">1</td>
-                                    <td class="receipt-text td-bt">50.000 VND</td>
-                                </tr>
-                            </table>
-                            <p class="receipt-text money-out-table mt-3">
-                                Sum <span style="float: right">100.000 VND</span>
-                            </p>
-                            <p class="receipt-text money-out-table">
-                                Shipping <span style="float: right">0 VND</span>
-                            </p>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="promotion" placeholder="Promotion">
-                                <button class="btn btn-brand-color" type="button">Submit</button>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="container-fluid border py-3 px-3">
+                                <h3 class="mb-3">4. Receipt</h3>
+                                <table class="table-m">
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th class="receipt-text">Amount</th>
+                                        <th class="receipt-text">Cost</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-bt">
+                                            <img src="Assets/Frappe.png" alt="Frappe" />
+                                        </td>
+                                        <td class="drink-name td-bt">Frappé</td>
+                                        <td class="receipt-text td-bt">1</td>
+                                        <td class="receipt-text td-bt">50.000 VND</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-bt">
+                                            <img src="Assets/Cappuchino.png" alt="Cappuchino" />
+                                        </td>
+                                        <td class="drink-name td-bt">Cappuchino</td>
+                                        <td class="receipt-text td-bt">1</td>
+                                        <td class="receipt-text td-bt">50.000 VND</td>
+                                    </tr>
+                                </table>
+                                <p class="receipt-text money-out-table mt-3">
+                                    Sum <span style="float: right">100.000 VND</span>
+                                </p>
+                                <p class="receipt-text money-out-table">
+                                    Shipping <span style="float: right">0 VND</span>
+                                </p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="promotion" placeholder="Promotion">
+                                    <button class="btn btn-brand-color" type="button">Submit</button>
+                                </div>
+                                <p class="receipt-text money-out-table mt-3">
+                                    Total <span style="float: right">100.000 VND</span>
+                                </p>
+                                <button type="submit" data-toggle="modal" data-target="#checkoutmodel" class="btn col-12 btn-brand-color">Buy now</button>
                             </div>
-                            <p class="receipt-text money-out-table mt-3">
-                                Total <span style="float: right">100.000 VND</span>
-                            </p>
-                            <button class="btn col-12 btn-brand-color">Buy now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Order Success Modal -->
+            <div class="modal fade" id="checkoutmodel" tabindex="-1" role="dialog" aria-labelledby="checkoutmodelTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Order Success Modal -->
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                    <h3>Fresh coffee is on it’s way!</h3>
-                    <img class="modal-image" src="Assets/ModalPicture.png" alt="2 cups of coffee" />
-                    <h4>
-                        Your order is confirmed and it will reach you within the next 20
-                        minutes.
-                    </h4>
-                    <button onclick="location.href = '/User/OrderPage/index.html';" class="btn" style="width: 88%">
-                        Return to Menu
-                    </button>
-                </div>
-            </div>
-            <!-- Modal script -->
+            <!-- Javascript -->
             <script src="{{asset ('js/checkout.js')}}"></script>
         </main>
 </body>
