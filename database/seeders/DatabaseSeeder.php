@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        DB::table('detail_weekly_book')->insert([
+        /*DB::table('detail_weekly_book')->insert([
             [
                 'startDay'=> '2021-',
                 'finishDay'=> 'Coffee',
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'sat',
                 'sun'
             ]
-        ]);
+        ]);*/
         
     }
 }
