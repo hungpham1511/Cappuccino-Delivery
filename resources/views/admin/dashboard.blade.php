@@ -124,19 +124,17 @@
                         <div class="col-sm-12">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
-                                    <th>IdReceipt</th>
-                                    <th>IdUser</th>
-                                    <th>ReceiptDate</th>
+                                    <th>Id Receipt</th>
+                                    <th>Id User</th>
+                                    <th>Receipt Date</th>
                                     <th>Payment</th>
                                     <th>Note</th>
-                                    <th>Status</th> 
-                                    <th>Weekly Book</th> 
-                                    <th>Total</th>                                   
-                                    
-                                    <th>Action</th>
-                                    
+                                    <th>Status</th>                                    
+                                    <th>Total</th>                                                                     
+                                    <th>Action</th>                                   
                                 </tr>
-                                @foreach ($receipts as $receipt)
+                                @foreach ($data as $receipt)
+                                
                                 <tr>
                                     <td>{{ $receipt->idReceipt }}</td>
                                     <td>{{ $receipt->idUser }}</td>
@@ -144,15 +142,7 @@
                                     <td>{{ $receipt->payment }}</td>
                                     <td>{{ $receipt->note }}</td>
                                     <td>{{ $receipt->status }}</td>
-                                    @if ($receipt->isWeeklyBook==true)
-                                        <td class="delivered">
-                                         Booked
-                                        </td>
-                                    @else 
-                                        <td>
-                                        None
-                                        </td>
-                                    @endif
+                                    
                                     <td>{{ $receipt->total }}</td>
                                     
                                     <td>
@@ -164,6 +154,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                                
                                 @endforeach
                             </table>
                             <div class="d-flex justify-content-center">
