@@ -107,8 +107,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Receipt Date</strong>
-                    <input type="date" name="receiptDate" class="form-control" min="2020-07-11" max="2022-12-31">
+                    <strong>ReceiptDate</strong>
+                    <input type="date" name="receiptDate" class="form-control" placeholder="20/02/2012">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -132,7 +132,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Weekly book</strong>
-                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0:none 1:booked">
+                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0: None    1: Booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

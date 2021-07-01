@@ -138,7 +138,12 @@
                                 <tr>
                                     <td>{{ $customer->idUser }}</td>
                                     <td>{{ $customer->fullName }}</td>
-                                    <td>{{ $customer->gender }}</td>
+                                    @if ($customer->gender == 1)
+                                        <td>Male</td>
+                                    @elseif ($customer->gender == 2)
+                                        <td>Female</td>
+                                    @else <td>Other</td>
+                                    @endif
                                     <td>{{ $customer->phone }}</td>
                                     <td>{{ $customer->address }}</td>
                                     <td>{{ $customer->email }}</td>
