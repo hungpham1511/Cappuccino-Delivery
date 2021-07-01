@@ -88,7 +88,7 @@
         </div>
     @endif
 
-    <form action="{{ route('menu.update',$drink->idDrink) }}" method="POST">
+    <form action="{{ route('menu.update',$drink->idDrink) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -119,8 +119,9 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>picture</strong>
-                    <input type="text" name="picture" value="{{ $drink->picture }}" class="form-control" placeholder="xyz">
+                    <strong>Picture</strong>
+                    <input type="file" name="picture" class="form-control" placeholder="Picture">
+                    <img src="/picture/{{ $drink->picture }}" width="300px">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -11,8 +11,9 @@
 
     <title>Admin - Orders</title>
 
+    
     <!-- Favicon-->
-    <link href="{{asset('img/Favicon1.svg')}}" rel="icon" type="image/x-icon" media="all">
+    <link href="{{asset('picture/Favicon1.svg')}}" rel="icon" type="image/x-icon" media="all">
 
      <!-- CSRF Token -->
      <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -61,7 +62,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{asset('img/undraw_profile.svg')}}">
+                                    src="{{asset('picture/undraw_profile.svg')}}">
                             </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
