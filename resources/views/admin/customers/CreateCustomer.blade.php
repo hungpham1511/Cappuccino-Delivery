@@ -114,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Gender</strong>
-                    <input type="number" name="gender" class="form-control" placeholder="1: Male    2: Female    3: Orther">
+                    <input type="number" name="gender" class="form-control" placeholder="1: Male    2: Female    3: Other">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
