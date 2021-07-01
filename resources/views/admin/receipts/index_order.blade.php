@@ -125,6 +125,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th>IdReceipt</th>
+                                    <th>IdUser</th>
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
                                     <th>Note</th>
@@ -136,6 +137,7 @@
                                 @foreach ($receipts as $receipt)
                                 <tr>
                                     <td>{{ $receipt->idReceipt }}</td>
+                                    <td>{{ $receipt->idUser }}</td>
                                     <td>{{ $receipt->receiptDate }}</td>
                                     <td>{{ $receipt->payment }}</td>
                                     <td>{{ $receipt->note }}</td>
