@@ -135,7 +135,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="text" name="expireDay" class="form-control" placeholder="yyyy-mm-dd">
+                    <input type="date" name="expireDay" class="form-control" value="2021-07-11" min="2021-07-11" max="2021-12-31">
                 </div>
             </div>
 
