@@ -15,17 +15,19 @@ class CreateReceiptTable extends Migration
     {
         Schema::create('receipt', function (Blueprint $table) {
             $table->increments('idReceipt');
-            $table->integer('idUser')->unsigned();
+            $table->integer('idUser')->unsigned()->default(1);
             $table->foreign('idUser')->references('idUser')->on('users');
+            $table->integer('IdDetailReceipt')->unsigned()->default(1);
+            $table->foreign('IdDetailReceipt')->references('IdDetailReceipt')->on('detail_receipt');
             $table->dateTime('receiptDate', $precision = 0);
             $table->tinyInteger('payment');
             $table->text('note');
-            $table->integer('idPromotion')->unsigned();
+            $table->integer('idPromotion')->unsigned()->default(1);
             $table->foreign('idPromotion')->references('idPromotion')->on('promotion');
             $table->tinyInteger('status');
             $table->decimal('total', 10)->default(0.00);
-            $table->boolean('isWeeklyBook');
-            $table->integer('idDetailWeeklyBook')->unsigned();
+            $table->boolean('isWeeklyBook')->default(1);
+            $table->integer('idDetailWeeklyBook')->unsigned()->default(1);
             $table->foreign('idDetailWeeklyBook')->references('idDetailWeeklyBook')->on('detail_weekly_book');
             $table->timestamps();
         });
