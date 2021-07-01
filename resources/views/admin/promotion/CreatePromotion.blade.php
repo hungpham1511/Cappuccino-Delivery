@@ -129,13 +129,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Money limit</strong>
-                    <input type="number" name="moneyLimit" class="form-control" placeholder="50000">
+                    <input type="text" name="moneyLimit" class="form-control" placeholder="50000">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="date" name="expireDay" class="form-control" value="2021-07-11" min="2021-07-11" max="2021-12-31">
+                    <input type="date" name="expireDay" class="form-control" value="2021-07-02" min="2020-07-11" max="2022-12-31">
                 </div>
             </div>
 
