@@ -20,6 +20,13 @@ class Receipt extends Model
         'note',
         'status',
         'total',
+        'isWeeklyBook',
+        'idDetailWeeklyBook',
+
         'created_at'
     ];
+    public function weeklyBook()
+    {
+        return $this->hasOne('App\DetailWeeklyBook','foreign_key');
+    }
 }

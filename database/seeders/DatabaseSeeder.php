@@ -41,5 +41,21 @@ class DatabaseSeeder extends Seeder
                 'picture'=> 'https://bitly.com.vn/18xixr',
             ]
         ]);
+
+        DB::table('detail_weekly_book')->insert([
+            [
+                'startDay'=> '2021-',
+                'finishDay'=> 'Coffee',
+                'deliveryTime'=> 'one-third espresso, one-third heated milk, one-third milk foam.',
+                'mon'=> '50000',
+                'tue'=> 'https://bitly.com.vn/18xixr',
+                'wed',
+                'thu',
+                'fri',
+                'sat',
+                'sun'
+            ]
+        ]);
+        
     }
 }

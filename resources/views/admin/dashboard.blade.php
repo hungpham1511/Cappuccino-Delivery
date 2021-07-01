@@ -69,7 +69,88 @@
 
 @section('content')
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Welcome to admin dashboard</h1>
+     <!-- Begin Page Content -->
+     <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Today order</h1>
+        </div>
+   
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        {{-- <button class="btn add" data-toggle="modal" data-target="#addModal"><i class="add-btn fas fa-plus"></i></button> --}}
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6" style="margin-bottom: 15px;">
+                            <div>
+                                <div class="mx-auto pull-right">
+                                    <div class="">
+                                        <form action="{{ route('dashboard') }}" method="GET" role="search">
+                                            <div class="input-group">
+                                                <span class="input-group-btn mr-2">
+                                                    <button class="btn btn-primary" type="submit" title="Search projects">
+                                                        <span class="fas fa-search"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
+                                                <a href="{{ route('dashboard') }}">
+                                                    <span class="input-group-btn ml-2">
+                                                        <button class="btn btn-danger" type="button" title="Refresh page">
+                                                            <span class="fas fa-sync-alt"></span>
+                                                        </button>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>ReceiptDate</th>
+                                    <th>Payment</th>
+                                    <th>Note</th>
+                                    <th>Status</th>  
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                    
+                                </tr>
+                                @foreach ($receipts as $receipt)
+                                <tr>
+                                    @if
+                                    <td>{{ $receipt->idReceipt }}</td>
+                                    <td>{{ $receipt->receiptDate }}</td>
+                                    <td>{{ $receipt->payment }}</td>
+                                    <td>{{ $receipt->note }}</td>
+                                    <td>{{ $receipt->status }}</td>
+                                    <td>{{ $receipt->total }}</td>
+                                    <td>
+                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
+                            <div class="d-flex justify-content-center">
+                                {!! $receipts->links() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 @endsection
