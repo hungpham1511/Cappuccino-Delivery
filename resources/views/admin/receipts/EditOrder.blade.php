@@ -114,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ReceiptDate</strong>
-                    <input type="text" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
+                    <input type="date" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
