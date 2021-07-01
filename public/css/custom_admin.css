@@ -1,0 +1,47 @@
+
+.pending{
+    background-color: var(--warning);
+    color: white;
+}
+
+.delivered{
+    background-color: var(--success);
+    color: white;
+}
+
+.cancel{
+    background-color: var(--danger);
+    color: white;
+}
+
+.modal-body label{
+    width: 20%;
+}
+.modal-body > div >input{
+    width: 70%;
+}
+.tools{
+    justify-content:center;
+}
+
+.add{
+    position: absolute;
+    right: 7px;
+    top: -5px;
+}
+.add-btn{
+    color: var(--primary);
+}
+.update-btn{
+    color: var(--warning);
+}
+.del-btn{
+    color: var(--danger);
+}
+.bg-primary{
+    background-color: #704c2ad2!important;
+}
+.btn-primary{
+    background-color: #705235!important;
+    border-color: #705235!important;
+}

@@ -42,12 +42,21 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'picture' => 'required',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'required',
             'price' => 'required'
         ]);
 
-        Menu::create($request->all());
+        $input = $request->all();
+
+        if ($picture = $request->file('picture')) {
+            $destinationPath = 'picture/';
+            $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
+            $picture->move($destinationPath, $profileImage);
+            $input['picture'] = "$profileImage";
+        }
+
+        Menu::create($input);
 
         return redirect()->route('menu.index')
             ->with('success', 'Congratulate! New drink has been created successfully.');
@@ -63,11 +72,23 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'picture' => 'required',
             'description' => 'required',
             'price' => 'required'
         ]);
-        $drink->update($request->all());
+
+        $input = $request->all();
+
+        if ($picture = $request->file('picture')) {
+            $destinationPath = 'picture/';
+            $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
+            $picture->move($destinationPath, $profileImage);
+            $input['picture'] = "$profileImage";
+        }
+        else{
+            unset($input['picture']);
+        }
+        
+        $drink->update($input);
 
         return redirect()->route('menu.index')
             ->with('success', 'Congratulate! Drink has been updated successfully.');
@@ -80,40 +101,4 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
             ->with('success', 'Drink has been deleted successfully.');
     }
-    // Show Coffee
-    // public function coffee(){
-    //     $coffeeData = DB::table('menu')
-    //                     ->select('*')
-    //                     ->where('category','=','Coffee')
-    //                     ->get();
-    //      return view('home',['coffees'=>$coffeeData]);
-    // }
-
-    //Show  Ice Blended
-    // public function iceBlended(){
-    //     $iceBlendedData = DB::table('menu')
-    //                     ->select('*')
-    //                     ->where('category','=','Ice Blended')
-    //                     ->get();
-    //      return view('home',['iceBlendeds'=>$iceBlendedData]);
-    // }
-
-    // Show Tea
-    // public function tea(){
-    //     $teaData = DB::table('menu')
-    //                     ->select('*')
-    //                     ->where('category','=','Tea')
-    //                     ->get();
-    //      return view('home',['teas'=>$teaData]);
-    // }
-
-    // Show Smoothie
-    // public function smoothie (){
-    //     $smoothieData = DB::table('menu')
-    //                     ->select('*')
-    //                     ->where('category','=','Smoothie')
-    //                     ->get();
-    //      return view('home',['smoothies'=>$smoothieData]);
-    // }
-
 }

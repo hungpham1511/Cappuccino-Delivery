@@ -62,8 +62,6 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
-
-
     </ul>
 @endsection
 
@@ -130,21 +128,18 @@
                                     <th>Price</th>  
                                     <th>Description</th>
                                     <th>Action</th>
-                                    
                                 </tr>
-                                @foreach ($drinks as $product)
+                                @foreach ($drinks as $drink)
                                 <tr>
-                                    <td>{{ $product->category }}</td>
-                                    <td>{{ $product->idDrink }}</td>
-                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $drink->category }}</td>
+                                    <td>{{ $drink->idDrink }}</td>
+                                    <td>{{ $drink->name }}</td>
+                                    <td><img src="/picture/{{ $drink->picture }}" width="100px"></td>
+                                    <td>{{ $drink->price }}</td>
+                                    <td>{{ $drink->description }}</td>
                                     <td>
-                                        <img src="{{ $product->picture }}" alt="Drink picture">
-                                    </td>
-                                    <td>{{ $product->price }}</td>
-                                    <td>{{ $product->description }}</td>
-                                    <td>
-                                        <form action="{{ route('menu.destroy',$product->idDrink) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('menu.edit',$product->idDrink) }}">Edit</a>
+                                        <form action="{{ route('menu.destroy',$drink->idDrink) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('menu.edit',$drink->idDrink) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this drink?')">Delete</button>

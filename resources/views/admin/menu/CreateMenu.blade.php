@@ -88,7 +88,7 @@
     </div>
     @endif
   
-    <form action="{{ route('menu.store') }}" method="POST" >
+    <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
@@ -119,7 +119,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Picture</strong>
-                    <input type="text" name="picture" class="form-control" placeholder="">
+                    <input type="file" name="picture" class="form-control" placeholder="picture">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
