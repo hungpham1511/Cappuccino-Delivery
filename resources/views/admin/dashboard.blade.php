@@ -17,7 +17,7 @@
         <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                 <span>Today Order</span></a>
