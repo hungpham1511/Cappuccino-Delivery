@@ -94,7 +94,7 @@ function custom(p) {
         var toppingDetails = "";
         for(var i=0;i<toppingCheck.length;i++){
             if(toppingCheck[i].checked==true){
-                toppingDetails +=toppingCheck[i].nextElementSibling.innerHTML+" ";
+                toppingDetails +=toppingCheck[i].nextElementSibling.innerHTML+"/ ";
             }
         }
 
