@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -27,18 +27,23 @@ class CheckoutController extends Controller
         return view('checkout');
     }
 
-    public function createreceipt(Request $request)
+    public function create(Request $request)
     {
         $isWeeklyBook = $request->input('isWeeklyBook');
-        // if ($isWeeklyBook == true) return ("vjp");
-        // return($request->all());
-        if ($request->input('mon')==true) $mon=1; else $mon=0;
-        if ($request->input('tue')==true) $tue=1; else $tue=0;
-        if ($request->input('wed')==true) $wed=1; else $wed=0;
-        if ($request->input('thu')==true) $thu=1; else $thu=0;
-        if ($request->input('fri')==true) $fri=1; else $fri=0;
-        if ($request->input('sat')==true) $sat=1; else $sat=0;
-        if ($request->input('sun')==true) $sun=1; else $sun=0;
+        if ($request->input('mon') == true) $mon = 1;
+        else $mon = 0;
+        if ($request->input('tue') == true) $tue = 1;
+        else $tue = 0;
+        if ($request->input('wed') == true) $wed = 1;
+        else $wed = 0;
+        if ($request->input('thu') == true) $thu = 1;
+        else $thu = 0;
+        if ($request->input('fri') == true) $fri = 1;
+        else $fri = 0;
+        if ($request->input('sat') == true) $sat = 1;
+        else $sat = 0;
+        if ($request->input('sun') == true) $sun = 1;
+        else $sun = 0;
         $startDay = $request->input('startdate');
         $endDay = $request->input('enddate');
         $time = $request->input('time');
@@ -46,5 +51,22 @@ class CheckoutController extends Controller
             DB::table('detail_weekly_book')->insertGetId(
                 array('mon' => $mon, 'tue' => $tue, 'wed' => $wed, 'thu' => $thu, 'fri' => $fri, 'sat' => $sat, 'sun' => $sun, 'startDay' => $startDay, 'finishDay' => $endDay, 'deliveryTime' => $time)
             );
+        $coffee = DB::table('menu')
+            ->select('*')
+            ->where('category', '=', 'Coffee')
+            ->get();
+        $tea = DB::table('menu')
+            ->select('*')
+            ->where('category', '=', 'Tea')
+            ->get();
+        $iceBlended = DB::table('menu')
+            ->select('*')
+            ->where('category', '=', 'Ice Blended')
+            ->get();
+        $smoothie = DB::table('menu')
+            ->select('*')
+            ->where('category', '=', 'Smoothie')
+            ->get();
+        return view('orderpage', compact('coffee', 'tea', 'iceBlended', 'smoothie'));
     }
 }
