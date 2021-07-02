@@ -27,7 +27,6 @@ function custom(p) {
             cost =  price;
         }
         else if (currSize.contains('small')) {
-            console.log(cost-currValue);
             price =  (cost - currValue);
             cost = price;
         }
@@ -44,16 +43,13 @@ function custom(p) {
             if (e.ctrlKey == true) {
                 cost-= (currValue * 2);
             }
-            console.log(cost);
             totalCost.innerHTML = cost + ' VND';
-            cost = total
         })
     })
 
     // Counter
     var count = 1;
     const result = document.querySelector('#count-value');
-    console.log(count);
     result.innerHTML = count;
     const minusBtn = document.querySelector('.minus-btn');
     const plusBtn = document.querySelector('.plus-btn');
@@ -77,11 +73,36 @@ function custom(p) {
         var orderImg = document.querySelector('.order-img');
         var orderName = document.querySelector('.p-model>b').innerHTML;
         var quantity = document.querySelector('#count-value');
+        const size = document.querySelectorAll('.size');
+        var sizeDetail = "";
+        for(var i=0;i<size.length;i++){
+            if(size[i].checked == true){
+                if(size[i].parentNode.classList.contains('small')){
+                    sizeDetail ="S";
+                }
+                if(size[i].parentNode.classList.contains('medium')){
+                    sizeDetail ="M";
+                }
+                if(size[i].parentNode.classList.contains('large')){
+                    sizeDetail ="L";
+                }
+            };
+        }
+        console.log(sizeDetail);
+
+        const toppingCheck = document.querySelectorAll('.topping')
+        var toppingDetails = "";
+        for(var i=0;i<toppingCheck.length;i++){
+            if(toppingCheck[i].checked==true){
+                toppingDetails +=toppingCheck[i].nextElementSibling.innerHTML+" ";
+            }
+        }
+
         var message = `<tr class="row1">
             <td class="td-img">
                 <img class="img-item" src="${orderImg.src}" alt="logo item">
             </td>
-            <td colspan="2">${orderName}</td>
+            <td colspan="2">${orderName} ( ${sizeDetail} )<br><span style="font-size: 12px">${toppingDetails}</span></td>
             <td>${quantity.innerHTML}</td>
             <td class="cost2">${totalCost.innerHTML}</td>
         </tr>
@@ -92,7 +113,6 @@ function custom(p) {
         
         // Sum
         sumValue += cost * count;
-        // console.log(sumValue);
         // var sum = document.querySelector('.cost3');
         // sum.innerHTML = `${sumValue} VND`
     
@@ -151,11 +171,12 @@ function openOrderForm(name,img,des,price) {
     custom(price);
 }
 
-
+function getId(id) {
+    console.log(id);
+}
 
 // Close order form
 function close(){
-    console.log('a');
     document.querySelector('.model').classList.add('hidden'); //Hidden model
     // Remove inserted order name from order detail
     const orderDetail = document.querySelector('.order-detail');
@@ -174,7 +195,6 @@ function close(){
     }
 
     const topping = document.querySelectorAll('.topping');
-    console.log(topping);
     for(var i=0;i<topping.length;i++){
         topping[i].checked = false;
     }

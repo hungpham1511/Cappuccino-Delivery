@@ -94,7 +94,7 @@
                                 <button 
                                 type="button" 
                                 class="button-order"
-                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}')"
+                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}'),getId({{$c->idDrink}})"
                                 >Order</button>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                                     <button 
                                     type="button" 
                                     class="button-order"
-                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}')"
+                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}'),getId({{$c->idDrink}})"
                                     >Order</button>
                                 </div>
                             </div>
