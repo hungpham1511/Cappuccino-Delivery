@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Orders</title>
+    <title>Cappuccino Delivery - Admin</title>
 
     
     <!-- Favicon-->
