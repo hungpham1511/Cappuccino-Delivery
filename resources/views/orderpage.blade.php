@@ -17,8 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    {{-- <link href="{{ asset('assets/themify-icons/themify-icons.css') }}" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,9 +30,8 @@
 <body>
     {{-- Header --}}
     <div class="header">
-        <div class="cart">
-            <span class="badge badge-danger">1</span>
-            <i id="grocery-icon" class="fa fa-shopping-cart" aria-hidden="true" onclick="location.href='/User/Checkout/index.html'"></i>
+        <div class="user">
+            <i id="user-icon" class="fas fa-user" aria-hidden="true" onclick="location.href='/User/Checkout/index.html'"></i>
         </div>
         <div class="order-history" onclick="location.href='../OrderHistory/index.html'">Order History</div>
         <img id="logo-img1" src="{{ asset('img/Frame2.png') }}" alt="logo image">
@@ -42,8 +42,8 @@
 
 
     {{-- Page content --}}
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid px-0">
+        <div class="row mx-0">
             {{-- Navigation menu --}}
             <div class="col-lg-2">
                 <!-- Menu Web -->
@@ -91,7 +91,11 @@
                                 <h5 id="item-price">{{$c->price}} VND</h5>
                             </div>
                             <div class="card-footer">
-                                <button type="button" class="button-order">Order</button>
+                                <button 
+                                type="button" 
+                                class="button-order"
+                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}')"
+                                >Order</button>
                             </div>
                         </div>
                     </div>
@@ -111,7 +115,11 @@
                                     <h5 id="item-price">{{$i->price}} VND</h5>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="button" class="button-order">Order</button>
+                                    <button 
+                                    type="button" 
+                                    class="button-order"
+                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}')"
+                                    >Order</button>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +139,11 @@
                                     <h5 id="item-price">{{$t->price}} VND</h5>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="button" class="button-order">Order</button>
+                                    <button 
+                                    type="button" 
+                                    class="button-order"
+                                    onclick="openOrderForm('{{$t->name}}', '{{$t->picture}}','{{$t->description}}','{{$t->price}}')"
+                                    >Order</button>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +163,10 @@
                                     <h5 id="item-price">{{$s->price}} VND</h5>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="button" class="button-order">Order</button>
+                                    <button 
+                                    type="button" 
+                                    class="button-order" 
+                                    onclick="openOrderForm('{{$s->name}}', '{{$s->picture}}','{{$s->description}}','{{$s->price}}')">Order</button>
                                 </div>
                             </div>
                         </div>
@@ -161,58 +176,43 @@
 
             {{-- Shopping Cart --}}
             <div class="col-lg-4">
-                <div class="list-group grocery" id="grocery-store">
-                    <div class="row">
-                        <span id="span-amount1"></span>
-                        <p id="amount">Amount</p>
-                        <span id="span-cost"></span>
-                        <p id="cost">Cost</p>
-                    </div>
-                    <div class="order-info">
-                        
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <span id="span-sum1"></span>
-                            <p>Sum</p>
-                            <span id="span-sum2"></span>
-                            <p id="sum">0 VND</p>
-                        </div>
-                        <div class="row">
-                            <span id="span-shipping1"></span>
-                            <p>Shipping</p>
-                            <span id="span-shipping2"></span>
-                            <p>0 VND</p>
-                        </div>
-                        
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <span id="span-total1"></span>
-                            <p>Total</p>
-                            <span id="span-total2"></span>
-                            <p id="total">0 VND</p>
-                            <span id="span-button-view"></span>
-                            <button id="button-view" type="button" onclick="location.href='/User/Checkout/index.html'">View Cart</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Table Striped Boostrap -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td colspan="4" class="amount">Amount</td>
+                            <td class="cost1">Cost</td>
+                        </tr>
+                    </thead>
+                    <tbody class="cart-detail">
+                        <tr class="row2">
+                            <td colspan="4">Total</td>
+                            <td class="total"></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="td-button2" colspan="5">
+                                <button type="button" class="button-view">View Cart</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
 
         {{-- Footer --}}
         <div class="footer">
-            <div class="row">
-                <div class="col-lg-4">
-                    <span id="span-logo-img"></span>
-                    <img id="logo-img2" src="{{ asset('img/Frame2.png') }}" alt="logo image">
-                    <h4 id="logo-name2"><span id="span-logo-name1"></span> CAPPUCCINO <br> <span id="span-logo-name2"></span> DELIVERY</h4>
+            <div class="row mx-0">
+                <div class="col-lg-4 logo-brand">
+                    <img class="logo-img2" src="{{asset('img/Frame2.png')}}" alt="logo image">
+                    <h4 class="logo-name2">CAPPUCCINO <br>DELIVERY</h4>
                 </div>
                 <div class="col-lg-8">
-                    <i class="footer-contact fab fa-facebook-f" aria-hidden="true"><span id="span-facebook"></span> cappuccino.com</i>
-                    <i class="footer-contact fab fa-instagram" aria-hidden="true"><span id="span-instagram"></span> _ilovecappu</i>
-                    <i class="footer-contact fas fa-phone" aria-hidden="true"><span id="span-phone"></span> 0898536271</i>
-                    <i class="footer-contact fa fa-building" aria-hidden="true"><span id="span-building"></span> 86-88 Cao Thắng, phường 4, quận 3, Hồ Chí Minh</i>
+                    <i class="footer-contact fa fa-facebook" aria-hidden="true">cappuccino.com</i>
+                    <i class="footer-contact fa fa-instagram" aria-hidden="true">_ilovecappu</i>
+                    <i class="footer-contact fa fa-phone" aria-hidden="true">0898536271</i>
+                    <i class="footer-contact fa fa-building" aria-hidden="true">86-88 Cao Thắng, phường 4, quận 3, Hồ Chí Minh</i>
                 </div>
             </div>
         </div>
@@ -225,15 +225,8 @@
             <div class="model-inner">
                 <div class="order-container">
                     <div class="order-detail">
-                        <div class="order-name">
-                            <img src="./Assets/image18.png" class="order-img" alt="Frappe">
-                            <div>
-                                <p class="p-model" style="padding-top: 5px"><b style="font-size:16px">Frappé</b></p>
-                                <p class="p-model">a foam-covered iced coffee drink made from instant coffee</p>
-                                <p class="p-model" id="order-size"></p>
-                            </div>
-                            <i class="close-btn fas fa-times"></i>
-                        </div>
+                        <i class="close-btn fas fa-times"></i>
+                        
                         <div class="order-size">
                             <p class="p-model">Size: </p>
                             <div class="choose-size">
@@ -256,42 +249,42 @@
                             <p class="p-model">Topping: </p>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="5000">
+                                    <input class="topping" type="radio" value="5000">
                                     <p class="p-model">Ice cream</p>
                                 </div>
                                 <span>+5000 VND</span>
                             </div>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="10000">
+                                    <input class="topping" type="radio" value="10000">
                                     <p class="p-model">Sweet Serup</p>
                                 </div>
                                 <span>+10000 VND</span>
                             </div>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="5000">
+                                    <input class="topping" type="radio" value="5000">
                                     <p class="p-model">Vanilla</p>
                                 </div>
                                 <span>+5000 VND</span>
                             </div>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="5000">
+                                    <input class="topping" type="radio" value="8000">
                                     <p class="p-model">Butter</p>
                                 </div>
                                 <span>+8000 VND</span>
                             </div>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="5000">
+                                    <input class="topping" type="radio" value="5000">
                                     <p class="p-model">Spices</p>
                                 </div>
                                 <span>+5000 VND</span>
                             </div>
                             <div class="customize-item">
                                 <div class="topping-item">
-                                    <input type="radio" value="5000">
+                                    <input class="topping" type="radio" value="5000">
                                     <p class="p-model">Non-dairy milks</p>
                                 </div>
                                 <span>+5000 VND</span>
@@ -308,12 +301,11 @@
                     <div class="order-checkout">
                         <div class="counter">
                             <i class="minus-btn desc fa fa-minus-circle"></i>
-                            <span id="count-value">1</span>
+                            <span id="count-value"></span>
                             <i class="plus-btn asc fa fa-plus-circle"></i>
                         </div>
                         <div class="add">
                             <p class="p-model" id="add">Add to Cart</p>
-                            <p class="p-model" id="totalCost">0 VND</p>
                         </div>
                     </div>
                 </div>

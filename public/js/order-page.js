@@ -1,6 +1,3 @@
-var totalCost = document.getElementById('totalCost');
-var cost = 0;
-var itemCost = 50000 // Set 50000 to the initial cost of the selected item
 
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
@@ -12,114 +9,177 @@ for (i = 0; i < radios.length; i++) {
     }
 }
 
-
 // Choose size
-
-var sizes = document.querySelectorAll('.size');
-sizes.forEach(function(size) {
+function custom(p) { 
+    var price = parseFloat(p);
+    var cost = price;
+    // Choose size
+    var sizes = document.querySelectorAll('.size');
+    sizes.forEach(function(size) {
     size.addEventListener('click', function(e) {
         const currSize = e.currentTarget.parentNode.classList;
         const currValue = parseInt(e.currentTarget.value);
         if (currSize.contains('large')) {
-            cost = itemCost + currValue;
-        } else if (currSize.contains('medium')) {
-            cost = itemCost;
-        } else if (currSize.contains('small')) {
-            cost = itemCost - currValue;
+            price =  (cost + currValue);
+            cost = price;
+        } else if(currSize.contains('medium')){
+            price = parseFloat(p);
+            cost =  price;
         }
-        totalCost.innerHTML = cost + ' VND';
+        else if (currSize.contains('small')) {
+            console.log(cost-currValue);
+            price =  (cost - currValue);
+            cost = price;
+        }
+        totalCost.innerHTML = price + ' VND';
     })
 })
-
-// Choose topping
-var toppings = document.querySelectorAll('.topping-item')
-toppings.forEach(function(topping) {
-    topping.addEventListener('click', function(e) {
-        var currValue = parseInt(e.target.value);
-        cost += currValue;
-
-        if (e.ctrlKey == true) {
-            cost -= currValue * 2;
-        }
-        console.log(cost);
-        totalCost.innerHTML = cost + ' VND';
+    //Choose topping
+    var toppings = document.querySelectorAll('.topping-item')
+    toppings.forEach(function(topping) {
+        topping.addEventListener('click', function(e) {
+            var currValue = parseInt(e.target.value);
+            cost+= currValue;
+    
+            if (e.ctrlKey == true) {
+                cost-= (currValue * 2);
+            }
+            console.log(cost);
+            totalCost.innerHTML = cost + ' VND';
+            cost = total
+        })
     })
-})
 
-// Counter
-var count = 1;
-const result = document.querySelector('#count-value');
-const minusBtn = document.querySelector('.minus-btn');
-const plusBtn = document.querySelector('.plus-btn');
-minusBtn.addEventListener('click',()=>{
-    count--;
-    if (count < 0) { count = 0; }
+    // Counter
+    var count = 1;
+    const result = document.querySelector('#count-value');
+    console.log(count);
     result.innerHTML = count;
-    if (cost === 0) {
-        totalCost.innerHTML = itemCost * count + ' VND';
-    } else {
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    minusBtn.addEventListener('click',()=>{
+        if(count>1){
+            count--;
+            result.innerHTML = count;
+        };
         totalCost.innerHTML = cost * count + ' VND';
-    }
-})
-plusBtn.addEventListener('click',()=>{
-    count++;
-    result.innerHTML = count;
-    if (cost === 0) {
-        totalCost.innerHTML = itemCost * count + ' VND';
-    } else {
+    })
+    plusBtn.addEventListener('click',()=>{
+        count++;
+        result.innerHTML = count;
         totalCost.innerHTML = cost * count + ' VND';
-    }
-})
+    }) 
 
-// Add to cart button
-var sumValue = 0;
-var addToCartBtn = document.querySelector('.add')
-addToCartBtn.addEventListener('click', function(){
-    var orderImg = document.querySelector('.order-img');
-    var orderName = document.querySelector('.p-model > b').innerHTML;
-    document.querySelector('.order-info').innerHTML +=
-    `
-    <div class="list-group-item">
-        <div class="row">
-            <span id="span-img-item"></span>
-            <img id="img-item" src="${orderImg.getAttribute('src')}" alt="...">
-            <span id="span-item-name"></span>
-            <p>${orderName}</p>
-            <span id="span-amount2"></span>
-            <p>${count}</p>
-            <span id="span-price"></span>
-            <p>${totalCost.innerHTML}</p>
-        </div>
-    </div>
-    `
-    // Sum
-    sumValue += cost * count;
-    var sum = document.querySelector('#sum');
-    sum.innerHTML = `${sumValue} VND`
 
-    // Total
-    var total = document.querySelector('#total');
-    total.innerHTML = `${sumValue} VND`
+    var sumValue = 0;
+    var addToCartBtn = document.querySelector('.add')
+    addToCartBtn.addEventListener('click', function(){
+        var orderImg = document.querySelector('.order-img');
+        var orderName = document.querySelector('.p-model>b').innerHTML;
+        var quantity = document.querySelector('#count-value');
+        var message = `<tr class="row1">
+            <td class="td-img">
+                <img class="img-item" src="${orderImg.src}" alt="logo item">
+            </td>
+            <td colspan="2">${orderName}</td>
+            <td>${quantity.innerHTML}</td>
+            <td class="cost2">${totalCost.innerHTML}</td>
+        </tr>
+        `;
 
-    // Exit
-    model.classList.add('hidden');
-})
-// Close
-var model = document.querySelector('.model');
-var closeBtn = document.querySelector('.close-btn');
-closeBtn.onclick = function() {
-    model.classList.add('hidden');
+        document.querySelector('.cart-detail').insertAdjacentHTML('afterbegin',message);
+
+        
+        // Sum
+        sumValue += cost * count;
+        // console.log(sumValue);
+        // var sum = document.querySelector('.cost3');
+        // sum.innerHTML = `${sumValue} VND`
+    
+        // Total
+        var total = document.querySelector('.total');
+
+        total.innerHTML = `${sumValue} VND`
+    
+        // Exit
+        close();
+    })
 }
 
+// Add to cart button
+// Close
+var closeBtn = document.querySelector('.close-btn');
+closeBtn.addEventListener('click',()=>close())
+
 var exit = document.querySelector('.model-overlay')
-exit.addEventListener('click', function() {
-    model.classList.add('hidden');
-})
+exit.addEventListener('click',()=>close())
+
 
 // Open order form
-var orderBtn = document.querySelectorAll('.button-order')
-orderBtn.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        document.querySelector('.model').classList.remove('hidden');
-    })
-})
+function openOrderForm(name,img,des,price) {
+    document.querySelector('.model').classList.remove('hidden');//Show model
+    // Insert order name into order detail
+    const orderDetail = document.querySelector('.order-detail');
+    const orderName = 
+    ` 
+    <div class="order-name">
+        <img src="${img}" class="order-img" alt="Frappe">
+        <div>
+            <p class="p-model" style="padding-top: 5px"><b style="font-size:16px">${name}</b></p>
+            <p class="p-model">${des}</p>
+            <p class="p-model" id="order-size"></p>
+        </div>
+        <i class="close-btn fas fa-times"></i>
+    </div>
+    `
+    orderDetail.insertAdjacentHTML('afterbegin',orderName);
+
+    // Insert price
+    const orderAdd = document.querySelector('.add');
+    const productPrice = `<p class="p-model" id="totalCost">${Math.floor(price)} VND</p>`
+
+    orderAdd.insertAdjacentHTML('beforeend',productPrice);
+    //Get price
+    var totalCost = document.getElementById('totalCost');
+
+    // Autocheck medium size
+    const medium = document.querySelector('.medium');
+    medium.childNodes[1].checked = true;
+    // Get price data
+
+    // Customize
+    custom(price);
+}
+
+
+
+// Close order form
+function close(){
+    console.log('a');
+    document.querySelector('.model').classList.add('hidden'); //Hidden model
+    // Remove inserted order name from order detail
+    const orderDetail = document.querySelector('.order-detail');
+    const orderName = document.querySelector('.order-name');
+    orderDetail.removeChild(orderName);
+
+    // Remove price
+    const orderAdd = document.querySelector('.add');
+    const productPrice = document.querySelector('#totalCost');
+    orderAdd.removeChild(productPrice);
+
+    // Clear all checked button
+    const size = document.querySelectorAll('.size');
+    for(var i=0;i<size.length;i++){
+        size[i].checked = false;
+    }
+
+    const topping = document.querySelectorAll('.topping');
+    console.log(topping);
+    for(var i=0;i<topping.length;i++){
+        topping[i].checked = false;
+    }
+
+    // Counter
+    var counter = document.querySelector('#count-value')
+    counter.innerHTML = 1;
+}
