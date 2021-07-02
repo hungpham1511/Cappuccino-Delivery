@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
+ use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -30,21 +29,22 @@ class CheckoutController extends Controller
 
     public function createreceipt(Request $request)
     {
-        error_log('Some message here.');
         $isWeeklyBook = $request->input('isWeeklyBook');
-        $mon = $request->input('mon');
-        $tue = $request->input('tue');
-        $wed = $request->input('wed');
-        $thu = $request->input('thu');
-        $fri = $request->input('fri');
-        $sat = $request->input('sat');
-        $sun = $request->input('sun');
+        // if ($isWeeklyBook == true) return ("vjp");
+        // return($request->all());
+        if ($request->input('mon')==true) $mon=1; else $mon=0;
+        if ($request->input('tue')==true) $tue=1; else $tue=0;
+        if ($request->input('wed')==true) $wed=1; else $wed=0;
+        if ($request->input('thu')==true) $thu=1; else $thu=0;
+        if ($request->input('fri')==true) $fri=1; else $fri=0;
+        if ($request->input('sat')==true) $sat=1; else $sat=0;
+        if ($request->input('sun')==true) $sun=1; else $sun=0;
+        $startDay = $request->input('startdate');
+        $endDay = $request->input('enddate');
+        $time = $request->input('time');
         if ($isWeeklyBook == true)
-            DB::table('detail_weekly_book')->insert(
-                array('mon' => $mon, 'tue' => $tue, 'wed' => $wed)
+            DB::table('detail_weekly_book')->insertGetId(
+                array('mon' => $mon, 'tue' => $tue, 'wed' => $wed, 'thu' => $thu, 'fri' => $fri, 'sat' => $sat, 'sun' => $sun, 'startDay' => $startDay, 'finishDay' => $endDay, 'deliveryTime' => $time)
             );
-        if ($request->input('submit')) {
-            error_log('Some message here.');
-        }
     }
 }

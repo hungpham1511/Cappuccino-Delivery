@@ -49,16 +49,18 @@
         </nav>
         <main class="py-4" style="margin-bottom: 10%;">
             <div class="row">
-                <div class="col-auto position-absolute">
-                    <button onclick="location.href = s" class="btn"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    </button>
+                <div class="navback-btn col-auto position-absolute">
+                    <a href="{{ url('/home') }}" class="btn">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div class="col-12">
                     <p class="title">Checkout</p>
                 </div>
             </div>
             <div class="container-fluid">
-                <form action="{{ route('checkout.createreceipt') }}" method="POST">
+                <form action="{{ route('checkout.create') }} " method="GET">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-8">
                             <!-- Customer infomation -->
@@ -66,21 +68,21 @@
                                 <h3 class="mb-3">1. Please confirm your order</h3>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
-                                    <input type="text" class="form-control mb-3" id="address" placeholder="Your address">
+                                    <input type="text" class="form-control mb-3" id="address" placeholder="Your address" name="address">
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Full name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Your name">
+                                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name">
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Your phone number">
+                                        <input type="text" class="form-control" id="phone" placeholder="Your phone number" name="number">
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Note</label>
-                                    <textarea class="form-control mb-3" rows="3" id="note" type="text" placeholder="Your note for us" required></textarea>
+                                    <textarea required="" class="form-control mb-3" rows="3" id="note" type="text" name="note" placeholder="Your note for us" required></textarea>
                                 </div>
                             </div>
                             <!-- Payment method -->
@@ -109,48 +111,48 @@
                                         <div class="col-lg-auto">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label>Select start date</label>
-                                                <input type="date" id="startdate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
+                                                <input type="date" id="startdate" name="startdate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
                                             </div>
                                         </div>
                                         <div class="col-lg-auto">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label>Select end date</label>
-                                                <input type="date" id="enddate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
+                                                <input type="date" id="enddate" name="enddate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
                                             </div>
                                         </div>
                                         <div class="col-lg-auto">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label>When can we deliver your coffee?</label>
-                                                <input type="time" id="time">
+                                                <input type="time" id="time" name="time">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="mon">
+                                        <input class="form-check-input" type="checkbox" id="mon" name="mon">
                                         <label class="form-check-label" for="mon">Monday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="tue">
+                                        <input class="form-check-input" type="checkbox" id="tue" name="tue">
                                         <label class="form-check-label" for="tue">Tuesday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="web">
+                                        <input class="form-check-input" type="checkbox" id="web" name="web">
                                         <label class="form-check-label" for="wed">Wednesday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="thu">
+                                        <input class="form-check-input" type="checkbox" id="thu" name="thu">
                                         <label class="form-check-label" for="thu">Thursday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="fri">
+                                        <input class="form-check-input" type="checkbox" id="fri" name="fri">
                                         <label class="form-check-label" for="fri">Friday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="sat">
+                                        <input class="form-check-input" type="checkbox" id="sat" name="sat">
                                         <label class="form-check-label" for="sat">Saturday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="sun">
+                                        <input class="form-check-input" type="checkbox" id="sun" name="sun">
                                         <label class="form-check-label" for="sun">Sunday</label>
                                     </div>
                                 </div>
@@ -190,7 +192,7 @@
                                     Shipping <span style="float: right">0 VND</span>
                                 </p>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="promotion" placeholder="Promotion">
+                                    <input type="text" class="form-control" id="promotion" name="promotion" placeholder="Promotion">
                                     <button class="btn btn-brand-color" type="button">Submit</button>
                                 </div>
                                 <p class="receipt-text money-out-table mt-3">

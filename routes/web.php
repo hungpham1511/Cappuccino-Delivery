@@ -28,4 +28,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
-Route::post('/checkout/createreceipt','CheckoutController@createreceipt')->name('checkout.createreceipt');
+Route::get('/checkout/create',[App\Http\Controllers\CheckoutController::class, 'createreceipt'])->name('checkout.create');
+//Route::post('/checkout/createreceipt','CheckoutController@createreceipt');

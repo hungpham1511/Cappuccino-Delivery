@@ -1,5 +1,9 @@
 /* Created by Hung Pham on 29/06/2021 */
 
+.navback-btn {
+    z-index: 2;
+}
+
 .btn-brand-color {
     background-color: #b78546 !important;
     color: #ffffff !important;
