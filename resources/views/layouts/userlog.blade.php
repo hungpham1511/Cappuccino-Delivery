@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    {{-- CSS --}}
     <link href="{{ asset('css/signin.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('css/sb-admin-2.min.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('css/custom.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('css/order-page.css')}}" rel="stylesheet" type="text/css>" media="all">
+    <link href="{{ asset('css/order-form.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('css/custom_admin.css')}}" rel="stylesheet" type="text/css" media="all">
 
     <!-- CSRF Token -->
@@ -27,7 +30,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -41,16 +47,44 @@
                     <img id="home-page" class="logo" src="{{ asset('picture/Frame2.png') }}" alt="">
                     <p class="logo-name">CAPPUCCINO <br>DELIVERY</p>
                 </header>
-
-
         </nav>
 
-        <main class="py-4" style="margin-bottom: 10%;">
+        <div class="py-4">
             @yield('content')
-            <!-- <div class="row menu-item">
-                @yield('menuItems')
-            </div> -->
-        </main>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                {{-- Nav menu --}}
+                <div class="col-lg-2">
+                    @yield('nav-menu')
+                </div>
 
+                {{-- Menu items --}}
+                <div class="col-lg-6">
+                    <input type="text" id="search" placeholder="Search..."><br>
+                    {{-- Coffee --}}
+                    @yield('coffee')
+                    {{-- Ice Blended --}}
+                    @yield('iceBlended')
+                    {{-- Tea --}}
+                    @yield('tea')
+                    {{-- Smoothie --}}
+                    @yield('smoothie')
+                </div>
+
+                {{-- Grocery store --}}
+                <div class="col-lg-4">
+                    @yield('cart')
+                </div>
+            </div>
+
+            {{-- Footer --}}
+            <div class="footer">
+                @yield('footer')
+            </div>
+        </div>
+        {{-- Order form --}}
+        @yield('order')
+    </div>    
 </body>
 </html>

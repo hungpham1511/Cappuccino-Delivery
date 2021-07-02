@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Menu;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $coffee = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Coffee')
+                        ->get();
+        $tea = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Tea')
+                        ->get();
+        $iceBlended = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Ice Blended')
+                        ->get();
+        $smoothie = DB::table('menu')
+                        ->select('*')
+                        ->where('category','=','Smoothie')
+                        ->get();
+        return view('orderpage',compact('coffee', 'tea', 'iceBlended','smoothie'));
     }
 }

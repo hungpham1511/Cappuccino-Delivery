@@ -62,7 +62,7 @@
             <h2 class="change-color-text-slide3">&nbsp;CUP</h2>
           </div>
             <div class="text-center text-lg-start">
-              <a href="{{ route('home') }}" class="btn-try-now front d-flex">
+              <a href="{{ route('orderpage') }}" class="btn-try-now front d-flex">
                 <span>Try now</span>
                 <i class="size-icon bi bi-chevron-double-right"></i>
               </a>

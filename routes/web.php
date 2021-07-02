@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuItemController;
 
 
 
@@ -25,10 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
-
-// Route::get('/home', [MenuController::class, 'coffee']);
-// Route::get('/home', [MenuController::class, 'iceBlended']);
-// Route::get('/home', [MenuController::class, 'tea']);
-// Route::get('/home', [MenuController::class, 'smoothie']);
-
+Route::get('/checkout/create',[App\Http\Controllers\CheckoutController::class, 'createreceipt'])->name('checkout.create');
+//Route::post('/checkout/createreceipt','CheckoutController@createreceipt');
