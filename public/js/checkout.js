@@ -29,3 +29,19 @@ function weeklybook() {
         );
     });
 })();
+
+document.querySelectorAll(".form-control.require").forEach((input) => {
+    input.addEventListener("input", () => {
+        if (input.checkValidity()) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+        } else {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+        }
+        var is_valid =
+            $(".form-control.require").length ===
+            $(".form-control.is-valid.require").length;
+        $("#modalbtn").attr("disabled", !is_valid);
+    });
+});

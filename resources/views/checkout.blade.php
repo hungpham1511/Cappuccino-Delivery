@@ -58,7 +58,7 @@
                     <p class="title">Checkout</p>
                 </div>
             </div>
-            <form class="needs-validation" novalidate action="{{ route('checkout.create') }} " method="GET">
+            <form id="checkoutform" class="needs-validation" novalidate action="{{ route('checkout.create') }} " method="GET">
                 <div class="container-fluid">
                     @csrf
                     <div class="row">
@@ -68,16 +68,16 @@
                                 <h3 class="mb-3">1. Please confirm your order</h3>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
-                                    <input type="text" class="form-control mb-3" id="address" placeholder="Your address" name="address" required>
+                                    <input type="text" class="require form-control mb-3" id="address" placeholder="Your address" name="address" required>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Full name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name" required>
+                                        <input type="text" class="require form-control" id="name" placeholder="Your name" name="name" required>
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Your phone number" name="number" required>
+                                        <input type="text" class="require form-control" id="phone" placeholder="Your phone number" name="number" required>
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
@@ -188,7 +188,7 @@
                                 <p class="receipt-text money-out-table mt-3">
                                     Total <span style="float: right">100.000 VND</span>
                                 </p>
-                                <button  type="button" data-toggle="modal" data-target="#checkoutmodel" class="btn col-12 btn-brand-color">Buy now</button>
+                                <button id="modalbtn" type="button" data-toggle="modal" data-target="#checkoutmodel" class="btn col-12 btn-brand-color" disabled>Buy now</button>
                             </div>
                         </div>
                     </div>
