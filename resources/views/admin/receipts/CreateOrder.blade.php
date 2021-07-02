@@ -126,7 +126,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                    <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finish">
+                    <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finished">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
