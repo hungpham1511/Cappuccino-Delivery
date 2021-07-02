@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Carbon\Carbon;
+use DateTime;
+
+
 
 class AdminController extends Controller
 {
@@ -27,28 +30,22 @@ class AdminController extends Controller
             ['idReceipt', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('idReceipt', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere(Carbon::parse($r['receiptDate'])->isToday()==true)->get();
                 }
             }]
         ])
         ->orderBy("idReceipt")
         ->paginate(10);
+
+        $dt = Carbon::today();
+
+        $condition = true;
+        $check = Receipt::when($condition, function ($query) use ($dt) {
+            return $query->where('receiptDate', $dt);
+        })
+        ->get();
         
-        //$check = array();
-        //foreach($check as $key => $value){
-        //    $value = 1;
-        //}
-        $check = array();
-        foreach ($receipts as $r) {
-            foreach($check as $key => $value){
-                if (Carbon::parse($r['receiptDay'])->isToday()==true)
-                {
-                    $check = $r;
-                } 
-            }
-            
-        }
-        return view('admin.dashboard', compact('check'))
+        return view('admin.dashboard', compact('receipts','check'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
