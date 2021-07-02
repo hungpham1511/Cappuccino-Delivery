@@ -6,7 +6,7 @@ use App\Models\Receipt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
-
+use Carbon\Carbon;
 
 class ReceiptController extends Controller
 {

@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,17 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -97,7 +105,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" class="form-control" placeholder="1:Daily   2:Monthly">
+                    <input type="text" name="promotionType" class="form-control" placeholder="1:Discount   2:Freeship">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Promotion Code</strong>
+                    <input type="text" name="promotionCode" class="form-control" placeholder="DELI123">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -115,15 +129,16 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Money limit</strong>
-                    <input type="number" name="moneyLimit" class="form-control" placeholder="50000">
+                    <input type="text" name="moneyLimit" class="form-control" placeholder="50000">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="text" name="expireDay" class="form-control" placeholder="yyyy-mm-dd">
+                    <input type="date" name="expireDay" class="form-control" value="2021-07-02" min="2020-07-11" max="2022-12-31">
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

@@ -10,6 +10,8 @@
     <link href="{{ asset('css/custom.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('css/order-page.css')}}" rel="stylesheet" type="text/css>" media="all">
     <link href="{{ asset('css/order-form.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('css/custom_admin.css')}}" rel="stylesheet" type="text/css" media="all">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cappucino Delivery</title>
@@ -18,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <!-- Favicon-->
-    <link href="img/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
+    <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
 
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -42,7 +44,7 @@
                     {{ config('app.name', 'Sign in') }}
                 </a> --}}
                 <header>
-                    <img id="home-page" class="logo" src="{{ asset('img/Frame2.png') }}" alt="">
+                    <img id="home-page" class="logo" src="{{ asset('picture/Frame2.png') }}" alt="">
                     <p class="logo-name">CAPPUCCINO <br>DELIVERY</p>
                 </header>
         </nav>

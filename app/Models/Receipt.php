@@ -15,11 +15,19 @@ class Receipt extends Model
     protected $primaryKey = 'idReceipt';
 
     protected $fillable = [
+        'idUser',
         'receiptDate',
         'payment',
         'note',
         'status',
         'total',
+        'isWeeklyBook',
+        'idDetailWeeklyBook',
+
         'created_at'
     ];
+    public function weeklyBook()
+    {
+        return $this->hasOne('App\DetailWeeklyBook','foreign_key');
+    }
 }

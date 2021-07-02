@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,17 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -93,8 +101,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Id User</strong>
+                    <input type="number" name="idUser" class="form-control" placeholder="1">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>ReceiptDate</strong>
-                    <input type="text" name="receiptDate" class="form-control" placeholder="20/02/2012">
+                    <input type="date" name="receiptDate" class="form-control" placeholder="20/02/2012">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -112,7 +126,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                    <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finish">
+                    <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finished">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Weekly book</strong>
+                    <input type="number" name="isWeeklyBook" class="form-control" placeholder="0: None    1: Booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

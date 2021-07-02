@@ -11,9 +11,9 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset ('assets/img/favicon.png')}}" rel="icon">
-    <link href="{{asset ('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-    <link rel="icon" type="image/x-icon" href="{{asset ('img/Frame1.png')}}" />
+    <link href="{{asset ('assets/picture/favicon.png')}}" rel="icon">
+    <link href="{{asset ('assets/picture/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link rel="icon" type="image/x-icon" href="{{asset ('picture/Frame1.png')}}" />
 
 
     <!-- Google Fonts -->
@@ -36,7 +36,7 @@
   <header id="header" class="header fixed-top">
     <div class="container-xl align-items-center justify-content-center">
       <a href="LandingPage.html" class="logo d-flex align-items-center justify-content-center">
-        <img src="{{asset ('assets/img/logo.png')}}" alt="">
+        <img src="{{asset ('picture/Frame2.png')}}" alt="">
         <span>CAPPUCCINO<br>DELIVERY</span>
       </a>
       <nav id="navbar" class="navbar">
@@ -69,10 +69,10 @@
             </div>
         </div>
         <div class="col-lg-6 banner-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="assets/img/coffee_pic1.png" class="img-fluid back" alt="">
+          <img src="{{asset ('picture/coffee_pic1.png')}}" class="img-fluid back" alt="">
         </div>
         <div class="col-lg-6 banner-coffee" data-aos="fade-out" data-aos-delay="200">
-          <img src="assets/img/coffee_bean.png" class="img-fluid" alt="">
+          <img src="{{asset ('picture/coffee_bean.png')}}" class="img-fluid" alt="">
         </div>
     </section>
     <!-- End Banner -->
@@ -127,7 +127,7 @@
         <footer id="footer" class="footer container">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center justify-content-center footer-info">
-              <img src="assets/img/logo.png" alt="">
+              <img src="{{asset ('picture/Frame2.png')}}" alt="">
               <span>CAPPUCCINO<br>DELIVERY</span>
             </a>
           </div>

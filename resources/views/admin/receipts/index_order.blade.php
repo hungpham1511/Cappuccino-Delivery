@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,17 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -117,22 +125,47 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th>IdReceipt</th>
+                                    <th>IdUser</th>
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
                                     <th>Note</th>
-                                    <th>Status</th>  
-                                    <th>Total</th>
+                                    <th>Status</th> 
+                                    <th>Weekly Book</th> 
+                                    <th>Total</th>                                   
                                     <th>Action</th>
                                     
                                 </tr>
                                 @foreach ($receipts as $receipt)
                                 <tr>
                                     <td>{{ $receipt->idReceipt }}</td>
+                                    <td>{{ $receipt->idUser }}</td>
                                     <td>{{ $receipt->receiptDate }}</td>
-                                    <td>{{ $receipt->payment }}</td>
+                                    @if ($receipt->payment == 1)
+                                        <td>COD</td>
+                                    @elseif ($receipt->payment == 2)
+                                        <td>Momo</td>
+                                    @else <td>Bank</td>
+                                    @endif
                                     <td>{{ $receipt->note }}</td>
-                                    <td>{{ $receipt->status }}</td>
+                                    @if ($receipt->status == 1)
+                                        <td>Order Received</td>
+                                    @elseif ($receipt->status == 2)
+                                        <td>Payment Received</td>
+                                    @elseif ($receipt->status == 3)
+                                        <td>Delivering</td>
+                                    @else <td>Finished</td>
+                                    @endif
+                                    @if ($receipt->isWeeklyBook==true)
+                                        <td class="delivered">
+                                         Booked
+                                        </td>
+                                    @else 
+                                        <td>
+                                        None
+                                        </td>
+                                    @endif
                                     <td>{{ $receipt->total }}</td>
+                                    
                                     <td>
                                         <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
                                             <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>

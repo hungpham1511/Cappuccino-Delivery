@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,18 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item active">
@@ -88,7 +97,7 @@
     </div>
     @endif
   
-    <form action="{{ route('menu.store') }}" method="POST" >
+    <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
@@ -119,7 +128,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Picture</strong>
-                    <input type="text" name="picture" class="form-control" placeholder="">
+                    <input type="file" name="picture" class="form-control" placeholder="picture">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

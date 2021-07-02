@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 @section('sidebar')
     @parent
 
@@ -12,9 +12,18 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -105,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Gender</strong>
-                    <input type="number" name="gender" class="form-control" placeholder="1: Male    2: Female    3: Orther">
+                    <input type="number" name="gender" class="form-control" placeholder="1: Male    2: Female    3: Other">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

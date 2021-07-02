@@ -22,24 +22,20 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        DB::table('menu')->insert([
+        /*DB::table('detail_weekly_book')->insert([
             [
-                'name'=> 'Affogato',
-                'category'=> 'Coffee',
-                'description'=> 'an Italian coffee-based dessert.',
-                'price'=> '50000',
-                'picture'=> 'https://bitly.com.vn/w6mhfd',
+                'startDay'=> '2021-',
+                'finishDay'=> 'Coffee',
+                'deliveryTime'=> 'one-third espresso, one-third heated milk, one-third milk foam.',
+                'mon'=> '50000',
+                'tue'=> 'https://bitly.com.vn/18xixr',
+                'wed',
+                'thu',
+                'fri',
+                'sat',
+                'sun'
             ]
-        ]);
-
-        DB::table('menu')->insert([
-            [
-                'name'=> 'Cappuccino',
-                'category'=> 'Coffee',
-                'description'=> 'one-third espresso, one-third heated milk, one-third milk foam.',
-                'price'=> '50000',
-                'picture'=> 'https://bitly.com.vn/18xixr',
-            ]
-        ]);
+        ]);*/
+        
     }
 }

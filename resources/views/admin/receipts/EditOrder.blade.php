@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,17 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
-        
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -93,14 +101,20 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>IdReceipt</strong>
+                    <strong>Id User</strong>
+                    <input type="number" name="idUser" value="{{ $receipt->idUser }}"class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Id Receipt</strong>
                     <input type="text" name="idReceipt" value="{{ $receipt->idReceipt }}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ReceiptDate</strong>
-                    <input type="text" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
+                    <input type="date" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -119,6 +133,12 @@
                 <div class="form-group">
                     <strong>Status</strong>
                     <input type="number" name="status" value="{{ $receipt->status }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Weekly book</strong>
+                    <input type="number" name="isWeeklyBook" value="{{ $receipt->isWeeklyBook }}" class="form-control" placeholder="0: none 1: booked">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

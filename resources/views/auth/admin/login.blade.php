@@ -40,7 +40,7 @@
                                 <div class="p-5">
                                     <main>
                                         <div class="row justify-content-center" style="margin:10%;">
-                                            <img id="home-page" class="logo" src="{{ asset('img/Frame2.png') }}" alt="">
+                                            <img id="home-page" class="logo" src="{{ asset('picture/Frame2.png') }}" alt="">
                                         </div>
                                         <div class="login-form">
                                             <form action="{{ route('adminLoginPost') }}" method="post">

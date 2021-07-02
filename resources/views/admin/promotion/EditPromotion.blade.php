@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,18 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
         
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -96,7 +105,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" value="{{ $data->promotionType }}" class="form-control" placeholder="Daily">
+                    <input type="text" name="promotionType" value="{{ $data->promotionType }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Promotion Code</strong>
+                    <input type="text" name="promotionCode" value="{{ $data->promotionCode }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -123,6 +138,7 @@
                     <input type="text" name="expireDay" value="{{ $data->expireDay }}" class="form-control" placeholder="20/07/2021">
                 </div>
             </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

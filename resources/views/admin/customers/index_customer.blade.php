@@ -1,4 +1,4 @@
-@extends('layouts.menu')
+@extends('layouts.admin')
 
 @section('sidebar')
     @parent
@@ -13,9 +13,18 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span>Today Order</span></a>
+        </li>
         
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -129,7 +138,12 @@
                                 <tr>
                                     <td>{{ $customer->idUser }}</td>
                                     <td>{{ $customer->fullName }}</td>
-                                    <td>{{ $customer->gender }}</td>
+                                    @if ($customer->gender == 1)
+                                        <td>Male</td>
+                                    @elseif ($customer->gender == 2)
+                                        <td>Female</td>
+                                    @else <td>Other</td>
+                                    @endif
                                     <td>{{ $customer->phone }}</td>
                                     <td>{{ $customer->address }}</td>
                                     <td>{{ $customer->email }}</td>

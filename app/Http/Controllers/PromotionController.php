@@ -6,7 +6,7 @@ use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
-
+use Carbon\Carbon;
 
 class PromotionController extends Controller
 {
@@ -40,16 +40,24 @@ class PromotionController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
             'promotionType'=> 'required',
+            'promotionCode'=> 'required',
             'percentPromo'=> 'required',
             'moneyPromo'=> 'required',
             'moneyLimit'=> 'required',
             'expireDay'=> 'required',
         ]);
-
-        Promotion::create($request->all());
-
+        $data = $request->all();
+        if (Carbon::now() > Carbon::parse($data['expireDay']))
+        {
+            $data['status'] =0;
+            
+        } else {
+            $data['status'] =1;
+        }
+        Promotion::create($data);
         return redirect()->route('promotion.index')
             ->with('success', 'Congratulate! New promotion has been created successfully.');
     }
@@ -63,12 +71,21 @@ class PromotionController extends Controller
     {
         $request->validate([
             'promotionType'=> 'required',
+            'promotionCode'=> 'required',
             'percentPromo'=> 'required',
             'moneyPromo'=> 'required',
             'moneyLimit'=> 'required',
             'expireDay'=> 'required',
         ]);
-        $data->update($request->all());
+        $dt = $request->all();
+        if (Carbon::now() > Carbon::parse($dt['expireDay']))
+        {
+            $dt['status'] =0;
+            
+        } else {
+            $dt['status'] =1;
+        }
+        $data->update($dt);
 
         return redirect()->route('promotion.index')
             ->with('success', 'Congratulate! Promotion has been updated successfully.');
