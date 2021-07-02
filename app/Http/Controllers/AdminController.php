@@ -33,21 +33,22 @@ class AdminController extends Controller
         ])
         ->orderBy("idReceipt")
         ->paginate(10);
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
         
-        foreach ($receipts as $key) {
-        
-            $y = Carbon::parse($key['receiptDay'])->year;
-            $m = Carbon::parse($key['receiptDay'])->month;
-            $d = Carbon::parse($key['receiptDay'])->day;
-            if ($year == $y && $month == $m&& $day == $d)
-            {
-                $data = $key;
+        //$check = array();
+        //foreach($check as $key => $value){
+        //    $value = 1;
+        //}
+        $check = array();
+        foreach ($receipts as $r) {
+            foreach($check as $key => $value){
+                if (Carbon::parse($r['receiptDay'])->isToday()==true)
+                {
+                    $check = $r;
+                } 
             }
+            
         }
-        return view('admin.dashboard', compact('receipts','data'))
+        return view('admin.dashboard', compact('check'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

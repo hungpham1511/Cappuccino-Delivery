@@ -133,33 +133,52 @@
                                     <th>Total</th>                                                                     
                                     <th>Action</th>                                   
                                 </tr>
-                                @foreach ($data as $receipt)
-                                
-                                <tr>
-                                    <td>{{ $receipt->idReceipt }}</td>
-                                    <td>{{ $receipt->idUser }}</td>
-                                    <td>{{ $receipt->receiptDate }}</td>
-                                    <td>{{ $receipt->payment }}</td>
-                                    <td>{{ $receipt->note }}</td>
-                                    <td>{{ $receipt->status }}</td>
+                                @foreach ($check as $receipt)
                                     
-                                    <td>{{ $receipt->total }}</td>
+                                            <tr>
+                                                <td>{{ $receipt->idReceipt }}</td>
+                                                <td>{{ $receipt->idUser }}</td>
+                                                <td>{{ $receipt->receiptDate }}</td>
+                                                @if ($receipt->payment == 1)
+                                                    <td>COD</td>
+                                                @elseif ($receipt->payment == 2)
+                                                    <td>Momo</td>
+                                                @else <td>Bank</td>
+                                                @endif
+                                                <td>{{ $receipt->note }}</td>
+                                                @if ($receipt->status == 1)
+                                                    <td>Order Received</td>
+                                                @elseif ($receipt->status == 2)
+                                                    <td>Payment Received</td>
+                                                @elseif ($receipt->status == 3)
+                                                    <td>Delivering</td>
+                                                @else <td>Finish</td>
+                                                @endif
+                                                @if ($receipt->isWeeklyBook==true)
+                                                    <td class="delivered">
+                                                    Booked
+                                                    </td>
+                                                @else 
+                                                    <td>
+                                                    None
+                                                    </td>
+                                                @endif
+                                                <td>{{ $receipt->total }}</td>
+                                                
+                                                <td>
+                                                    <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
+                                                        <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
+                                                    </form>
+                                                </td>
+                                            
+                                            </tr>
+                                        
                                     
-                                    <td>
-                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete this product?')">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                
                                 @endforeach
                             </table>
-                            <div class="d-flex justify-content-center">
-                                {!! $receipts->links() !!}
-                            </div>
                         </div>
                     </div>
                 </div>
