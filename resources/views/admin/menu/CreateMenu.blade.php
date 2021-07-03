@@ -128,7 +128,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Picture</strong>
-                    <input type="file" name="picture" class="form-control" placeholder="picture">
+                    <input type="text" name="picture" class="form-control" placeholder="picture">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
