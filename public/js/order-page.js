@@ -1,5 +1,5 @@
 var drinkLength =0;
-var drink = [];
+var drink = "";
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
 for (i = 0; i < radios.length; i++) {
@@ -137,19 +137,17 @@ function getData(size,drinkLength) {
         var toppingDetails = "";
         for(var i=0;i<toppingCheck.length;i++){
             if(toppingCheck[i].checked==true){
-                toppingDetails +=toppingCheck[i].previousElementSibling.innerHTML+" ";
+                toppingDetails +=toppingCheck[i].previousElementSibling.innerHTML;
             }
         }
 
     
         const amount = document.getElementById("count-value").innerHTML;
-        const detail = "Nuoc "+drinkLength+": "+cid + " " +size + " " +toppingDetails+ " " +amount;
-        drink.push(detail);
+        drink += cid + " " +size + " " +toppingDetails+ " " +amount+"-";
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
-            const drinkJSON = JSON.stringify(drink);
-            const nuoc = "drink";
-            setCookie(nuoc, drinkJSON);
+            const drinkName = "drink";
+            setCookie(drinkName,drink);
         })
 }
 
