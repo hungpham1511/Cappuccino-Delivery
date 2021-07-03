@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <!-- Favicon-->
-    <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
+    <link href="{{ asset('picture/Favicon1.svg')}}" rel="icon" type="image/x-icon" media="all">
 
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -51,40 +51,8 @@
 
         <div class="py-4">
             @yield('content')
+            @yield('edit')
         </div>
-        <div class="container-fluid">
-            <div class="row">
-                {{-- Nav menu --}}
-                <div class="col-lg-2">
-                    @yield('nav-menu')
-                </div>
-
-                {{-- Menu items --}}
-                <div class="col-lg-6">
-                    <input type="text" id="search" placeholder="Search..."><br>
-                    {{-- Coffee --}}
-                    @yield('coffee')
-                    {{-- Ice Blended --}}
-                    @yield('iceBlended')
-                    {{-- Tea --}}
-                    @yield('tea')
-                    {{-- Smoothie --}}
-                    @yield('smoothie')
-                </div>
-
-                {{-- Grocery store --}}
-                <div class="col-lg-4">
-                    @yield('cart')
-                </div>
-            </div>
-
-            {{-- Footer --}}
-            <div class="footer">
-                @yield('footer')
-            </div>
-        </div>
-        {{-- Order form --}}
-        @yield('order')
     </div>    
 </body>
 </html>

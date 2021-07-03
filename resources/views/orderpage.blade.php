@@ -9,7 +9,7 @@
     <link href="{{ asset('css/order-form.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('css/order-form-responsive.css')}}" rel="stylesheet" type="text/css" media="all">
     <!-- Favicon -->
-    <link href="img/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
+    <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cappucino Delivery</title>
@@ -31,16 +31,55 @@
     {{-- Header --}}
     <div class="header">
         <div class="user">
-            <i id="user-icon" class="fas fa-user" aria-hidden="true" onclick="location.href='/User/Checkout/index.html'"></i>
+            <i id="grocery-icon" class="fas fa-user dropdown-toggle" aria-hidden="true" data-toggle="dropdown"></i>  
+            <ul class="dropdown-menu" style="text-align: center">
+                <li><a href="#">Order History</a></li>
+                <hr class="sidebar-divider">
+                <li><a href="{{ route('user.edit',Auth::user()) }}">Edit infomation</a></li>
+                <hr class="sidebar-divider">
+                <li>
+                    <a class="btn btn-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+                
+            </ul>  
         </div>
-        <div class="order-history" onclick="location.href='../OrderHistory/index.html'">Order History</div>
-        <img id="logo-img1" src="{{ asset('img/Frame2.png') }}" alt="logo image">
+        <img id="logo-img1" src="{{ asset('picture/Frame2.png') }}" alt="logo image">
         <h4 id="logo-name1">CAPPUCCINO <br> DELIVERY</h4>
     </div>
     <h3 id="select-cf">SELECT YOUR COFFEE</h3>
     {{-- Content --}}
 
-
+    {{--  Menu Mobile  --}}
+    <div class="nav-menu-mobile">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="navbar bg-white">
+                    <div class="navbar-nav">
+                        <a class="nav-item" href="#coffee">
+                            <h4 class="nav-name">Coffee</h4>
+                        </a>
+                        <a class="nav-item" href="#iced-blended">
+                            <h4 class="nav-name">Iced Blended</h4>
+                        </a>
+                        <a class="nav-item" href="#tea">
+                            <h4 class="nav-name">Tea</h4>
+                        </a>
+                        <a class="nav-item" href="#smoothie">
+                            <h4 class="nav-name">Smoothie</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- Page content --}}
     <div class="container-fluid px-0">
         <div class="row mx-0">
@@ -94,7 +133,7 @@
                                 <button 
                                 type="button" 
                                 class="button-order"
-                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}'),getId({{$c->idDrink}})"
+                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}',{{$c->idDrink}})"
                                 >Order</button>
                             </div>
                         </div>
@@ -118,7 +157,7 @@
                                     <button 
                                     type="button" 
                                     class="button-order"
-                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}'),getId({{$c->idDrink}})"
+                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}',{{$i->idDrink}})"
                                     >Order</button>
                                 </div>
                             </div>
@@ -142,7 +181,7 @@
                                     <button 
                                     type="button" 
                                     class="button-order"
-                                    onclick="openOrderForm('{{$t->name}}', '{{$t->picture}}','{{$t->description}}','{{$t->price}}')"
+                                    onclick="openOrderForm('{{$t->name}}', '{{$t->picture}}','{{$t->description}}','{{$t->price}}',{{$t->idDrink}})"
                                     >Order</button>
                                 </div>
                             </div>
@@ -166,7 +205,8 @@
                                     <button 
                                     type="button" 
                                     class="button-order" 
-                                    onclick="openOrderForm('{{$s->name}}', '{{$s->picture}}','{{$s->description}}','{{$s->price}}')">Order</button>
+                                    onclick="openOrderForm('{{$s->name}}', '{{$s->picture}}','{{$s->description}}','{{$s->price}}',{{$s->idDrink}})">
+                                    Order</button>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +245,7 @@
         <div class="footer">
             <div class="row mx-0">
                 <div class="col-lg-4 logo-brand">
-                    <img class="logo-img2" src="{{asset('img/Frame2.png')}}" alt="logo image">
+                    <img class="logo-img2" src="{{asset('picture/Frame2.png')}}" alt="logo image">
                     <h4 class="logo-name2">CAPPUCCINO <br>DELIVERY</h4>
                 </div>
                 <div class="col-lg-8">
@@ -226,7 +266,7 @@
                 <div class="order-container">
                     <div class="order-detail">
                         <i class="close-btn fas fa-times"></i>
-                        
+
                         <div class="order-size">
                             <p class="p-model">Size: </p>
                             <div class="choose-size">
@@ -244,53 +284,20 @@
                                 </div>
                             </div>
                         </div>
-
+                        {{-- Topping --}}
                         <div class="order-customize">
                             <p class="p-model">Topping: </p>
+                            @foreach($toppings as $topping)
                             <div class="customize-item">
                                 <div class="topping-item">
+                                    <span id="idTopping">{{ $topping->idTopping }}</span>
                                     <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Ice cream</p>
+                                    <p class="p-model">{{$topping->name}}</p>
                                 </div>
-                                <span>+5000 VND</span>
+                                <span>+{{$topping->price}} VND</span>
                             </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="10000">
-                                    <p class="p-model">Sweet Serup</p>
-                                </div>
-                                <span>+10000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Vanilla</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="8000">
-                                    <p class="p-model">Butter</p>
-                                </div>
-                                <span>+8000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Spices</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Non-dairy milks</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
+                            @endforeach
                         </div>
-
                         <div class="order-note">
                             <div class="item">
                                 <p class="p-model">Note:</p>
@@ -305,7 +312,7 @@
                             <i class="plus-btn asc fa fa-plus-circle"></i>
                         </div>
                         <div class="add">
-                            <p class="p-model" id="add">Add to Cart</p>
+                            <p class="p-model" id="add" >Add to Cart</p>
                         </div>
                     </div>
                 </div>

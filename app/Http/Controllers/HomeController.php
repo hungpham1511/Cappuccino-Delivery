@@ -40,6 +40,9 @@ class HomeController extends Controller
                         ->select('*')
                         ->where('category','=','Smoothie')
                         ->get();
-        return view('orderpage',compact('coffee', 'tea', 'iceBlended','smoothie'));
+        $toppings = DB::table('topping')
+                        ->select('*')
+                        ->get();
+        return view('orderpage',compact('coffee', 'tea', 'iceBlended','smoothie','toppings'));
     }
 }

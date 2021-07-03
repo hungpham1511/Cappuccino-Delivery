@@ -1,4 +1,4 @@
-/* Created by Hung Pham on 29/06/2021 */
+/* Customize button, radio & checkbox */
 
 .navback-btn {
     z-index: 2;
@@ -26,6 +26,8 @@ input[type="checkbox"]:checked {
     background-color: #b78546 !important;
     border-color: #b78546 !important;
 }
+
+/* Header & title */
 
 .navbar-brand {
     display: inline-block;
@@ -75,4 +77,65 @@ h3 {
     font-weight: 500;
     font-size: 30px;
     text-align: center;
+}
+
+/* Border section container */
+
+.section-border {
+    box-shadow: 0px 1px 7px 0px #888888;
+    border-radius: 0.25rem;
+}
+
+/* Anchor for receipt */
+
+.anchor {
+    position: sticky;
+    top: 10%;
+}
+
+/* Receipt style */
+
+.amount,
+.cost1,
+.cost2,
+.cost3,
+.cost4,
+.total
+.shipping
+.sum {
+    text-align: right;
+}
+
+.border-bottom-none {
+    border-bottom: none !important;
+}
+
+.border-top-none {
+    border-top: none !important;
+}
+
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+    background-color: #ffffff !important;
+    --bs-table-accent-bg: #ffffff !important;
+}
+
+.shipping,
+.cost4,
+.td-input,
+.td-button1,
+.td-button2 {
+    border: none !important;
+}
+
+.td-img {
+    width: 50px;
+}
+
+.img-item {
+    width: 50px;
+    height: 50px;
 }

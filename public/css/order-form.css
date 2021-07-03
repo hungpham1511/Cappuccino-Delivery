@@ -254,3 +254,9 @@ html {
 .add p:first-child {
     font-weight: bold;
 }
+
+#idDrink,#idTopping{
+    width:0;
+    height:0;
+    z-index: -5;
+}

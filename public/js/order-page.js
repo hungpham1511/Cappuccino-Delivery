@@ -1,4 +1,5 @@
-
+var drinkLength =0;
+var drink = [];
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
 for (i = 0; i < radios.length; i++) {
@@ -71,7 +72,7 @@ function custom(p) {
     var addToCartBtn = document.querySelector('.add')
     addToCartBtn.addEventListener('click', function(){
         var orderImg = document.querySelector('.order-img');
-        var orderName = document.querySelector('.p-model>b').innerHTML;
+        const orderName = document.querySelector('#p-model-name').innerHTML;
         var quantity = document.querySelector('#count-value');
         const size = document.querySelectorAll('.size');
         var sizeDetail = "";
@@ -88,7 +89,6 @@ function custom(p) {
                 }
             };
         }
-        console.log(sizeDetail);
 
         const toppingCheck = document.querySelectorAll('.topping')
         var toppingDetails = "";
@@ -121,11 +121,41 @@ function custom(p) {
 
         total.innerHTML = `${sumValue} VND`
     
+        // Set cookie 
+        drinkLength = drinkLength + 1;
+
+        getData(sizeDetail,drinkLength);
         // Exit
         close();
     })
 }
+function getData(size,drinkLength) {
+    
+    const cid = document.querySelector('#idDrink').innerHTML;
 
+        const toppingCheck = document.querySelectorAll('.topping')
+        var toppingDetails = "";
+        for(var i=0;i<toppingCheck.length;i++){
+            if(toppingCheck[i].checked==true){
+                toppingDetails +=toppingCheck[i].previousElementSibling.innerHTML+" ";
+            }
+        }
+
+    
+        const amount = document.getElementById("count-value").innerHTML;
+        const detail = "Nuoc "+drinkLength+": "+cid + " " +size + " " +toppingDetails+ " " +amount;
+        drink.push(detail);
+        const viewCart = document.querySelector(".button-view");
+        viewCart.addEventListener("click",function(){
+            const drinkJSON = JSON.stringify(drink);
+            const nuoc = "drink";
+            setCookie(nuoc, drinkJSON);
+        })
+}
+
+function setCookie(cname, cvalue){
+    document.cookie = cname + '=' + cvalue;
+}
 // Add to cart button
 // Close
 var closeBtn = document.querySelector('.close-btn');
@@ -136,16 +166,17 @@ exit.addEventListener('click',()=>close())
 
 
 // Open order form
-function openOrderForm(name,img,des,price) {
+function openOrderForm(name,img,des,price,id) {
     document.querySelector('.model').classList.remove('hidden');//Show model
     // Insert order name into order detail
     const orderDetail = document.querySelector('.order-detail');
     const orderName = 
     ` 
     <div class="order-name">
+        <span id="idDrink">${id}</span>
         <img src="${img}" class="order-img" alt="Frappe">
         <div>
-            <p class="p-model" style="padding-top: 5px"><b style="font-size:16px">${name}</b></p>
+            <p class="p-model" style="padding-top: 5px"><b id="p-model-name"style="font-size:16px">${name}</b></p>
             <p class="p-model">${des}</p>
             <p class="p-model" id="order-size"></p>
         </div>
@@ -169,11 +200,13 @@ function openOrderForm(name,img,des,price) {
 
     // Customize
     custom(price);
+
 }
 
-function getId(id) {
-    console.log(id);
-}
+
+// function setCookie(cname,cvalue){
+//     document.cookie = cname + "=" + cvalue;
+// }
 
 // Close order form
 function close(){

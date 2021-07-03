@@ -46,7 +46,19 @@ body {
     color: #603813;
     font-size: 30px;
 }
-.order-history{
+
+.dropdown-menu>li>a {
+    color: #000;
+    padding: 0;
+}
+
+.dropdown-menu>li>a:hover {
+    text-decoration: none;
+    color: #007bff;
+}
+
+
+/* .order-history{
     position: absolute;
     top: 10%;
     right: 10%;
@@ -54,7 +66,8 @@ body {
     padding: 5px;
     color: #603813;
     cursor: pointer;
-}
+} */
+
 
 /* Select coffee */
 
@@ -70,7 +83,7 @@ body {
     box-shadow: 0px 1px 7px 0px #888888;
 }
 
-.nav-menu-web {
+#nav-menu-web {
     position: sticky;
     top: 15%;
     left: 1%;

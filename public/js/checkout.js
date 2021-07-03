@@ -1,5 +1,3 @@
-// Created by Hung Pham on 29/06/2021
-
 //Weekly book hide
 function weeklybook() {
     var checkBox = document.getElementById("isWeeklyBook");
