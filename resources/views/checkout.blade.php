@@ -1,5 +1,3 @@
-<!-- Created by Hung Pham on 29/06/2021 -->
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -16,7 +14,7 @@
     <link href="{{ asset('css/checkout.css')}}" rel="stylesheet" type="text/css" media="all">
 
     <!-- Favicon-->
-    <link href="img/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
+    <link href="img/logo.png" rel="icon" type="image/x-icon" media="all">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -62,9 +60,9 @@
                 <div class="container-fluid">
                     @csrf
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <!-- Customer infomation -->
-                            <div class="container-fluid border py-3 px-3 mb-4">
+                            <div class="container-fluid section-border py-3 px-3 mb-4">
                                 <h3 class="mb-3">1. Please confirm your order</h3>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
@@ -86,7 +84,7 @@
                                 </div>
                             </div>
                             <!-- Payment method -->
-                            <div class="container-fluid border py-3 px-3 mb-4">
+                            <div class="container-fluid section-border py-3 px-3 mb-4">
                                 <h3 class="mb-3">2. Term of payments</h3>
                                 <div class="form-check pt-3">
                                     <input class="form-check-input" type="radio" name="paymentmethod" id="cod" value="cod" checked>
@@ -100,7 +98,7 @@
                                 </div>
                             </div>
                             <!-- Weekly book -->
-                            <div class="container-fluid border py-3 px-3 mb-4">
+                            <div class="container-fluid section-border py-3 px-3 mb-4">
                                 <h3 class="mb-3">3. Weeklybook</h3>
                                 <div class="form-check form-switch ml-3">
                                     <input class="form-check-input" type="checkbox" id="isWeeklyBook" name="isWeeklyBook" onclick="weeklybook()">
@@ -158,14 +156,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="container-fluid border py-3 px-3">
+                        <div class="col-lg-5">
+                            <div class="container-fluid section-border anchor py-3 px-3">
                                 <h3 class="mb-3">4. Receipt</h3>
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <td colspan="4" class="amount">Amount</td>
-                                            <td class="cost1">Cost</td>
+                                            <td colspan="4" class="amount border-top-none"">Amount</td>
+                                            <td class="cost1 border-top-none"">Cost</td>
                                         </tr>
                                     </thead>
                                     <tbody class="cart-detail">
@@ -174,21 +172,34 @@
                                             <td class="total"></td>
                                         </tr>
                                     </tbody>
+                                    <tfoot>
+                                        <tr class="row2">
+                                            <td colspan="4">Sum</td>
+                                            <td class="sum"></td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td colspan="4">Shipping</td>
+                                            <td class="shipping"></td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td colspan="5">
+                                                <div class="input-group py-2">
+                                                    <input type="text" class="form-control" id="promotion" name="promotion" placeholder="Promotion">
+                                                    <button class="btn btn-brand-color" type="button">Submit</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td colspan="4">Total</td>
+                                            <td class="Total"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-bottom-none" colspan="5">
+                                                <button id="modalbtn" type="button" data-toggle="modal" data-target="#checkoutmodel" class="mt-2 btn col-12 btn-brand-color" disabled>Buy now</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
-                                <p class="receipt-text money-out-table mt-3">
-                                    Sum <span style="float: right">100.000 VND</span>
-                                </p>
-                                <p class="receipt-text money-out-table">
-                                    Shipping <span style="float: right">0 VND</span>
-                                </p>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="promotion" name="promotion" placeholder="Promotion">
-                                    <button class="btn btn-brand-color" type="button">Submit</button>
-                                </div>
-                                <p class="receipt-text money-out-table mt-3">
-                                    Total <span style="float: right">100.000 VND</span>
-                                </p>
-                                <button id="modalbtn" type="button" data-toggle="modal" data-target="#checkoutmodel" class="btn col-12 btn-brand-color" disabled>Buy now</button>
                             </div>
                         </div>
                     </div>

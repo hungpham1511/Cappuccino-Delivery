@@ -29,28 +29,34 @@ class CheckoutController extends Controller
 
     public function create(Request $request)
     {
+        $dark = $_COOKIE['laravel_session'];
+        $dark2 = '1 S 5 1';
+        $dark2slipt = explode(" ", $dark2);
+
+        return count($dark2slipt);
         $isWeeklyBook = $request->input('isWeeklyBook');
-        if ($request->input('mon') == true) $mon = 1;
-        else $mon = 0;
-        if ($request->input('tue') == true) $tue = 1;
-        else $tue = 0;
-        if ($request->input('wed') == true) $wed = 1;
-        else $wed = 0;
-        if ($request->input('thu') == true) $thu = 1;
-        else $thu = 0;
-        if ($request->input('fri') == true) $fri = 1;
-        else $fri = 0;
-        if ($request->input('sat') == true) $sat = 1;
-        else $sat = 0;
-        if ($request->input('sun') == true) $sun = 1;
-        else $sun = 0;
-        $startDay = $request->input('startdate');
-        $endDay = $request->input('enddate');
-        $time = $request->input('time');
-        if ($isWeeklyBook == true)
+        if ($isWeeklyBook == true) {
+            if ($request->input('mon') == true) $mon = 1;
+            else $mon = 0;
+            if ($request->input('tue') == true) $tue = 1;
+            else $tue = 0;
+            if ($request->input('wed') == true) $wed = 1;
+            else $wed = 0;
+            if ($request->input('thu') == true) $thu = 1;
+            else $thu = 0;
+            if ($request->input('fri') == true) $fri = 1;
+            else $fri = 0;
+            if ($request->input('sat') == true) $sat = 1;
+            else $sat = 0;
+            if ($request->input('sun') == true) $sun = 1;
+            else $sun = 0;
+            $startDay = $request->input('startdate');
+            $endDay = $request->input('enddate');
+            $time = $request->input('time');
             DB::table('detail_weekly_book')->insertGetId(
                 array('mon' => $mon, 'tue' => $tue, 'wed' => $wed, 'thu' => $thu, 'fri' => $fri, 'sat' => $sat, 'sun' => $sun, 'startDay' => $startDay, 'finishDay' => $endDay, 'deliveryTime' => $time)
             );
+        }
         $coffee = DB::table('menu')
             ->select('*')
             ->where('category', '=', 'Coffee')
