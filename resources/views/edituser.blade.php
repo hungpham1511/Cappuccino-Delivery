@@ -11,43 +11,43 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Full Name</strong>
-                        <input type="text" name="fullName" value="{{ $customer->fullName }}" class="form-control" placeholder="Nguyễn Văn A">
+                        <input type="text" name="fullName"  class="form-control" placeholder="Nguyễn Văn A">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Username</strong>
-                        <input type="text" name="username" value="{{ $customer->username }}" class="form-control" placeholder="NVA123">
+                        <input type="text" name="username" class="form-control" placeholder="NVA123">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Gender</strong>
-                        <input type="number" name="gender" value="{{ $customer->gender }}" class="form-control" placeholder="1: Male    2: Female    3: Other">
+                        <input type="number" name="gender" class="form-control" placeholder="1: Male    2: Female    3: Other">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Phone</strong>
-                        <input type="number" name="phone" value="{{ $customer->phone }}" class="form-control" placeholder="0124356789">
+                        <input type="number" name="phone" class="form-control" placeholder="0124356789">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Address</strong>
-                        <input type="text" name="address" value="{{ $customer->address }}" class="form-control" placeholder="13 Mai Văn Vĩnh, Tân Quy, Quận 7, Thành phố Hồ Chí Minh">
+                        <input type="text" name="address" class="form-control" placeholder="13 Mai Văn Vĩnh, Tân Quy, Quận 7, Thành phố Hồ Chí Minh">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Email</strong>
-                        <input type="text" name="email" value="{{ $customer->email }}" class="form-control" placeholder="abcxyz@gmail.com">
+                        <input type="text" name="email"  class="form-control" placeholder="abcxyz@gmail.com">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Password</strong>
-                        <input type="text" name="password" value="{{ $customer->password }}" class="form-control" placeholder="nva24rhe3">
+                        <input type="text" name="password" class="form-control" placeholder="nva24rhe3">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
