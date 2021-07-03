@@ -9,7 +9,7 @@
     <link href="{{ asset('css/order-form.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('css/order-form-responsive.css')}}" rel="stylesheet" type="text/css" media="all">
     <!-- Favicon -->
-    <link href="img/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
+    <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cappucino Delivery</title>
@@ -31,10 +31,24 @@
     {{-- Header --}}
     <div class="header">
         <div class="user">
-            <i id="user-icon" class="fas fa-user" aria-hidden="true" onclick="location.href='/User/Checkout/index.html'"></i>
+            <i id="grocery-icon" class="fas fa-user dropdown-toggle" aria-hidden="true" data-toggle="dropdown"></i>  
+            <ul class="dropdown-menu" style="text-align: center">
+                <li><a href="#">Order History</a></li>
+                <li><a href="{{ route('edituser') }}">Chỉnh sửa thông tin</a></li>
+                <li>
+                    <a class="btn btn-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            </ul>  
         </div>
-        <div class="order-history" onclick="location.href='../OrderHistory/index.html'">Order History</div>
-        <img id="logo-img1" src="{{ asset('img/Frame2.png') }}" alt="logo image">
+        <img id="logo-img1" src="{{ asset('picture/Frame2.png') }}" alt="logo image">
         <h4 id="logo-name1">CAPPUCCINO <br> DELIVERY</h4>
     </div>
     <h3 id="select-cf">SELECT YOUR COFFEE</h3>
@@ -205,7 +219,7 @@
         <div class="footer">
             <div class="row mx-0">
                 <div class="col-lg-4 logo-brand">
-                    <img class="logo-img2" src="{{asset('img/Frame2.png')}}" alt="logo image">
+                    <img class="logo-img2" src="{{asset('picture/Frame2.png')}}" alt="logo image">
                     <h4 class="logo-name2">CAPPUCCINO <br>DELIVERY</h4>
                 </div>
                 <div class="col-lg-8">
@@ -226,7 +240,7 @@
                 <div class="order-container">
                     <div class="order-detail">
                         <i class="close-btn fas fa-times"></i>
-                        
+
                         <div class="order-size">
                             <p class="p-model">Size: </p>
                             <div class="choose-size">

@@ -29,3 +29,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/checkout/create','CheckoutController@create')->name('checkout.create');
+Route::get('/home/edit',[App\Http\Controllers\UserController::class, 'index'])->name('edituser');
