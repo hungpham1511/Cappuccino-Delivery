@@ -129,8 +129,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Picture</strong>
-                    <input type="file" name="picture" class="form-control" placeholder="Picture">
-                    <img src="/picture/{{ $drink->picture }}" width="300px">
+                    <input type="text" name="picture" class="form-control" placeholder="Picture">
+                    <img src="{{ $drink->picture }}" width="300px">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
