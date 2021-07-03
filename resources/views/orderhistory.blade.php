@@ -85,36 +85,12 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             
             <tr>
-                <th>Id</th>
+                <th>IdReceipt</th>
                 <th>Name</th>
-                <th>Amount</th>
                 <th>Date</th>
-                <th>Status</th>
                 <th>Price</th>  
-                <th>Total</th>  
             </tr>
-            @foreach($drink as $drink)
-            @foreach($receipts as $receipt)
-            <tr>
-                <td>{{ $receipt->idReceipt }}</td>
-                <td>{{ $receipt->name }}</td>
-           {{-- <td>{{ $receipt->Amount }}</td> --}}
-                <td>{{ $receipt->receiptDate }}</td>          
-                @if ($receipt->status == 1)
-                    <td>Order Received</td>
-                @elseif ($receipt->status == 2)
-                    <td>Payment Received</td>
-                @elseif ($receipt->status == 3)
-                    <td>Delivering</td>
-                @else <td>Finished</td>
-                @endif
-                <td>{{ $receipt->Price }}</td>
-                <td>{{ $receipt->total }}</td>
-            @endforeach
-            @endforeach
-            
-           
-    
+
         </table>
 
        
