@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -30,3 +31,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/checkout/create','CheckoutController@create')->name('checkout.create');
 Route::get('/home/edit',[App\Http\Controllers\UserController::class, 'index'])->name('edituser');
+
+// Route::group(['middleware' => 'adminauth'], function () {
+// 	// User
+// 	Route::get('/customers','UserController@index')->name('customers.index');
+// 	Route::get('/customers/{customer}/edit','UserController@edit')->name('customers.edit');
+// 	Route::put('/customers/{customer}','UserController@update')->name('customers.update');
+// });

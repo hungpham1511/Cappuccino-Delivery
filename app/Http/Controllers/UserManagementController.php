@@ -55,16 +55,6 @@ class UserManagementController extends Controller
             ->with('success', 'Congratulate! Customer has been created successfully.');
     }
 
-    public function edit(User $customer)
-    {
-        //
-    }
-    
-    public function update(Request $request, User $customer)
-    {
-       //
-    }
-    
     public function destroy(User $customer)
     {
         $customer->delete();
