@@ -40,7 +40,29 @@
     <h3 id="select-cf">SELECT YOUR COFFEE</h3>
     {{-- Content --}}
 
-
+    {{--  Menu Mobile  --}}
+    <div class="nav-menu-mobile">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="navbar bg-white">
+                    <div class="navbar-nav">
+                        <a class="nav-item" href="#coffee">
+                            <h4 class="nav-name">Coffee</h4>
+                        </a>
+                        <a class="nav-item" href="#iced-blended">
+                            <h4 class="nav-name">Iced Blended</h4>
+                        </a>
+                        <a class="nav-item" href="#tea">
+                            <h4 class="nav-name">Tea</h4>
+                        </a>
+                        <a class="nav-item" href="#smoothie">
+                            <h4 class="nav-name">Smoothie</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- Page content --}}
     <div class="container-fluid px-0">
         <div class="row mx-0">
@@ -94,7 +116,7 @@
                                 <button 
                                 type="button" 
                                 class="button-order"
-                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}'),getId({{$c->idDrink}})"
+                                onclick="openOrderForm('{{$c->name}}', '{{$c->picture}}','{{$c->description}}','{{$c->price}}',{{$c->idDrink}})"
                                 >Order</button>
                             </div>
                         </div>
@@ -118,7 +140,7 @@
                                     <button 
                                     type="button" 
                                     class="button-order"
-                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}'),getId({{$c->idDrink}})"
+                                    onclick="openOrderForm('{{$i->name}}', '{{$i->picture}}','{{$i->description}}','{{$i->price}}',{{$i->idDrink}})"
                                     >Order</button>
                                 </div>
                             </div>
@@ -142,7 +164,7 @@
                                     <button 
                                     type="button" 
                                     class="button-order"
-                                    onclick="openOrderForm('{{$t->name}}', '{{$t->picture}}','{{$t->description}}','{{$t->price}}')"
+                                    onclick="openOrderForm('{{$t->name}}', '{{$t->picture}}','{{$t->description}}','{{$t->price}}',{{$t->idDrink}})"
                                     >Order</button>
                                 </div>
                             </div>
@@ -166,7 +188,8 @@
                                     <button 
                                     type="button" 
                                     class="button-order" 
-                                    onclick="openOrderForm('{{$s->name}}', '{{$s->picture}}','{{$s->description}}','{{$s->price}}')">Order</button>
+                                    onclick="openOrderForm('{{$s->name}}', '{{$s->picture}}','{{$s->description}}','{{$s->price}}',{{$s->idDrink}})">
+                                    Order</button>
                                 </div>
                             </div>
                         </div>
@@ -244,53 +267,20 @@
                                 </div>
                             </div>
                         </div>
-
+                        {{-- Topping --}}
                         <div class="order-customize">
                             <p class="p-model">Topping: </p>
+                            @foreach($toppings as $topping)
                             <div class="customize-item">
                                 <div class="topping-item">
+                                    <span id="idTopping">{{ $topping->idTopping }}</span>
                                     <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Ice cream</p>
+                                    <p class="p-model">{{$topping->name}}</p>
                                 </div>
-                                <span>+5000 VND</span>
+                                <span>+{{$topping->price}} VND</span>
                             </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="10000">
-                                    <p class="p-model">Sweet Serup</p>
-                                </div>
-                                <span>+10000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Vanilla</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="8000">
-                                    <p class="p-model">Butter</p>
-                                </div>
-                                <span>+8000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Spices</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
-                            <div class="customize-item">
-                                <div class="topping-item">
-                                    <input class="topping" type="radio" value="5000">
-                                    <p class="p-model">Non-dairy milks</p>
-                                </div>
-                                <span>+5000 VND</span>
-                            </div>
+                            @endforeach
                         </div>
-
                         <div class="order-note">
                             <div class="item">
                                 <p class="p-model">Note:</p>
@@ -305,7 +295,7 @@
                             <i class="plus-btn asc fa fa-plus-circle"></i>
                         </div>
                         <div class="add">
-                            <p class="p-model" id="add">Add to Cart</p>
+                            <p class="p-model" id="add" >Add to Cart</p>
                         </div>
                     </div>
                 </div>
