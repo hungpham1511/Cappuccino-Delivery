@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
-
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -25,8 +25,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/checkout/create','CheckoutController@create')->name('checkout.create');
-Route::get('/home/edit',[App\Http\Controllers\UserController::class, 'index'])->name('edituser');
+
+
+Route::get('/home/edit/{user}','UserController@edit')->name('user.edit');
+Route::patch('/home/edit/{user}/update','UserController@update')->name('user.update');
+

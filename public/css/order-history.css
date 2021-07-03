@@ -1,0 +1,83 @@
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+.logo-name {
+    font-family: Righteous;
+    font-style: Regular;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #232323;
+    text-align: center;
+}
+ .back {
+    color:  #603813;font-size: large;text-align: center;
+    cursor: pointer;
+}
+
+.content-order {
+    color: #603813;
+     font-size: 18pt;
+    font-family: Roboto;
+    text-align: center;
+}
+.container-fluid {
+    border:solid 0.5px rgb(224, 223, 223);
+    border-color: rgb(224, 223, 223);
+}
+.cart{
+    text-align: right;
+}
+
+.button {  
+    display: inline-block; 
+    box-shadow: 2px 2px 2px rgb(255, 255, 248);
+    border-color: rgb(245, 207, 157);
+    background-color: #B78546;
+    color: white;   
+    height: 50px;
+    width: 150px;   
+            
+}
+
+.col-sm-3 {
+    text-align: right; 
+    font-family: Roboto ; 
+    font-size: 22px;
+    color: #603813;
+
+}
+.col-sm-1 {
+    text-align: center;
+    font-family: Roboto ; 
+    font-size: 22px;
+    color: #603813;
+}
+.col-sm-4 {
+    text-align: center;
+    font-family: Roboto ; 
+    font-size: 22px;
+    color: #603813;
+}
+.col-sm-6 {
+    text-align: center;
+    font-family: Roboto ; 
+    font-size: 24px;
+    color: #B78546;
+}
+.col-sm-2 {
+    text-align: left;
+    font-family: Roboto ; 
+    font-size: 22px;
+    color: #603813;
+}
+
+
+
+
+

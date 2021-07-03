@@ -51,7 +51,7 @@
                     <a href="{{ url('/home') }}" class="btn">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </a>
-                </div>`
+                </div>
                 <div class="col-12">
                     <p class="title">Checkout</p>
                 </div>

@@ -101,14 +101,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Id User</strong>
-                    <input type="number" name="idUser" value="{{ $receipt->idUser }}"class="form-control">
+                    <strong>IdUser</strong>
+                    <input type="number" name="idUser" value="{{ $receipt->idUser }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Id Receipt</strong>
-                    <input type="text" name="idReceipt" value="{{ $receipt->idReceipt }}"class="form-control">
+                    <strong>IdReceipt</strong>
+                    <input type="text" name="idReceipt" value="{{ $receipt->idReceipt }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

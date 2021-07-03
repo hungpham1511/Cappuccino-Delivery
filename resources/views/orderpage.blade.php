@@ -34,7 +34,9 @@
             <i id="grocery-icon" class="fas fa-user dropdown-toggle" aria-hidden="true" data-toggle="dropdown"></i>  
             <ul class="dropdown-menu" style="text-align: center">
                 <li><a href="#">Order History</a></li>
-                <li><a href="{{ route('edituser') }}">Chỉnh sửa thông tin</a></li>
+                <hr class="sidebar-divider">
+                <li><a href="{{ route('user.edit',Auth::user()) }}">Edit infomation</a></li>
+                <hr class="sidebar-divider">
                 <li>
                     <a class="btn btn-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -46,6 +48,7 @@
                         @csrf
                     </form>
                 </li>
+                
             </ul>  
         </div>
         <img id="logo-img1" src="{{ asset('picture/Frame2.png') }}" alt="logo image">
