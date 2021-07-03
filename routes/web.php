@@ -5,10 +5,6 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\UserController;
-<<<<<<< HEAD
-=======
-
->>>>>>> a30d2504ebd380c558056cb30d77f94fe8ad0810
 
 
 /*
@@ -33,18 +29,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('orderpage');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/checkout/create','CheckoutController@create')->name('checkout.create');
-<<<<<<< HEAD
 
 
 Route::get('/home/edit/{user}','UserController@edit')->name('user.edit');
 Route::patch('/home/edit/{user}/update','UserController@update')->name('user.update');
-=======
-Route::get('/home/edit',[App\Http\Controllers\UserController::class, 'index'])->name('edituser');
 
-// Route::group(['middleware' => 'adminauth'], function () {
-// 	// User
-// 	Route::get('/customers','UserController@index')->name('customers.index');
-// 	Route::get('/customers/{customer}/edit','UserController@edit')->name('customers.edit');
-// 	Route::put('/customers/{customer}','UserController@update')->name('customers.update');
-// });
->>>>>>> a30d2504ebd380c558056cb30d77f94fe8ad0810
