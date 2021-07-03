@@ -134,7 +134,7 @@
                                     <th>Name</th>
                                     <th>Picture</th>
                                     <th>Price</th>  
-                                    <th>Description</th>
+                                    <th style="width: 400px">Description</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($drinks as $drink)
