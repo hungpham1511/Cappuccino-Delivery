@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\DetailReceipt;
 
 
-class ordercontroller extends Controller
+class orderhistorycontroller extends Controller
 {
     public function __construct()
     {
@@ -19,9 +19,9 @@ class ordercontroller extends Controller
     {
         $receipt = DB::table('detail_receipt')->join('menu', 'detail_receipt.idDrink', '=', 'menu.idDrink')->get();
         $receipt = DB::table('detail_receipt')->join('receipt', 'detail_receipt.idReceipt', '=', 'receipt.idReceipt')->get();
-        $receipt = DB::table('detail_receipt')->join('users', 'detail_receipt.idUser', '=', 'users.idUser')->get();
+        // $receipt = DB::table('detail_receipt')->join('users', 'detail_receipt.idUser', '=', 'users.idUser')->get();
 
-        $receipt = receipt::where('idUser',Session::get('idUser'))->orderBy('idReceipt', 'desc')->paginate(10);
+        // $receipt = receipt::where('idUser',Session::get('idUser'))->orderBy('idReceipt', 'desc')->paginate(10);
 
    /*   $Name = receipt::where('idDrink',Session::get('idDrink'))->select('name')-> get();
         $Amount = receipt::where('idReceipt',Session::get('idReceipt'))->select('Amount')-> get();
