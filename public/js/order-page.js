@@ -1,5 +1,7 @@
 var drinkLength =0;
-var drink = "";
+var pictureCookie = "";
+var drinkCookie = "";
+var priceCookie = "";
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
 for (i = 0; i < radios.length; i++) {
@@ -122,32 +124,45 @@ function custom(p) {
         total.innerHTML = `${sumValue} VND`
     
         // Set cookie 
-        drinkLength = drinkLength + 1;
 
-        getData(sizeDetail,drinkLength);
+        getData(sizeDetail,sumValue);
         // Exit
         close();
     })
 }
-function getData(size,drinkLength) {
-    
+function getData(size,sumValue) {
+    // Drink cookie
     const cid = document.querySelector('#idDrink').innerHTML;
 
         const toppingCheck = document.querySelectorAll('.topping')
         var toppingDetails = "";
         for(var i=0;i<toppingCheck.length;i++){
             if(toppingCheck[i].checked==true){
-                toppingDetails +=toppingCheck[i].previousElementSibling.innerHTML;
+                toppingDetails +=toppingCheck[i].previousElementSibling.innerHTML+" ";
             }
         }
 
     
         const amount = document.getElementById("count-value").innerHTML;
-        drink += cid + " " +size + " " +toppingDetails+ " " +amount+"-";
+        drinkCookie += cid + " " +size + " " +toppingDetails+ " " +amount+"-";
+
+    // Image cookie 
+        var imgLink = document.querySelector('.order-img')
+        pictureCookie +=imgLink.src +" ";
+
+
+    // Price cookie
+        drinkPrice = document.querySelector('#totalCost').innerHTML;
+        priceCookie += drinkPrice +" ";
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
             const drinkName = "drink";
-            setCookie(drinkName,drink);
+            const imgSrc = "image";
+            const totalPrice = "price";
+            priceCookie += sumValue;
+            setCookie(drinkName,drinkCookie);
+            setCookie(imgSrc,pictureCookie);
+            setCookie(totalPrice,priceCookie);
         })
 }
 
