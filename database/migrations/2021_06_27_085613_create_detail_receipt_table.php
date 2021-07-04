@@ -23,7 +23,6 @@ class CreateDetailReceiptTable extends Migration
             $table->integer('Sugar')->nullable();
             $table->integer('Ice')->nullable();
             $table->tinyInteger('Size');
-            $table->text('DrinkNote');
             $table->decimal('Price', 22)->default(0.00);
         });
     }

@@ -43,3 +43,33 @@ document.querySelectorAll(".form-control.require").forEach((input) => {
         $("#modalbtn").attr("disabled", !is_valid);
     });
 });
+
+//Receipt
+// function getCookie(name) {
+//     const value = `; ${document.cookie}`;
+//     const parts = value.split(`; ${name}=`);
+//     if (parts.length === 2) return parts.pop().split(';').shift();
+//   }
+// var drinklist=getCookie('drink');
+// var res = drinklist.split("-");
+// res.forEach(receiptDetail);
+// function receiptDetail(drink) {
+//     var elements = drink.split(" ");
+//     <?php echo CheckoutController::drinkimg(elements[1]);?>
+
+//     var pic = {{ CheckoutController::drinkimg(elements[1]); }};
+//     console.log(pic);
+    
+
+//     var message = `<tr class="row1">
+//             <td class="td-img">
+//                 <img class="img-item" src="${orderImg.src}" alt="logo item">
+//             </td>
+//             <td colspan="2">${orderName} ( ${sizeDetail} )<br><span style="font-size: 12px">${toppingDetails}</span></td>
+//             <td>${quantity.innerHTML}</td>
+//             <td class="cost2">${totalCost.innerHTML}</td>
+//         </tr>
+//         `;
+//     document.querySelector('.cart-detail').insertAdjacentHTML('afterbegin',message);
+// }
+

@@ -28,6 +28,14 @@ class CheckoutController extends Controller
         return view('checkout');
     }
 
+    public function drinkimg(int $id)
+    {
+        return DB::table('menu') 
+        ->select('picture')
+        ->where('idDrink','=', $id)
+        ->value('menu');
+    }
+
     public function create(Request $request)
     {
         //add weeklybook
@@ -70,35 +78,45 @@ class CheckoutController extends Controller
         ->select('idPromotion')
         ->where('promotionCode','=', $request->input('promotion'))
         ->value('idPromotion');
+        if ($promotion==null) $promotion=0;
         DB::table('receipt')->insertGetId(
             array('idDetailWeeklyBook' => $idDetailWeeklyBook, 'isWeeklyBook' => $isWeeklyBook, 'note' => $note, 'idPromotion' => $promotion, 'name' => $name, 'address' => $address, 'phone' => $phone, 'payment' => $payment, 'receiptDate' => $timecurrent, 'idUser' => $idUser)
         );
         $idReceipt = DB::table('receipt') -> max('idReceipt'); 
-        return $idUser;
 
         //add detail drink
         $drink = $_COOKIE['drink'];
         $drinkslipt = explode("-", $drink);
+        array_pop($drinkslipt);
         foreach ($drinkslipt as $detaildrink) {
             $info = explode (" ", $detaildrink);
+            $price = DB::table('menu') 
+            ->select('price')
+            ->where('idDrink','=', $info[0])
+            ->value('price');
+            if ($info[1]=="S") $price -= 5000;
+            if ($info[1]=="L") $price += 5000;
+            if ($info[1]=="S") $size = 1;
+            if ($info[1]=="M") $size = 2;
+            if ($info[1]=="L") $size = 3;
+            DB::table('detail_receipt')->insertGetId(
+                array('idReceipt' => $idReceipt, 'idDrink' => $info[0], 'Size' => $size, 'Amount' => $info[count($info)-1])
+            );
+            $idDetailReceipt = DB::table('detail_receipt') -> max('idDetailReceipt'); 
+            for ($i = 2; $i < count($info)-1; $i++) {
+                DB::table('detail_topping')->insertGetId(
+                    array('idTopping' => $info[$i], 'idDetailReceipt' => $idDetailReceipt)
+                );
+                $price += DB::table('topping') 
+                ->select('price')
+                ->where('idTopping','=', $info[$i])
+                ->value('price');
+            }
+            $price *= $info[count($info)-1];
+            DB::table('detail_receipt') 
+            -> where('idDetailReceipt', $idDetailReceipt)
+            -> update(['Price' => $price]);
         }
-
-        $coffee = DB::table('menu')
-            ->select('*')
-            ->where('category', '=', 'Coffee')
-            ->get();
-        $tea = DB::table('menu')
-            ->select('*')
-            ->where('category', '=', 'Tea')
-            ->get();
-        $iceBlended = DB::table('menu')
-            ->select('*')
-            ->where('category', '=', 'Ice Blended')
-            ->get();
-        $smoothie = DB::table('menu')
-            ->select('*')
-            ->where('category', '=', 'Smoothie')
-            ->get();
-        return view('orderpage', compact('coffee', 'tea', 'iceBlended', 'smoothie'));
+        return redirect()->route('orderpage');
     }
 }
