@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Affogato',
                 'picture' => 'https://i.ibb.co/MP2brT2/image7.png',
                 'price' => '50000',
-                'description' => 'an Italian coffee-based dessert',
+                'description' => 'a dessert with two main parts: vanilla ice cream and espress',
             ]
         ]);
         
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Cafe Latte',
                 'picture' => 'https://i.ibb.co/vsNd2KH/cafe-latte.png',
                 'price' => '45000',
-                'description' => 'espresso and steamed milk',
+                'description' => 'a hot drink made from espresso (= strong coffee) and warm milk',
             ]
         ]);
 
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Americano',
                 'picture' => 'https://i.ibb.co/swCYCGr/americano.png',
                 'price' => '45000',
-                'description' => 'an espresso-based drink',
+                'description' => 'a type of coffee drink made by adding hot water to espresso coffee',
             ]
         ]);
         
@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Iced Mocha',
                 'picture' => 'https://i.ibb.co/P6Qg1SZ/iced-mocha.png',
                 'price' => '50000',
-                'description' => 'iced version of mocha coffee',
+                'description' => 'delicious coffee extract and skimmed milk, blended with ice',
             ]
         ]);
         
@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Frappuccino',
                 'picture' => 'https://i.ibb.co/4twwHCf/frappuccino.png',
                 'price' => '55000',
-                'description' => 'coffee ice blended',
+                'description' => 'a line of highly-sweetened iced, blended coffee drinks',
             ]
         ]);
         
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Classic Milk Tea',
                 'picture' => 'https://i.ibb.co/VBxmW6H/classic-milk-tea.png',
                 'price' => '45000',
-                'description' => 'iced tea with tapioca pearls',
+                'description' => 'A cold drink, sweet, milky with a strong taste of creamy black tea',
             ]
         ]);
 
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Lemon Tea',
                 'picture' => 'https://i.ibb.co/CJndkyW/lemon-tea.png',
                 'price' => '45000',
-                'description' => 'add a range of vitamins to your diet',
+                'description' => 'a refreshing tea where lemon juice is added in black or green tea',
             ]
         ]);
 
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Ginger Tea',
                 'picture' => 'https://i.ibb.co/41KCD6q/ginger-tea.png',
                 'price' => '45000',
-                'description' => 'perfect for cold weather, rainy days',
+                'description' => 'a lovely, lightly spicy drink for warming up on cold days',
             ]
         ]);
 
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Mango Smoothie',
                 'picture' => 'https://i.ibb.co/g4Qb2V6/mango-smoothie.png',
                 'price' => '50000',
-                'description' => 'healthy drinks for life',
+                'description' => 'made with fresh mango and a handful of ingredients (dairy or dairy-free)',
             ]
         ]);
 
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Banana Smoothie',
                 'picture' => 'https://i.ibb.co/njYyXSQ/banana-smoothie.png',
                 'price' => '50000',
-                'description' => 'brilliant way to start your day',
+                'description' => 'full of rich banana flavor and is a good source of potassium',
             ]
         ]);
 
