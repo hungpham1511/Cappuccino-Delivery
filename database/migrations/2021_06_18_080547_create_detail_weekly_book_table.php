@@ -25,7 +25,6 @@ class CreateDetailWeeklyBookTable extends Migration
             $table->tinyInteger('fri');
             $table->tinyInteger('sat');
             $table->tinyInteger('sun');
-            $table->timestamps();
         });
     }
 

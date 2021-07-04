@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class CheckoutController extends Controller
 {
@@ -29,13 +30,10 @@ class CheckoutController extends Controller
 
     public function create(Request $request)
     {
-        $dark = $_COOKIE['laravel_session'];
-        $dark2 = '1 S 5 1';
-        $dark2slipt = explode(" ", $dark2);
-
-        return count($dark2slipt);
-        $isWeeklyBook = $request->input('isWeeklyBook');
-        if ($isWeeklyBook == true) {
+        //add weeklybook
+        if ($request->input('isWeeklyBook') == true) $isWeeklyBook = 1;
+            else $isWeeklyBook = 0;
+        if ($isWeeklyBook == 1) {
             if ($request->input('mon') == true) $mon = 1;
             else $mon = 0;
             if ($request->input('tue') == true) $tue = 1;
@@ -57,6 +55,34 @@ class CheckoutController extends Controller
                 array('mon' => $mon, 'tue' => $tue, 'wed' => $wed, 'thu' => $thu, 'fri' => $fri, 'sat' => $sat, 'sun' => $sun, 'startDay' => $startDay, 'finishDay' => $endDay, 'deliveryTime' => $time)
             );
         }
+        if ($request->input('isWeeklyBook') == true) $idDetailWeeklyBook = DB::table('detail_weekly_book') -> max('idDetailWeeklyBook'); 
+            else $idDetailWeeklyBook = 0;
+        //add receipt
+        $idUser = Auth::user()->idUser;
+        if ($request->input('paymentmethod')=="cod") $payment = 1;
+            else $payment = 2;
+        $timecurrent = date("Y/m/d");
+        $name = $request->input('name');
+        $address = $request->input('address');
+        $phone = $request->input('number');
+        $note = $request->input('note');
+        $promotion = DB::table('promotion') 
+        ->select('idPromotion')
+        ->where('promotionCode','=', $request->input('promotion'))
+        ->value('idPromotion');
+        DB::table('receipt')->insertGetId(
+            array('idDetailWeeklyBook' => $idDetailWeeklyBook, 'isWeeklyBook' => $isWeeklyBook, 'note' => $note, 'idPromotion' => $promotion, 'name' => $name, 'address' => $address, 'phone' => $phone, 'payment' => $payment, 'receiptDate' => $timecurrent, 'idUser' => $idUser)
+        );
+        $idReceipt = DB::table('receipt') -> max('idReceipt'); 
+        return $idUser;
+
+        //add detail drink
+        $drink = $_COOKIE['drink'];
+        $drinkslipt = explode("-", $drink);
+        foreach ($drinkslipt as $detaildrink) {
+            $info = explode (" ", $detaildrink);
+        }
+
         $coffee = DB::table('menu')
             ->select('*')
             ->where('category', '=', 'Coffee')
