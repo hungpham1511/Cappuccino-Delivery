@@ -103,7 +103,7 @@ class CheckoutController extends Controller
                 array('idReceipt' => $idReceipt, 'idDrink' => $info[0], 'Size' => $size, 'Amount' => $info[count($info)-1])
             );
             $idDetailReceipt = DB::table('detail_receipt') -> max('idDetailReceipt'); 
-            for ($i = 2; $i < count($info)-1; $i++) {
+            for ($i = 2; $i < count($info)-2; $i++) {
                 DB::table('detail_topping')->insertGetId(
                     array('idTopping' => $info[$i], 'idDetailReceipt' => $idDetailReceipt)
                 );

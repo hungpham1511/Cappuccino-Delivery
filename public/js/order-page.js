@@ -153,7 +153,7 @@ function getData(size,sumValue) {
 
     // Price cookie
         drinkPrice = document.querySelector('#totalCost').innerHTML;
-        priceCookie += drinkPrice +" ";
+        priceCookie += drinkPrice +"-";
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
             const drinkName = "drink";
