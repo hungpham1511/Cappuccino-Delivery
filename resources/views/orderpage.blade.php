@@ -86,27 +86,29 @@
             {{-- Navigation menu --}}
             <div class="col-lg-2">
                 <!-- Menu Web -->
-                <div class="list-group" id="nav-menu-web">
-                    <div class="list-group-item">
-                        <a href="#">
-                            <h4 id="link-menu">Menu</h4>
-                        </a>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="navbar bg-white">
-                            <div class="navbar-nav">
-                                <a class="nav-item" href="#coffee">
-                                    <h4>Coffee</h4>
-                                </a>
-                                <a class="nav-item" href="#iced-blended">
-                                    <h4>Iced Blended</h4>
-                                </a>
-                                <a class="nav-item" href="#tea">
-                                    <h4>Tea</h4>
-                                </a>
-                                <a class="nav-item" href="#smoothie">
-                                    <h4>Smoothie</h4>
-                                </a>
+                <div class="nav-menu-web">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <a href="#">
+                                <h4 id="link-menu">Menu</h4>
+                            </a>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="navbar bg-white">
+                                <div class="navbar-nav">
+                                    <a class="nav-item" href="#coffee">
+                                        <h4>Coffee</h4>
+                                    </a>
+                                    <a class="nav-item" href="#iced-blended">
+                                        <h4>Iced Blended</h4>
+                                    </a>
+                                    <a class="nav-item" href="#tea">
+                                        <h4>Tea</h4>
+                                    </a>
+                                    <a class="nav-item" href="#smoothie">
+                                        <h4>Smoothie</h4>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,7 +117,24 @@
         
             {{-- Menu --}}
             <div class="col-lg-6">
-                <input type="text" id="search" placeholder="Search..."><br>
+                {{-- Search --}}
+                <form action="" method="GET" role="search">
+                    <div class="input-group search-bar">
+                        <span class="input-group-btn mr-2">
+                            <button class="btn btn-primary" type="submit" title="Search drinks">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </span>
+                        <input type="text" class="form-control" name="term" placeholder="Search Name" id="searchBar">
+                        <a href="{{ route('orderpage') }}">
+                            <span class="input-group-btn ml-2">
+                                <button class="btn btn-danger" type="button" title="Refresh page">
+                                    <span class="fas fa-sync-alt"></span>
+                                </button>
+                            </span>
+                        </a>
+                    </div>
+                </form>
 
                 {{-- Coffee --}}
                 <h4 class="coffee-title" id="coffee"> Coffee</h4><br>

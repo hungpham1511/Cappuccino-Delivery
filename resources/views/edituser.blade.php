@@ -3,7 +3,7 @@
 @section('edit')
 
 <div class="row">
-    <div class="navback-btn col-auto position-absolute">
+    <div style="top: 182px;" class="navback-btn col-auto position-absolute">
         <a href="{{ route('orderpage') }}" class="btn">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </a>
