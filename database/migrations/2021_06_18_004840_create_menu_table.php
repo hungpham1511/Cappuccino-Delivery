@@ -20,7 +20,6 @@ class CreateMenuTable extends Migration
             $table->string('picture');
             $table->string('description');
             $table->decimal('price', 10)->default(0);
-            $table->timestamps();
         });
     }
 

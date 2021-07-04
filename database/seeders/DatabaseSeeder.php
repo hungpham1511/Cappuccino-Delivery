@@ -171,6 +171,70 @@ class DatabaseSeeder extends Seeder
                 'description' => 'strawberry, raspberries and blueberry',
             ]
         ]);
+
+        DB::table('topping')->insert([
+            [
+                'name' => 'Ice Cream',
+                'price' => '5000',
+            ]
+        ]);
+
+        DB::table('topping')->insert([
+            [
+                'name' => 'Sweet Serup',
+                'price' => '10000',
+            ]
+        ]);
+        
+        DB::table('topping')->insert([
+            [
+                'name' => 'Vanilla',
+                'price' => '5000',
+            ]
+        ]);
+
+        DB::table('topping')->insert([
+            [
+                'name' => 'Butter',
+                'price' => '8000',
+            ]
+        ]);
+
+        DB::table('topping')->insert([
+            [
+                'name' => 'Spices',
+                'price' => '5000',
+            ]
+        ]);
+
+        DB::table('topping')->insert([
+            [
+                'name' => 'Non-dairy milks',
+                'price' => '5000',
+            ]
+        ]);
+
+        DB::table('promotion')->insert([
+            [
+                'promotionType' => '0',
+                'promotionCode' => 'PERCENT1',
+                'percentPromo' => '50',
+                'expireDay' => '2021-08-04',
+                'status' => '1',
+            ]
+        ]);
+
+        DB::table('promotion')->insert([
+            [
+                'promotionType' => '1',
+                'promotionCode' => 'MONEY1',
+                'moneyPromo' => '15000',
+                'moneyLimit' => '20000',
+                'expireDay' => '2021-08-04',
+                'status' => '1',
+            ]
+        ]);
+
         /*DB::table('detail_weekly_book')->insert([
             [
                 'startDay'=> '2021-',

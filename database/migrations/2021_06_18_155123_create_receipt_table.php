@@ -30,7 +30,6 @@ class CreateReceiptTable extends Migration
             $table->boolean('isWeeklyBook')->default(false);
             $table->integer('idDetailWeeklyBook')->unsigned()->default(0);
             $table->foreign('idDetailWeeklyBook')->references('idDetailWeeklyBook')->on('detail_weekly_book');
-            $table->timestamps();
         });
     }
 

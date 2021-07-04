@@ -25,7 +25,6 @@ class CreateDetailReceiptTable extends Migration
             $table->tinyInteger('Size');
             $table->text('DrinkNote');
             $table->decimal('Price', 22)->default(0.00);
-            $table->timestamps();
         });
     }
 
