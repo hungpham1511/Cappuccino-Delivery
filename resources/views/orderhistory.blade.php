@@ -71,7 +71,7 @@
                 <div class="col-lg-8 col-sm-4">
                     <h3 class="content-order" style="
                     position: absolute;
-                    top: 23%;
+                    top: 35%;
                     left: 45%;
                     
                     ">ORDER HISTORY</h3>
@@ -83,13 +83,30 @@
         </div>
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            
+
+           
+
             <tr>
                 <th>IdReceipt</th>
                 <th>Name</th>
+                <th>Amount</th> 
                 <th>Date</th>
-                <th>Price</th>  
+                <th>Price</th>
+                <th>Total</th>
+
             </tr>
+           @foreach ($receipt as $receipt)
+            <tr>
+                <td>{{ $receipt->idReceipt }}</td>
+                <td>{{ $receipt->name }}</td>
+                <td>{{ $receipt->Amount }}</td>
+                <td>{{ $receipt->receiptDate }}</td>
+                <td>{{ $receipt->Price }}</td>
+                <td>{{ $receipt->Total }}</td>
+               
+            </tr>
+            @endforeach
+
 
         </table>
 
