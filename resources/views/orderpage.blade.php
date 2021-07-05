@@ -117,25 +117,8 @@
         
             {{-- Menu --}}
             <div class="col-lg-6">
-                {{-- Search --}}
-                <form action="" method="GET" role="search">
-                    <div class="input-group search-bar">
-                        <span class="input-group-btn mr-2">
-                            <button class="btn btn-primary" type="submit" title="Search drinks">
-                                <span class="fas fa-search"></span>
-                            </button>
-                        </span>
-                        <input type="text" class="form-control" name="term" placeholder="Search Name" id="searchBar">
-                        <a href="{{ route('orderpage') }}">
-                            <span class="input-group-btn ml-2">
-                                <button class="btn btn-danger" type="button" title="Refresh page">
-                                    <span class="fas fa-sync-alt"></span>
-                                </button>
-                            </span>
-                        </a>
-                    </div>
-                </form>
 
+                {{-- Coffee --}}
                 <h4 class="coffee-title" id="coffee"> Coffee</h4><br>
                 <div class="row menu-item">
                     @foreach ($coffee as $c)
@@ -251,7 +234,9 @@
                     <tfoot>
                         <tr>
                             <td class="td-button2" colspan="5">
-                                <button type="button" class="button-view">View Cart</button>
+                                <form action="{{ route('checkout') }}">
+                                    <button type="submit" class="button-view">View Cart</button>
+                                </form>
                             </td>
                         </tr>
                     </tfoot>
