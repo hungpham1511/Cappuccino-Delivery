@@ -14,7 +14,7 @@
     <link href="{{ asset('css/checkout.css')}}" rel="stylesheet" type="text/css" media="all">
 
     <!-- Favicon-->
-    <link href="img/logo.png" rel="icon" type="image/x-icon" media="all">
+    <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -46,7 +46,7 @@
             </header>
         </nav>
         <main class="py-4" style="margin-bottom: 10%;">
-            <div class="row">
+            <div>
                 <div class="navback-btn col-auto position-absolute">
                     <a href="{{ url('/home') }}" class="btn">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
