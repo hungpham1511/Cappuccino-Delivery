@@ -166,7 +166,7 @@ function getData(size,toppingCount) {
                 toppingNameDetails +=toppingCheck[i].nextElementSibling.innerHTML+"/";
             }
         }
-        toppingCookie +=toppingCount+ " "+toppingNameDetails+" ";
+        toppingCookie +=toppingCount+ " "+toppingNameDetails+"-";
         console.log(toppingCookie);
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
