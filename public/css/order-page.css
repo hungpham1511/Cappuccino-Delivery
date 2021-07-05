@@ -83,7 +83,7 @@ body {
     box-shadow: 0px 1px 7px 0px #888888;
 }
 
-#nav-menu-web {
+.nav-menu-web {
     position: sticky;
     top: 15%;
     left: 1%;
@@ -293,33 +293,12 @@ body {
     .card-text {
         font-size: 12px;
     }
-    .p-affogato {
-        padding-right: 9px;
-    }
-    .p-latte {
-        padding-right: 33px;
-    }
-    .p-americano {
-        padding-right: 49px;
-    }
-    .p-mocha {
-        padding-right: 22px;
-    }
-    .p-frappuccino {
-        padding-right: 82px;
-    }
-    .p-milk-tea {
-        padding-right: 34px;
-    }
     .card-footer {
         grid-area: order;
         padding: 0% !important;
     }
     .button-order {
         font-size: 12px;
-    }
-    .table {
-        display: none;
     }
 }
 
