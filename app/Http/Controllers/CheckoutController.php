@@ -25,7 +25,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('checkout');
+        $promotion = DB::table('promotion')
+                        ->select('*')
+                        ->get();
+        return view('checkout', compact('promotion'));
     }
 
     public function drinkimg(int $id)

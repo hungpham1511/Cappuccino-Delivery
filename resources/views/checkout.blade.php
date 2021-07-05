@@ -167,10 +167,6 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cart-detail">
-                                        <tr class="row2">
-                                            <td colspan="4">Total</td>
-                                            <td class="total"></td>
-                                        </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr class="row2">
@@ -185,13 +181,13 @@
                                             <td colspan="5">
                                                 <div class="input-group py-2">
                                                     <input type="text" class="form-control" id="promotion" name="promotion" placeholder="Promotion">
-                                                    <button class="btn btn-brand-color" type="button">Submit</button>
+                                                    <button class="btn btn-brand-color" type="button" onclick="submitPromo('{{$promotion}}')">Submit</button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr class="row2">
                                             <td colspan="4">Total</td>
-                                            <td class="Total"></td>
+                                            <td class="total"></td>
                                         </tr>
                                         <tr>
                                             <td class="border-bottom-none" colspan="5">
