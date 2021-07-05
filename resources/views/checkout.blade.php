@@ -52,8 +52,8 @@
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="col-12">
-                    <p class="title">Checkout</p>
+                <div class="col-12 p-0">
+                    <p class="title mr-0">Checkout</p>
                 </div>
             </div>
             <form id="checkoutform" class="needs-validation" novalidate action="{{ route('checkout.create') }} " method="GET">

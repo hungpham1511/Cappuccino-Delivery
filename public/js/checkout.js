@@ -61,18 +61,13 @@ var priceList = price.split("-");
 var drinkName = getCookie('name');
 var nameList = drinkName.split("-");
 var topping = getCookie('topping');
-var toppingList = topping.split(" ");
+var toppingList = topping.split("-");
 console.log(toppingList);
 drinks.pop();
 drinks.forEach(receiptDetail);
 function receiptDetail(drink) {
     i++;
-    if (parseInt(toppingList[j]) == i) {
-        var toppingDetails = toppingList[j+1];
-        if (j < toppingList.length) j+=2;
-    }
-    else
-        var toppingDetails = "";
+    var toppingDetails = toppingList[i].substr(1);
     var elements = drink.split(" "); 
     var message = `<tr class="row1">
             <td class="td-img">

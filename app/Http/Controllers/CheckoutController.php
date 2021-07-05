@@ -88,6 +88,7 @@ class CheckoutController extends Controller
         $idReceipt = DB::table('receipt') -> max('idReceipt'); 
 
         //add detail drink
+        $totalprice = 0;
         $drink = $_COOKIE['drink'];
         $drinkslipt = explode("-", $drink);
         array_pop($drinkslipt);
@@ -116,10 +117,34 @@ class CheckoutController extends Controller
                 ->value('price');
             }
             $price *= $info[count($info)-1];
+            $totalprice += $price;
             DB::table('detail_receipt') 
             -> where('idDetailReceipt', $idDetailReceipt)
             -> update(['Price' => $price]);
         }
+        if ($promotion != 0) {
+            if (DB::table('promotion')
+            ->select('promotionType')
+            ->where('idPromotion', '=', $promotion)
+            ->value('promotionType') == 0) {
+                $percent = DB::table('promotion')
+                ->select('percentPromo')
+                ->where('idPromotion', '=', $promotion)
+                ->value('percentPromo');
+                $totalprice *= ($percent/100);
+            }
+            else {
+                $moneyDiscount = DB::table('promotion')
+                ->select('moneyPromo')
+                ->where('idPromotion', '=', $promotion)
+                ->value('moneyPromo');
+                $totalprice -= $moneyDiscount;
+            }
+        }
+        $totalprice += 5000;
+        DB::table('receipt') 
+        -> where('idReceipt', $idReceipt)
+        -> update(['total' => $totalprice]);
         return redirect()->route('orderpage');
     }
 }
