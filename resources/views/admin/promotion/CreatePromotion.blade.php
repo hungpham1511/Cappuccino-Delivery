@@ -105,7 +105,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" class="form-control" placeholder="1:Discount   2:Freeship">
+                    <input type="text" name="promotionType" class="form-control" placeholder="1:Percent   2:Money">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -216,9 +216,11 @@ class DatabaseSeeder extends Seeder
 
         DB::table('promotion')->insert([
             [
-                'promotionType' => '0',
+                'promotionType' => '1',
                 'promotionCode' => 'PERCENT1',
                 'percentPromo' => '50',
+                'moneyPromo' => null,
+                'moneyLimit' => null,               
                 'expireDay' => '2021-08-04',
                 'status' => '1',
             ]
@@ -226,8 +228,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('promotion')->insert([
             [
-                'promotionType' => '1',
+                'promotionType' => '2',
                 'promotionCode' => 'MONEY1',
+                'percentPromo' => null,
                 'moneyPromo' => '15000',
                 'moneyLimit' => '20000',
                 'expireDay' => '2021-08-04',

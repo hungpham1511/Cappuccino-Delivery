@@ -149,11 +149,11 @@
                                     <td>{{ $product->idPromotion }}</td>
                                     @if ($product->promotionType==1)
                                     <td>
-                                     Discount
+                                     Percent
                                     </td>
                                     @elseif ($product->promotionType==2) 
                                     <td>
-                                     Freeship
+                                     Money
                                     </td>
                                     @endif
                                     <td>{{ $product->promotionCode }}</td>
