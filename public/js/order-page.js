@@ -2,6 +2,9 @@ var drinkLength =0;
 var pictureCookie = "";
 var drinkCookie = "";
 var priceCookie = "";
+var nameCookie ="";
+var toppingCookie = "";
+var toppingCount = 0;
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
 for (i = 0; i < radios.length; i++) {
@@ -69,7 +72,6 @@ function custom(p) {
         totalCost.innerHTML = cost * count + ' VND';
     }) 
 
-
     var sumValue = 0;
     var addToCartBtn = document.querySelector('.add')
     addToCartBtn.addEventListener('click', function(){
@@ -124,13 +126,13 @@ function custom(p) {
         total.innerHTML = `${sumValue} VND`
     
         // Set cookie 
-
-        getData(sizeDetail,sumValue);
+        toppingCount++;
+        getData(sizeDetail,toppingCount);
         // Exit
         close();
     })
 }
-function getData(size,sumValue) {
+function getData(size,toppingCount) {
     // Drink cookie
     const cid = document.querySelector('#idDrink').innerHTML;
 
@@ -152,17 +154,34 @@ function getData(size,sumValue) {
 
 
     // Price cookie
-        drinkPrice = document.querySelector('#totalCost').innerHTML;
+        var drinkPrice = document.querySelector('#totalCost').innerHTML;
         priceCookie += drinkPrice +"-";
+    // Name cookie
+        var drinkName = document.querySelector('#p-model-name').innerHTML;
+        nameCookie += drinkName +"-";
+    // Topping cookie
+        var toppingNameDetails = "";
+        for(var i=0;i<toppingCheck.length;i++){
+            if(toppingCheck[i].checked==true){
+                toppingNameDetails +=toppingCheck[i].nextElementSibling.innerHTML+"/";
+            }
+        }
+        toppingCookie +=toppingCount+ " "+toppingNameDetails+" ";
+        console.log(toppingCookie);
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
             const drinkName = "drink";
             const imgSrc = "image";
             const totalPrice = "price";
-            priceCookie += sumValue;
+            const toppingName = "topping";
+            const name = "name"
+            const totalCost = document.querySelector('.total').innerHTML;
+            const priceCookie2 =priceCookie + totalCost;
             setCookie(drinkName,drinkCookie);
             setCookie(imgSrc,pictureCookie);
-            setCookie(totalPrice,priceCookie);
+            setCookie(totalPrice,priceCookie2);
+            setCookie(name,nameCookie);
+            setCookie(toppingName,toppingCookie);
         })
 }
 
