@@ -11,18 +11,21 @@
     <title>Cappucino Delivery</title>
 
     <!-- Custom css -->
-    <link href="{{ asset('css/checkout.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('css/checkout.css') }}" rel="stylesheet" type="text/css" media="all">
 
     <!-- Favicon-->
     <link href="picture/Favicon1.svg" rel="icon" type="image/x-icon" media="all">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -56,7 +59,8 @@
                     <p class="title mr-0">Checkout</p>
                 </div>
             </div>
-            <form id="checkoutform" class="needs-validation" novalidate action="{{ route('checkout.create') }} " method="GET">
+            <form id="checkoutform" class="needs-validation" novalidate action="{{ route('checkout.create') }} "
+                method="GET">
                 <div class="container-fluid">
                     @csrf
                     <div class="row">
@@ -66,42 +70,55 @@
                                 <h3 class="mb-3">1. Please confirm your order</h3>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
-                                    <input type="text" class="require form-control mb-3" id="address" placeholder="Your address" name="address" required>
+                                    <input type="text" class="require form-control mb-3" id="address"
+                                        placeholder="Your address" name="address" required>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Full name</label>
-                                        <input type="text" class="require form-control" id="name" placeholder="Your name" name="name" required>
+                                        <input type="text" class="require form-control" id="name"
+                                            placeholder="Your name" name="name" required>
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
-                                        <input type="number" class="require form-control" id="phone" placeholder="Your phone number" name="number" required>
+                                        <input type="number" class="require form-control" id="phone"
+                                            placeholder="Your phone number" name="number" required>
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Note</label>
-                                    <input class="form-control mb-3" rows="3" id="note" type="text" name="note" placeholder="Your note for us"></textarea>
+                                    <input class="form-control mb-3" rows="3" id="note" type="text" name="note"
+                                        placeholder="Your note for us"></textarea>
                                 </div>
                             </div>
                             <!-- Payment method -->
                             <div class="container-fluid section-border py-3 px-3 mb-4">
                                 <h3 class="mb-3">2. Term of payments</h3>
                                 <div class="form-check pt-3">
-                                    <input class="form-check-input" type="radio" name="paymentmethod" id="cod" value="cod" checked>
-                                    <img src="{{asset ('assets/img/cod.png')}}" alt="cod" width="24" height="24" />
+                                    <input class="form-check-input" type="radio" name="paymentmethod" id="cod"
+                                        value="cod" checked>
+                                    <img src="{{ asset('assets/img/cod.png') }}" alt="cod" width="24" height="24" />
                                     <label>Cash on Delivery</label>
                                 </div>
-                                <div class="form-check pt-3 mb-3">
-                                    <input class="form-check-input" type="radio" name="paymentmethod" id="momo" value="momo">
-                                    <img src="{{asset ('assets/img/momo.png')}}" alt="momo" width="24" height="24" />
+                                <div class="form-check pt-3">
+                                    <input class="form-check-input" type="radio" name="paymentmethod" id="momo"
+                                        value="momo">
+                                    <img src="{{ asset('assets/img/momo.png') }}" alt="momo" width="24" height="24" />
                                     <label>Momo</label>
+                                </div>
+                                <div class="form-check pt-3 mb-3">
+                                    <input class="form-check-input" type="radio" name="paymentmethod" id="bank"
+                                        value="bank">
+                                    <img src="{{ asset('assets/img/bank.png') }}" alt="bank" width="24" height="24" />
+                                    <label>Banking</label>
                                 </div>
                             </div>
                             <!-- Weekly book -->
                             <div class="container-fluid section-border py-3 px-3 mb-4">
                                 <h3 class="mb-3">3. Weeklybook</h3>
                                 <div class="form-check form-switch ml-3">
-                                    <input class="form-check-input" type="checkbox" id="isWeeklyBook" name="isWeeklyBook" onclick="weeklybook()">
+                                    <input class="form-check-input" type="checkbox" id="isWeeklyBook"
+                                        name="isWeeklyBook" onclick="weeklybook()">
                                     <label>Use our weeklybook service</label>
                                 </div>
                                 <div id="weekday" style="display:none">
@@ -109,13 +126,15 @@
                                         <div class="col-lg-auto">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label>Select start date</label>
-                                                <input type="date" id="startdate" name="startdate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
+                                                <input type="date" id="startdate" name="startdate" value="2021-07-11"
+                                                    min="2021-07-11" max="2021-12-31">
                                             </div>
                                         </div>
                                         <div class="col-lg-auto">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label>Select end date</label>
-                                                <input type="date" id="enddate" name="enddate" value="2021-07-11" min="2021-07-11" max="2021-12-31">
+                                                <input type="date" id="enddate" name="enddate" value="2021-07-11"
+                                                    min="2021-07-11" max="2021-12-31">
                                             </div>
                                         </div>
                                         <div class="col-lg-auto">
@@ -163,7 +182,7 @@
                                     <thead>
                                         <tr>
                                             <td colspan="4" class="amount border-top-none"">Amount</td>
-                                            <td class="cost1 border-top-none"">Cost</td>
+                                            <td class=" cost1 border-top-none"">Cost</td>
                                         </tr>
                                     </thead>
                                     <tbody class="cart-detail">
@@ -180,8 +199,10 @@
                                         <tr class="row2">
                                             <td colspan="5">
                                                 <div class="input-group py-2">
-                                                    <input type="text" class="form-control" id="promotion" name="promotion" placeholder="Promotion">
-                                                    <button class="btn btn-brand-color" type="button" onclick="submitPromo('{{$promotion}}')">Submit</button>
+                                                    <input type="text" class="form-control" id="promotion"
+                                                        name="promotion" placeholder="Promotion">
+                                                    <button class="btn btn-brand-color" type="button"
+                                                        onclick="submitPromo('{{ $promotion }}')">Submit</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -191,7 +212,9 @@
                                         </tr>
                                         <tr>
                                             <td class="border-bottom-none" colspan="5">
-                                                <button id="modalbtn" type="button" data-toggle="modal" data-target="#checkoutmodel" class="mt-2 btn col-12 btn-brand-color" disabled>Buy now</button>
+                                                <button id="modalbtn" type="button" data-toggle="modal"
+                                                    data-target="#checkoutmodel" class="mt-2 btn col-12 btn-brand-color"
+                                                    onclick="changeFormula()" disabled>Buy now</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -201,14 +224,18 @@
                     </div>
                 </div>
                 <!-- Order Success Modal -->
-                <div class="modal fade" id="checkoutmodel" tabindex="-1" role="dialog" aria-labelledby="checkoutmodelTitle" aria-hidden="true">
+                <div class="modal fade" id="checkoutmodel" tabindex="-1" role="dialog"
+                    aria-labelledby="checkoutmodelTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLongTitle">Order complete</h5>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <div>
+                                    <p class="modal-text" id="modal-message"></p>
+                                    <img class="modal-img" src="" name="modal-picture" id="modal-picture">
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-brand-color">Confirm & return to menu</button>
@@ -218,7 +245,7 @@
                 </div>
             </form>
             <!-- Javascript -->
-            <script src="{{asset ('js/checkout.js')}}"></script>
+            <script src="{{ asset('js/checkout.js') }}"></script>
         </main>
 </body>
 

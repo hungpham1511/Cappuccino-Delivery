@@ -72,7 +72,8 @@ class CheckoutController extends Controller
         //add receipt
         $idUser = Auth::user()->idUser;
         if ($request->input('paymentmethod')=="cod") $payment = 1;
-            else $payment = 2;
+            else if ($request->input('paymentmethod')=="momo") $payment = 2;
+                else $payment = 3;    
         $timecurrent = date("Y/m/d");
         $name = $request->input('name');
         $address = $request->input('address');
@@ -82,7 +83,6 @@ class CheckoutController extends Controller
         ->select('idPromotion')
         ->where('promotionCode','=', $request->input('promotion'))
         ->value('idPromotion');
-        //if ($promotion==null) $promotion=0;
         DB::table('receipt')->insertGetId(
             array('idDetailWeeklyBook' => $idDetailWeeklyBook, 'isWeeklyBook' => $isWeeklyBook, 'note' => $note, 'idPromotion' => $promotion, 'name' => $name, 'address' => $address, 'phone' => $phone, 'payment' => $payment, 'receiptDate' => $timecurrent, 'idUser' => $idUser)
         );
