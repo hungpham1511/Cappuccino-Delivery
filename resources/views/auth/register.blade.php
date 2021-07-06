@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
-                                    <input id="gender" type="integer" class="form-control @error('gender') is-invalid @enderror" name="gender" placeholder="1: Male    2:Female    3:Orthers"value="{{ old('gender') }}" required autocomplete="gender" autofocus>
+                                    <input id="gender" type="integer" class="form-control @error('gender') is-invalid @enderror" name="gender" placeholder="1: Male    2:Female    3:Other"value="{{ old('gender') }}" required autocomplete="gender" autofocus>
 
                                     @error('gender')
                                         <span class="invalid-feedback" role="alert">
