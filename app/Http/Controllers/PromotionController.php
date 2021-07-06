@@ -18,10 +18,10 @@ class PromotionController extends Controller
     public function index(Request $request)
     {
         $data = Promotion::where([
-            ['promotionType', '!=', Null],
+            ['promotionCode', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('promotionType', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere('promotionCode', 'LIKE', '%' . $term . '%')->get();
                 }
             }]
         ])
