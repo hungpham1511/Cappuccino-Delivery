@@ -22,6 +22,7 @@ class CreatePromotionTable extends Migration
             $table->decimal('moneyLimit', 10)->nullable();
             $table->datetime('expireDay');
             $table->boolean('status')->default(0);
+            $table->timestamps();
         });
     }
 

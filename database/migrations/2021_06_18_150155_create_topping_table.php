@@ -17,6 +17,7 @@ class CreateToppingTable extends Migration
             $table->increments('idTopping');
             $table->string('name');
             $table->decimal('price', 10)->default(0.00);
+            $table->timestamps();
         });
     }
 
