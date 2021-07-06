@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -87,27 +86,57 @@
            
 
             <tr>
+            {{--  <th>IdUser</th> --}}
                 <th>IdReceipt</th>
-                <th>Name</th>
-                <th>Amount</th> 
-                <th>Date</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th>ReceiptDate</th>
+                <th>Payment</th>  
+                <th>Status</th>
+                <th>Total</th> 
+               
 
             </tr>
            @foreach ($receipt as $receipt)
             <tr>
+    {{--        <td>{{ $receipt->idUser }}</td> --}}
                 <td>{{ $receipt->idReceipt }}</td>
-                <td>{{ $receipt->name }}</td>
-                <td>{{ $receipt->Amount }}</td>
                 <td>{{ $receipt->receiptDate }}</td>
-                <td>{{ $receipt->Price }}</td>
-                <td>{{ $receipt->Total }}</td>
+                @if($receipt->payment==1) 
+                <td>
+                    COD
+                </td>
+                @elseif ($receipt->payment==2) 
+                <td>
+                 Momo
+                </td>
+                @elseif ($receipt->payment==3) 
+                <td>
+                 Bank
+                </td>
+                @endif
+
+                @if ($receipt->status==1)
+                <td>
+                 Order Received
+                </td>
+                @elseif ($receipt->status==2) 
+                <td>
+                 Payment received
+                </td>
+                @elseif ($receipt->status==3) 
+                <td>
+                 Delivering
+                </td>
+                @elseif ($receipt->status==4) 
+                <td>
+                 Finished
+                </td>
+                @endif
+                <td>{{ $receipt->total }}</td>
+               
                
             </tr>
             @endforeach
-
-
+           
         </table>
 
        
@@ -125,5 +154,3 @@
     </body>
 
 </html>
-
-    

@@ -5,32 +5,39 @@ namespace App\Http\Controllers;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\auth;
 use App\Models\DetailReceipt;
+use App\Models\User;
 
 
-class orderhistorycontroller extends Controller
+class OrderhistoryController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+   /*public function order()
+    {
+        $receipt = receipt::orderby('idUser','desc')->paginate(10);
+        return view('orderhistory')->with(compact('receipt'));
+    } */
+
     public function index(Request $request)
     {
-        $receipt = DB::table('detail_receipt')->join('menu', 'detail_receipt.idDrink', '=', 'menu.idDrink')->get();
-        $receipt = DB::table('detail_receipt')->join('receipt', 'detail_receipt.idReceipt', '=', 'receipt.idReceipt')->get();
+       // $user = auth::user();
+       // $id = auth::id();
+       // $receipt = DB::table('detail_receipt')->join('menu', 'detail_receipt.idDrink', '=', 'menu.idDrink')->get();
+       // $receipt = DB::table('detail_receipt')->join('receipt', 'detail_receipt.idReceipt', '=', 'receipt.idReceipt')->get();
         // $receipt = DB::table('detail_receipt')->join('users', 'detail_receipt.idUser', '=', 'users.idUser')->get();
-
-        // $receipt = receipt::where('idUser',Session::get('idUser'))->orderBy('idReceipt', 'desc')->paginate(10);
-
-   /*   $Name = receipt::where('idDrink',Session::get('idDrink'))->select('name')-> get();
-        $Amount = receipt::where('idReceipt',Session::get('idReceipt'))->select('Amount')-> get();
-        $Date = receipt::where('idReceipt',Session::get('idReceipt'))->select('receiptDate')-> get();
-        $Price = receipt::where('idReceipt',Session::get('idReceipt'))->select('Price')-> get();
-        $Total = receipt::where('idReceipt',Session::get('idUser'))->select('Total')-> get();   */ 
-
+   
+        // $receipt = receipt::where('idUser',receipt::get('idUser'))->orderby('idReceipt','desc')->paginate(10);
+       // $receipt = DB::table('receipt')->join('detail_receipt', 'receipt.idReceipt', '=', 'detail_receipt.idReceipt')->get();
+        $receipt = DB::table('receipt')->where('idUser',auth::id())->select('idReceipt','idUser','receiptDate','payment','status','total')->get();
         
-        return view('orderhistory',compact('receipt'));
+
+        return view('orderhistory',compact('receipt')); 
+    
     }
 
 
