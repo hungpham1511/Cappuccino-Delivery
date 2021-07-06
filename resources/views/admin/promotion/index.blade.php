@@ -109,7 +109,7 @@
                                                         <span class="fas fa-search"></span>
                                                     </button>
                                                 </span>
-                                                <input type="text" class="form-control" name="term" placeholder="Search Name" id="term">
+                                                <input type="text" class="form-control" name="term" placeholder="Search Promotion Code" id="term">
                                                 <a href="{{ route('promotion.index') }}">
                                                     <span class="input-group-btn ml-2">
                                                         <button class="btn btn-danger" type="button" title="Refresh page">
