@@ -19,6 +19,8 @@ class CreateDetailToppingTable extends Migration
             $table->integer('idDetailReceipt')->unsigned();
             $table->foreign('idTopping')->references('idTopping')->on('topping');
             $table->foreign('idDetailReceipt')->references('idDetailReceipt')->on('detail_receipt');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
