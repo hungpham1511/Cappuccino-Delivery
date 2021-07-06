@@ -134,7 +134,7 @@
                                         <label>Tuesday</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="web" name="web">
+                                        <input class="form-check-input" type="checkbox" id="wed" name="wed">
                                         <label>Wednesday</label>
                                     </div>
                                     <div class="form-check">

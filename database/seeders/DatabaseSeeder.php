@@ -209,7 +209,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('topping')->insert([
             [
-                'name' => 'Non-dairy milks',
+                'name' => 'Nondairy milks',
                 'price' => '5000',
             ]
         ]);
