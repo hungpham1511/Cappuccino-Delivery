@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
         DB::table('menu')->insert([
             [
                 'category' => 'Coffee',
-                'name' => 'Cappuccino',
+                'name' => 'Cappucino',
                 'picture' => 'https://i.ibb.co/GJ8cJ3V/cappuccino.png',
                 'price' => '45000',
                 'description' => 'one-third espresso, one-third heated milk, one-third milk foam',
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Iced Blended',
                 'name' => 'Iced Mocha',
-                'picture' => 'https://i.ibb.co/P6Qg1SZ/iced-mocha.png',
+                'picture' => 'https://i.ibb.co/WcdKfn3/iced-mocha.png',
                 'price' => '50000',
                 'description' => 'delicious coffee extract and skimmed milk, blended with ice',
             ]
@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Iced Blended',
                 'name' => 'Iced Tiramisu',
-                'picture' => 'https://i.ibb.co/VQ4BYrX/iced-tiramisu.png',
+                'picture' => 'https://i.ibb.co/L0Rr0kV/iced-tiramisu.png',
                 'price' => '55000',
                 'description' => 'cream cheese, dark chocolate, and sweet vanilla',
             ]
@@ -117,8 +117,8 @@ class DatabaseSeeder extends Seeder
         DB::table('menu')->insert([
             [
                 'category' => 'Iced Blended',
-                'name' => 'Frappuccino',
-                'picture' => 'https://i.ibb.co/4twwHCf/frappuccino.png',
+                'name' => 'Frappucino',
+                'picture' => 'https://i.ibb.co/zbPyJ2Y/frappucino.png',
                 'price' => '55000',
                 'description' => 'a line of highly-sweetened iced, blended coffee drinks',
             ]
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Tea',
                 'name' => 'Classic Milk Tea',
-                'picture' => 'https://i.ibb.co/VBxmW6H/classic-milk-tea.png',
+                'picture' => 'https://i.ibb.co/qmkRSHm/classic-milk-tea.png',
                 'price' => '45000',
                 'description' => 'A cold drink, sweet, milky with a strong taste of creamy black tea',
             ]
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Tea',
                 'name' => 'Lemon Tea',
-                'picture' => 'https://i.ibb.co/CJndkyW/lemon-tea.png',
+                'picture' => 'https://i.ibb.co/sR22CzJ/lemon-tea.png',
                 'price' => '45000',
                 'description' => 'a refreshing tea where lemon juice is added in black or green tea',
             ]
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Tea',
                 'name' => 'Ginger Tea',
-                'picture' => 'https://i.ibb.co/41KCD6q/ginger-tea.png',
+                'picture' => 'https://i.ibb.co/JK0HPK6/ginger-tea.png',
                 'price' => '45000',
                 'description' => 'a lovely, lightly spicy drink for warming up on cold days',
             ]
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Smoothie',
                 'name' => 'Mango Smoothie',
-                'picture' => 'https://i.ibb.co/g4Qb2V6/mango-smoothie.png',
+                'picture' => 'https://i.ibb.co/tszyNJf/mango-smoothie.png',
                 'price' => '50000',
                 'description' => 'made with fresh mango and a handful of ingredients (dairy or dairy-free)',
             ]
@@ -168,7 +168,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Smoothie',
                 'name' => 'Banana Smoothie',
-                'picture' => 'https://i.ibb.co/njYyXSQ/banana-smoothie.png',
+                'picture' => 'https://i.ibb.co/dbxnq3D/banana-smoothie.png',
                 'price' => '50000',
                 'description' => 'full of rich banana flavor and is a good source of potassium',
             ]
@@ -178,7 +178,7 @@ class DatabaseSeeder extends Seeder
             [
                 'category' => 'Smoothie',
                 'name' => 'Tropical Smoothie',
-                'picture' => 'https://i.ibb.co/fkxzz68/tropical-smoothie.png',
+                'picture' => 'https://i.ibb.co/4ScrN4T/tropical-smoothie.png',
                 'price' => '55000',
                 'description' => 'strawberry, raspberries and blueberry',
             ]
