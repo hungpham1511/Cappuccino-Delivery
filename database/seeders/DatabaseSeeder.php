@@ -22,6 +22,18 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
+        DB::table('users')->insert([
+            [
+                'username' => 'user',
+                'email' => 'user@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'User',
+                'gender'=> '3',
+                'phone' => '1234567890',
+                'address' => 'abc',
+            ]
+        ]);
+
         DB::table('menu')->insert([
             [
                 'category' => 'Coffee',
