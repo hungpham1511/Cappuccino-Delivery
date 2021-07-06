@@ -19,14 +19,9 @@ class CreateMenuTable extends Migration
             $table->string('category', 50);
             $table->string('picture');
             $table->string('description');
-            $table->decimal('price', 10)->default(0);
-<<<<<<< HEAD
-            $table->timestamps();
-            
-=======
+            $table->decimal('price', 10, 0)->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
->>>>>>> 7c49aae (Fix phone number)
         });
     }
 
