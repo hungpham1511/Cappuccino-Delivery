@@ -67,7 +67,8 @@ class CheckoutController extends Controller
             );
         }
         if ($request->input('isWeeklyBook') == true) $idDetailWeeklyBook = DB::table('detail_weekly_book') -> max('idDetailWeeklyBook'); 
-            else $idDetailWeeklyBook = 0;
+            else $idDetailWeeklyBook = null;
+
         //add receipt
         $idUser = Auth::user()->idUser;
         if ($request->input('paymentmethod')=="cod") $payment = 1;
@@ -81,7 +82,7 @@ class CheckoutController extends Controller
         ->select('idPromotion')
         ->where('promotionCode','=', $request->input('promotion'))
         ->value('idPromotion');
-        if ($promotion==null) $promotion=0;
+        //if ($promotion==null) $promotion=0;
         DB::table('receipt')->insertGetId(
             array('idDetailWeeklyBook' => $idDetailWeeklyBook, 'isWeeklyBook' => $isWeeklyBook, 'note' => $note, 'idPromotion' => $promotion, 'name' => $name, 'address' => $address, 'phone' => $phone, 'payment' => $payment, 'receiptDate' => $timecurrent, 'idUser' => $idUser)
         );
@@ -104,7 +105,7 @@ class CheckoutController extends Controller
             if ($info[1]=="M") $size = 2;
             if ($info[1]=="L") $size = 3;
             DB::table('detail_receipt')->insertGetId(
-                array('idReceipt' => $idReceipt, 'idDrink' => $info[0], 'Size' => $size, 'Amount' => $info[count($info)-1])
+                array('idReceipt' => $idReceipt, 'idDrink' => $info[0], 'size' => $size, 'amount' => $info[count($info)-1])
             );
             $idDetailReceipt = DB::table('detail_receipt') -> max('idDetailReceipt'); 
             for ($i = 2; $i < count($info)-2; $i++) {
@@ -120,7 +121,7 @@ class CheckoutController extends Controller
             $totalprice += $price;
             DB::table('detail_receipt') 
             -> where('idDetailReceipt', $idDetailReceipt)
-            -> update(['Price' => $price]);
+            -> update(['price' => $price]);
         }
         if ($promotion != 0) {
             if (DB::table('promotion')

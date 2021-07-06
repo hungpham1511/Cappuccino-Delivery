@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
-                                        <input type="text" class="require form-control" id="phone" placeholder="Your phone number" name="number" required>
+                                        <input type="number" class="require form-control" id="phone" placeholder="Your phone number" name="number" required>
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
