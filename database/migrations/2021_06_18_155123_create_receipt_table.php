@@ -26,7 +26,7 @@ class CreateReceiptTable extends Migration
             $table->integer('idPromotion')->unsigned()->default(0)->nullable();
             $table->foreign('idPromotion')->references('idPromotion')->on('promotion');
             $table->tinyInteger('status')->default(1);
-            $table->decimal('total', 10)->default(0);
+            $table->integer('total')->default(0);
             $table->boolean('isWeeklyBook')->default(false);
             $table->integer('idDetailWeeklyBook')->unsigned()->default(0)->nullable();
             $table->foreign('idDetailWeeklyBook')->references('idDetailWeeklyBook')->on('detail_weekly_book');

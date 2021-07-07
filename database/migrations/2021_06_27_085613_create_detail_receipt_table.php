@@ -20,10 +20,8 @@ class CreateDetailReceiptTable extends Migration
             $table->foreign('idDrink')->references('idDrink')->on('Menu');
             $table->foreign('idReceipt')->references('idReceipt')->on('Receipt');
             $table->integer('amount');
-            $table->integer('sugar')->nullable();
-            $table->integer('ice')->nullable();
             $table->tinyInteger('size');
-            $table->decimal('price', 22)->default(0);
+            $table->integer('price')->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
