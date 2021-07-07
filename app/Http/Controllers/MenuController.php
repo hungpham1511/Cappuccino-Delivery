@@ -42,21 +42,21 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'picture' => 'required',
             'description' => 'required',
             'price' => 'required'
         ]);
 
-        $input = $request->all();
+        // $input = $request->all();
 
-        if ($picture = $request->file('picture')) {
-            $destinationPath = 'picture/';
-            $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
-            $picture->move($destinationPath, $profileImage);
-            $input['picture'] = "$profileImage";
-        }
+        // if ($picture = $request->file('picture')) {
+        //     $destinationPath = 'picture/';
+        //     $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
+        //     $picture->move($destinationPath, $profileImage);
+        //     $input['picture'] = "$profileImage";
+        // }
 
-        Menu::create($input);
+        Menu::create($request->all());
 
         return redirect()->route('menu.index')
             ->with('success', 'Congratulate! New drink has been created successfully.');
@@ -76,19 +76,19 @@ class MenuController extends Controller
             'price' => 'required'
         ]);
 
-        $input = $request->all();
+        // $input = $request->all();
 
-        if ($picture = $request->file('picture')) {
-            $destinationPath = 'picture/';
-            $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
-            $picture->move($destinationPath, $profileImage);
-            $input['picture'] = "$profileImage";
-        }
-        else{
-            unset($input['picture']);
-        }
+        // if ($picture = $request->file('picture')) {
+        //     $destinationPath = 'picture/';
+        //     $profileImage = date('YmdHis') . "." . $picture->getClientOriginalExtension();
+        //     $picture->move($destinationPath, $profileImage);
+        //     $input['picture'] = "$profileImage";
+        // }
+        // else{
+        //     unset($input['picture']);
+        // }
         
-        $drink->update($input);
+        $drink->update($request->all());
 
         return redirect()->route('menu.index')
             ->with('success', 'Congratulate! Drink has been updated successfully.');

@@ -86,27 +86,29 @@
             {{-- Navigation menu --}}
             <div class="col-lg-2">
                 <!-- Menu Web -->
-                <div class="list-group" id="nav-menu-web">
-                    <div class="list-group-item">
-                        <a href="#">
-                            <h4 id="link-menu">Menu</h4>
-                        </a>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="navbar bg-white">
-                            <div class="navbar-nav">
-                                <a class="nav-item" href="#coffee">
-                                    <h4>Coffee</h4>
-                                </a>
-                                <a class="nav-item" href="#iced-blended">
-                                    <h4>Iced Blended</h4>
-                                </a>
-                                <a class="nav-item" href="#tea">
-                                    <h4>Tea</h4>
-                                </a>
-                                <a class="nav-item" href="#smoothie">
-                                    <h4>Smoothie</h4>
-                                </a>
+                <div class="nav-menu-web">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <a href="#">
+                                <h4 id="link-menu">Menu</h4>
+                            </a>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="navbar bg-white">
+                                <div class="navbar-nav">
+                                    <a class="nav-item" href="#coffee">
+                                        <h4>Coffee</h4>
+                                    </a>
+                                    <a class="nav-item" href="#iced-blended">
+                                        <h4>Iced Blended</h4>
+                                    </a>
+                                    <a class="nav-item" href="#tea">
+                                        <h4>Tea</h4>
+                                    </a>
+                                    <a class="nav-item" href="#smoothie">
+                                        <h4>Smoothie</h4>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,12 +117,11 @@
         
             {{-- Menu --}}
             <div class="col-lg-6">
-                <input type="text" id="search" placeholder="Search..."><br>
 
                 {{-- Coffee --}}
                 <h4 class="coffee-title" id="coffee"> Coffee</h4><br>
                 <div class="row menu-item">
-                    @foreach ($coffee ?? '' as $c)
+                    @foreach ($coffee as $c)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src={{$c->picture}} alt="..."></a>
@@ -233,7 +234,9 @@
                     <tfoot>
                         <tr>
                             <td class="td-button2" colspan="5">
-                                <button type="button" class="button-view">View Cart</button>
+                                <form action="{{ route('checkout') }}">
+                                    <button type="submit" class="button-view">View Cart</button>
+                                </form>
                             </td>
                         </tr>
                     </tfoot>

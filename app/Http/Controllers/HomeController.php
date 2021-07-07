@@ -34,7 +34,7 @@ class HomeController extends Controller
                         ->get();
         $iceBlended = DB::table('menu')
                         ->select('*')
-                        ->where('category','=','Ice Blended')
+                        ->where('category','=','Iced Blended')
                         ->get();
         $smoothie = DB::table('menu')
                         ->select('*')
