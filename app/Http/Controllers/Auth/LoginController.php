@@ -18,7 +18,13 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password], $remember))
+        {
+            // The user is being remembered...
+        }
+    }
     use AuthenticatesUsers;
 
     /**

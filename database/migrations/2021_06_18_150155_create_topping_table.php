@@ -16,7 +16,7 @@ class CreateToppingTable extends Migration
         Schema::create('topping', function (Blueprint $table) {
             $table->increments('idTopping');
             $table->string('name');
-            $table->decimal('price', 10)->default(0.00);
+            $table->decimal('price', 10)->default(0);
             $table->timestamps();
         });
     }

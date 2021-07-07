@@ -23,7 +23,7 @@ class CreateDetailReceiptTable extends Migration
             $table->integer('sugar')->nullable();
             $table->integer('ice')->nullable();
             $table->tinyInteger('size');
-            $table->decimal('price', 22)->default(0.00);
+            $table->decimal('price', 22)->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
