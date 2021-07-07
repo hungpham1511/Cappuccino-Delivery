@@ -5,6 +5,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\orderhistorycontroller;
 
 
 /*
@@ -22,6 +23,13 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/orderhistory', function () {
+//     return view('orderhistory');
+// });
+
+Route::get('/orderhistory',[App\Http\Controllers\OrderhistoryController::class,'index'])->name('Orderhistory');
+
 
 Auth::routes();
 
