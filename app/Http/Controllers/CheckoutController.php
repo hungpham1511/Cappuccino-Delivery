@@ -83,6 +83,11 @@ class CheckoutController extends Controller
         ->select('idPromotion')
         ->where('promotionCode','=', $request->input('promotion'))
         ->value('idPromotion');
+        if ($promotion != 0) 
+            $promoStatus = DB::table('promotion') 
+            ->select('status')
+            ->where('promotionCode','=', $request->input('promotion'))
+            ->value('status');
         DB::table('receipt')->insertGetId(
             array('idDetailWeeklyBook' => $idDetailWeeklyBook, 'isWeeklyBook' => $isWeeklyBook, 'note' => $note, 'idPromotion' => $promotion, 'name' => $name, 'address' => $address, 'phone' => $phone, 'payment' => $payment, 'receiptDate' => $timecurrent, 'idUser' => $idUser)
         );
@@ -123,7 +128,7 @@ class CheckoutController extends Controller
             -> where('idDetailReceipt', $idDetailReceipt)
             -> update(['price' => $price]);
         }
-        if ($promotion != 0) {
+        if ($promotion != 0 && $promoStatus == 1) {
             if (DB::table('promotion')
             ->select('promotionType')
             ->where('idPromotion', '=', $promotion)
