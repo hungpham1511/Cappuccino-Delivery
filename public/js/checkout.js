@@ -92,6 +92,7 @@ shipping.innerHTML = `5000 VND`;
 var total = document.querySelector(".total");
 total.innerHTML = `${sumMoney + 5000} VND`;
 
+//Promotion
 function submitPromo(promo) {
     const promoObj = JSON.parse(promo);
     for (let i = 0; i < promoObj.length; i++) {
@@ -99,7 +100,8 @@ function submitPromo(promo) {
         console.log(document.getElementById("promotion").value);
         if (
             document.getElementById("promotion").value ==
-            promoObj[i].promotionCode
+                promoObj[i].promotionCode &&
+            promoObj[i].status == true
         ) {
             console.log(1);
             var total = document.querySelector(".total");
@@ -116,7 +118,6 @@ function submitPromo(promo) {
 }
 
 //Change modal on radio
-
 function changeFormula() {
     var p1 = "https://i.ibb.co/X4tXmcP/payment1.png";
     var p2 = "https://i.ibb.co/VMfy3pZ/payment2.png";
@@ -124,15 +125,18 @@ function changeFormula() {
     var radio = document.getElementsByName("paymentmethod");
     var formula = document.getElementById("modal-picture");
     if (radio[0].checked) {
-        document.getElementById("modal-message").innerHTML = "Thank you for choosing us!";
+        document.getElementById("modal-message").innerHTML =
+            "Thank you for choosing us!";
         formula.src = p1;
     }
     if (radio[1].checked) {
-        document.getElementById("modal-message").innerHTML = "Scan our momo QR code for payment!";
+        document.getElementById("modal-message").innerHTML =
+            "Scan our momo QR code for payment!";
         formula.src = p2;
     }
     if (radio[2].checked) {
-        document.getElementById("modal-message").innerHTML = "Scan our e-banking QR code for payment!";
+        document.getElementById("modal-message").innerHTML =
+            "Scan our e-banking QR code for payment!";
         formula.src = p3;
     }
 }
