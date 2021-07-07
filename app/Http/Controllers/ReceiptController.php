@@ -53,6 +53,12 @@ class ReceiptController extends Controller
             ->with('success', 'Congratulate! Order has been created successfully.');
     }
 
+    public function show(Receipt $receipt)
+    {
+      return view('admin.receipts.ShowOrder',compact('receipt'));
+    }
+
+
     public function edit(Receipt $receipt)
     {
         return view('admin.receipts.EditOrder', compact('receipt'));

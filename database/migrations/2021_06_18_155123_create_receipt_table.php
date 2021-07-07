@@ -19,9 +19,9 @@ class CreateReceiptTable extends Migration
             $table->foreign('idUser')->references('idUser')->on('users');
             $table->dateTime('receiptDate', $precision = 0);
             $table->tinyInteger('payment');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('name');
+            $table->string('phone')->default(0);
+            $table->string('address')->default(0);
+            $table->string('name')->default(0);
             $table->text('note')->nullable();
             $table->integer('idPromotion')->unsigned()->default(0)->nullable();
             $table->foreign('idPromotion')->references('idPromotion')->on('promotion');

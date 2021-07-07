@@ -37,6 +37,7 @@ Route::group(['middleware' => 'adminauth'], function () {
 	Route::get('/receipts','ReceiptController@index')->name('receipts.index');
 	Route::get('/receipts/create','ReceiptController@create')->name('receipts.create');
 	Route::post('/receipts/store','ReceiptController@store')->name('receipts.store');
+	Route::get('/receipts/{receipt}/show','ReceiptController@show')->name('receipts.show');
 	Route::get('/receipts/{receipt}/edit','ReceiptController@edit')->name('receipts.edit');
 	Route::put('/receipts/{receipt}','ReceiptController@update')->name('receipts.update');
 	Route::delete('/receipts/{receipt}','ReceiptController@destroy')->name('receipts.destroy');
