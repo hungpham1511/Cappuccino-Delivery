@@ -3,9 +3,9 @@
 @section('edit')
 
 <div class="row">
-    <div style="top: 182px;" class="navback-btn col-auto position-absolute">
+    <div style="top: 23%; left:3%; " class="navback-btn col-auto position-absolute">
         <a href="{{ route('orderpage') }}" class="btn">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <i class="fas fa-arrow-left back" aria-hidden="true"></i>
         </a>
     </div>
 </div>

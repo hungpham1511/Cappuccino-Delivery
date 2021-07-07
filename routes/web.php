@@ -28,7 +28,7 @@ Route::get('/', function () {
 //     return view('orderhistory');
 // });
 
-Route::get('/orderhistory',[App\Http\Controllers\OrderhistoryController::class,'index'])->name('Orderhistory');
+Route::get('/orderhistory',[App\Http\Controllers\OrderhistoryController::class,'index'])->name('orderhistory');
 
 
 Auth::routes();
