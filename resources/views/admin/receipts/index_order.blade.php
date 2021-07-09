@@ -153,7 +153,7 @@
                                         <td>Payment Received</td>
                                     @elseif ($receipt->status == 3)
                                         <td>Delivering</td>
-                                    @else <td>Finished</td>
+                                    @elseif ($receipt->status == 4) <td>Finished</td>
                                     @endif
                                     @if ($receipt->isWeeklyBook==true)
                                         <td class="delivered">

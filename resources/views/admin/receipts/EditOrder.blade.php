@@ -132,12 +132,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                        <select class="form-control" id="status" name="status" value="{{ $receipt->status }}" required focus>
-                            <option value="" disabled selected>Please select status</option>
+                        <select class="form-control" id="status" name="status" required focus>
+                            <option value="{{ $receipt->status }}" disabled selected>Please select status</option>
                             <option value="1">Order Received</option>
                             <option value="2">Payment Received</option>
                             <option value="3">Delivering</option>  
-                            <option value="3">Finished</option>  
+                            <option value="4">Finished</option>  
                                                          
                         @error('status')
                             <span class="invalid-feedback" role="alert">
