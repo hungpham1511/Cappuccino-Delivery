@@ -10,7 +10,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group">
-                            <label class="col-md-12 col-form-label text-md-center">{{ __('Account Security') }}</label>
+                            <label class="col-md-12 col-form-label text-center">{{ __('Account Security') }}</label>
                             <div class="form-group row">
                                 <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12 col-form-label text-md-center">{{ __('Personal Infomation') }}</label>
+                            <label class="col-md-12 col-form-label text-center">{{ __('Personal Infomation') }}</label>
                             <div class="form-group row">
                                 <label for="fullName" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
 
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 text-center">
                                 <button type="submit" class="btn btn-signin">
                                     {{ __('Register') }}
                                 </button>
