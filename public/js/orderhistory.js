@@ -41,9 +41,13 @@ function showDetailReceipt(
             }
 
             var message = ` <div class="m-body">
-                                <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Drink: </span>${menuObj[idDrink].name}</p>
+                                <p><span>Size: </span>${detailObj[i].size}</p>
+                                <p><span>Price: </span>${menuObj[idDrink].price}</p>
+                                <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Topping: </span>${displayTopping}</p>
+                                <p><span> ------------- </span></p>
+
                             </div>
             `;
             document
