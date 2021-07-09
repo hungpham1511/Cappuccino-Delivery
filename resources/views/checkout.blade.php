@@ -71,18 +71,18 @@
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
                                     <input type="text" class="require form-control mb-3" id="address"
-                                        placeholder="Your address" name="address" required>
+                                        placeholder="Your address" name="address" value={{ $user[0]->address }} required>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Full name</label>
                                         <input type="text" class="require form-control" id="name"
-                                            placeholder="Your name" name="name" required>
+                                            placeholder="Your name" name="name" value={{ $user[0]->fullName }} required>
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
                                         <input type="number" class="require form-control" id="phone"
-                                            placeholder="Your phone number" name="number" required>
+                                            placeholder="Your phone number" name="number" value={{ $user[0]->phone }} required>
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
@@ -214,7 +214,7 @@
                                             <td class="border-bottom-none" colspan="5">
                                                 <button id="modalbtn" type="button" data-toggle="modal"
                                                     data-target="#checkoutmodel" class="mt-2 btn col-12 btn-brand-color"
-                                                    onclick="changeFormula()" disabled>Buy now</button>
+                                                    onclick="changeFormula()">Buy now</button>
                                             </td>
                                         </tr>
                                     </tfoot>

@@ -33,7 +33,7 @@
         <div class="user">
             <i id="grocery-icon" class="fas fa-user dropdown-toggle" aria-hidden="true" data-toggle="dropdown"></i>  
             <ul class="dropdown-menu" style="text-align: center">
-                <li><a href="#">Order History</a></li>
+                <li><a href="{{ route('orderhistory') }}">Order History</a></li>
                 <hr class="sidebar-divider">
                 <li><a href="{{ route('user.edit',Auth::user()) }}">Edit infomation</a></li>
                 <hr class="sidebar-divider">

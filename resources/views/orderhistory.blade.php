@@ -57,19 +57,17 @@
             <div class="row">
                 <div class="col-lg-2">
                     <i class="fas fa-arrow-left back" style="
-                    position: absolute;
                     left: 5%;
                     right: 95%;
                     top: 23%;
                     bottom: 84.68%; 
                    "
-                        onclick="location.href='../OrderPage/index.html '"
+                        onclick="location.href='{{ route('orderpage') }}'"
                    ></i>
                 </div>
 
                 <div class="col-lg-8 col-sm-4">
                     <h3 class="content-order" style="
-                    position: absolute;
                     top: 35%;
                     left: 45%;
                     
@@ -79,9 +77,9 @@
     
                 </div>
             </div>
-        </div>
+        
 
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="dataTable"  cellspacing="0">
 
            
 
@@ -139,7 +137,7 @@
            
         </table>
 
-       
+    </div>
     <script>
         var btns = document.querySelectorAll('.button');
         btns.forEach(function(btn) {

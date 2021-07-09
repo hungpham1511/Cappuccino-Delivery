@@ -18,8 +18,8 @@ class CreatePromotionTable extends Migration
             $table->tinyInteger('promotionType');
             $table->string('promotionCode')->unique();
             $table->integer('percentPromo')->nullable();
-            $table->decimal('moneyPromo', 10)->nullable();
-            $table->decimal('moneyLimit', 10)->nullable();
+            $table->integer('moneyPromo')->nullable();
+            $table->integer('moneyLimit')->nullable();
             $table->datetime('expireDay');
             $table->boolean('status')->default(0);
             $table->timestamps();
