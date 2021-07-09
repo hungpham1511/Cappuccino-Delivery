@@ -43,7 +43,7 @@ class OrderhistoryController extends Controller
         ->select('*')
         ->get();
 
-        return view('orderhistory',compact('receipt','detail','menu'));     
+        return view('orderhistory',compact('receipt','detail','menu'));
     
     }
 
