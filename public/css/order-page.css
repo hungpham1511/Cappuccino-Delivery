@@ -123,6 +123,13 @@ body {
     margin-bottom: 4%;
 }
 
+#coffee,
+#iced-blended,
+#tea,
+#smoothie {
+    margin-top: .5rem;
+}
+
 .card {
     border: none !important;
 }
