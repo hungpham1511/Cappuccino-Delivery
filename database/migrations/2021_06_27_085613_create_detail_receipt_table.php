@@ -18,7 +18,7 @@ class CreateDetailReceiptTable extends Migration
             $table->integer('idDrink')->unsigned();
             $table->integer('idReceipt')->unsigned();
             $table->foreign('idDrink')->references('idDrink')->on('Menu');
-            $table->foreign('idReceipt')->references('idReceipt')->on('Receipt');
+            $table->foreign('idReceipt')->references('idReceipt')->on('receipt');
             $table->integer('amount');
             $table->integer('sugar')->nullable();
             $table->integer('ice')->nullable();

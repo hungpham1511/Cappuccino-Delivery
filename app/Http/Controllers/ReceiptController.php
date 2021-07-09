@@ -54,10 +54,14 @@ class ReceiptController extends Controller
     }
 
     public function show(Receipt $receipt)
-    {
-      return view('admin.receipts.ShowOrder',compact('receipt'));
-    }
-
+	{
+        $receipt = Receipt::with('detail_receipt')->get();
+        // $receipt = DB::table('receipt')
+        //                 ->join('detail_receipt', 'receipt.idReceipt', '=', 'detail_receipt.idReceipt')
+        //                 ->select('*')
+        //                 ->get();
+		return view('admin.receipts.ShowDetail',compact('receipt'));
+	}
 
     public function edit(Receipt $receipt)
     {

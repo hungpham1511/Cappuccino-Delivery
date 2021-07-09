@@ -13,6 +13,6 @@ class DetailReceipt extends Model
     protected $primaryKey = 'idDetailReceipt';
     public function receipt()
     {
-        return $this->belongsTo('App\Receipt','foreign_key');
+        return $this->belongsTo('App\Receipt','idReceipt');
     }
 }

@@ -30,4 +30,8 @@ class Receipt extends Model
     {
         return $this->hasOne('App\DetailWeeklyBook','foreign_key');
     }
+    public function detail_receipt()
+    {
+        return $this->hasMany('App\DetailReceipt','foreign_key');
+    }
 }
