@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <link href="{{asset('css/order-history.css')}}" rel="stylesheet" type="text/css" media="all">
     <title>order history</title>
 </head>
@@ -90,6 +94,7 @@
                 <th>Payment</th>  
                 <th>Status</th>
                 <th>Total</th> 
+                <th>Action</th>
                
 
             </tr>
@@ -130,14 +135,37 @@
                 </td>
                 @endif
                 <td>{{ $receipt->total }}</td>
-               
+                <td>
+                    <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}', '{{$receipt->idReceipt}}')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show Detail Receipt</button>
+                </td>
                
             </tr>
             @endforeach
            
         </table>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detail Receipt</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="clearDetail()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <script src="{{ asset('js/orderhistory.js') }}"></script>
+
     <script>
         var btns = document.querySelectorAll('.button');
         btns.forEach(function(btn) {
