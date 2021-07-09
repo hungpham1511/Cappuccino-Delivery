@@ -78,8 +78,8 @@ class ReceiptController extends Controller
     {
         $request->validate([
             'receiptDate' => 'required',
-            'payment' => 'required',
-            'status' => 'required',
+            'payment' ,
+            'status' ,
             'total' => 'required'
         ]);
         $receipt->update($request->all());
