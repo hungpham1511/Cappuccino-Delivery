@@ -72,9 +72,8 @@ class PromotionController extends Controller
         $request->validate([
             'promotionType'=> 'required',
             'promotionCode'=> 'required',
-            'percentPromo'=> 'required',
-            'moneyPromo'=> 'required',
-            'moneyLimit'=> 'required',
+            'percentPromo',
+            'moneyPromo',
             'expireDay'=> 'required',
         ]);
         $dt = $request->all();
