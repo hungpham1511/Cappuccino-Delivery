@@ -5,6 +5,8 @@ var priceCookie = "";
 var nameCookie ="";
 var toppingCookie = "";
 var toppingCount = 0;
+
+var total2 = 0;
 // Uncheck buttons
 var radios = document.getElementsByTagName('input');
 for (i = 0; i < radios.length; i++) {
@@ -15,14 +17,12 @@ for (i = 0; i < radios.length; i++) {
     }
 }
 
-// Choose size
+// Custom
 function custom(p) { 
     var price = parseFloat(p);
-    var cost = price;
+    let cost = price;
     // Choose size
-    var sizes = document.querySelectorAll('.size');
-    sizes.forEach(function(size) {
-    size.addEventListener('click', function(e) {
+    function sizee(e) {
         const currSize = e.currentTarget.parentNode.classList;
         const currValue = parseInt(e.currentTarget.value);
         if (currSize.contains('large')) {
@@ -36,47 +36,56 @@ function custom(p) {
             price =  (cost - currValue);
             cost = price;
         }
-        totalCost.innerHTML = price + ' VND';
-    })
+        totalCost.innerHTML = price + ' VND'
+    }
+    var sizes = document.querySelectorAll('.size');
+    sizes.forEach(function(size) {
+    size.addEventListener('click', sizee)
 })
+
     //Choose topping
+    function toping(e) {
+        var currValue = parseInt(e.target.value);
+        cost+= currValue;
+    
+        if (e.ctrlKey == true) {
+            cost-= (currValue * 2);
+        }
+        totalCost.innerHTML = cost + ' VND';
+    }
     var toppings = document.querySelectorAll('.topping-item')
     toppings.forEach(function(topping) {
-        topping.addEventListener('click', function(e) {
-            var currValue = parseInt(e.target.value);
-            cost+= currValue;
-    
-            if (e.ctrlKey == true) {
-                cost-= (currValue * 2);
-            }
-            totalCost.innerHTML = cost + ' VND';
-        })
+        topping.addEventListener('click', toping);
     })
 
     // Counter
-    var count = 1;
-    const result = document.querySelector('#count-value');
-    result.innerHTML = count;
-    const minusBtn = document.querySelector('.minus-btn');
-    const plusBtn = document.querySelector('.plus-btn');
-    minusBtn.addEventListener('click',()=>{
+    function plus(){
+        count++;
+        result.innerHTML = count;
+        totalCost.innerHTML = cost * count + ' VND';
+    }
+    function minus(){
         if(count>1){
             count--;
             result.innerHTML = count;
         };
         totalCost.innerHTML = cost * count + ' VND';
-    })
-    plusBtn.addEventListener('click',()=>{
-        count++;
-        result.innerHTML = count;
-        totalCost.innerHTML = cost * count + ' VND';
-    }) 
+    }
+    var count = 1;
+    const result = document.querySelector('#count-value');
+    result.innerHTML = count;
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    minusBtn.addEventListener('click',minus)
+    plusBtn.addEventListener('click',plus) 
 
     var sumValue = 0;
-    var addToCartBtn = document.querySelector('.add')
-    addToCartBtn.addEventListener('click', function(){
+    // Add to cart button
+    function addToCart(){
         var orderImg = document.querySelector('.order-img');
-        const orderName = document.querySelector('#p-model-name').innerHTML;
+        if(document.querySelector('#p-model-name') != null){
+            var orderName = document.querySelector('#p-model-name').innerHTML;
+        }
         var quantity = document.querySelector('#count-value');
         const size = document.querySelectorAll('.size');
         var sizeDetail = "";
@@ -122,15 +131,30 @@ function custom(p) {
     
         // Total
         var total = document.querySelector('.total');
+        total2 += sumValue;
+        total.innerHTML = `${total2} VND`
 
-        total.innerHTML = `${sumValue} VND`
-    
         // Set cookie 
         toppingCount++;
         getData(sizeDetail,toppingCount);
         // Exit
+        function removeEventListener(){
+            toppings.forEach(function(topping) {
+                topping.removeEventListener('click', toping);
+            })
+            sizes.forEach(function(size) {
+                size.removeEventListener('click', sizee);
+            })
+            plusBtn.removeEventListener('click', plus);
+            minusBtn.removeEventListener('click', minus);
+            addToCartBtn.removeEventListener('click', addToCart);
+
+        };
+        removeEventListener();
         close();
-    })
+    }
+    var addToCartBtn = document.querySelector('.add')
+    addToCartBtn.addEventListener('click', addToCart)
 }
 function getData(size,toppingCount) {
     // Drink cookie
@@ -167,7 +191,6 @@ function getData(size,toppingCount) {
             }
         }
         toppingCookie +=toppingCount+ " "+toppingNameDetails+"-";
-        console.log(toppingCookie);
         const viewCart = document.querySelector(".button-view");
         viewCart.addEventListener("click",function(){
             const drinkName = "drink";
