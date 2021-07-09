@@ -294,7 +294,7 @@
                             <div class="customize-item">
                                 <div class="topping-item">
                                     <span id="idTopping">{{ $topping->idTopping }}</span>
-                                    <input class="topping" type="radio" value="{{$topping->price}}">
+                                    <input class="topping" type="checkbox" value="{{$topping->price}}">
                                     <p class="p-model">{{$topping->name}}</p>
                                 </div>
                                 <span>+{{$topping->price}} VND</span>

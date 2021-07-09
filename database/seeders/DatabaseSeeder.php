@@ -231,8 +231,7 @@ class DatabaseSeeder extends Seeder
                 'promotionType' => '1',
                 'promotionCode' => 'PERCENT1',
                 'percentPromo' => '50',
-                'moneyPromo' => null,
-                'moneyLimit' => null,               
+                'moneyPromo' => null,              
                 'expireDay' => '2021-08-04',
                 'status' => '1',
             ]
@@ -244,7 +243,6 @@ class DatabaseSeeder extends Seeder
                 'promotionCode' => 'MONEY1',
                 'percentPromo' => null,
                 'moneyPromo' => '15000',
-                'moneyLimit' => '20000',
                 'expireDay' => '2021-08-04',
                 'status' => '1',
             ]

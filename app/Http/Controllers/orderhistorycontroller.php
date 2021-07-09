@@ -33,12 +33,12 @@ class OrderhistoryController extends Controller
    
         // $receipt = receipt::where('idUser',receipt::get('idUser'))->orderby('idReceipt','desc')->paginate(10);
        // $receipt = DB::table('receipt')->join('detail_receipt', 'receipt.idReceipt', '=', 'detail_receipt.idReceipt')->get();
-        $receipt = DB::table('receipt')->where('idUser',auth::id())->select('idReceipt','idUser','receiptDate','payment','status','total')->get();
-        
+        $receipt = DB::table('receipt')->where('idUser',auth::id())
+        ->select('*')
+        ->get();
         $detail = DB::table('detail_receipt')
         ->select('*')
         ->get();
-
         $menu = DB::table('menu')
         ->select('*')
         ->get();
@@ -48,7 +48,10 @@ class OrderhistoryController extends Controller
         $detailTopping = DB::table('detail_topping')
         ->select('*')
         ->get();
-        return view('orderhistory',compact('receipt','detail','menu','topping', 'detailTopping'));
+        $detailWeekly = DB::table('detail_weekly_book')
+        ->select('*')
+        ->get();
+        return view('orderhistory',compact('receipt','detail','menu','topping', 'detailWeekly', 'detailTopping'));
     
     }
 

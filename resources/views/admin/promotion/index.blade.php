@@ -138,7 +138,6 @@
                                     <th>Promotion Code</th>
                                     <th>Percent discount</th>
                                     <th>Money discount</th>
-                                    <th>Money limit</th>
                                     <th>Status</th>  
                                     <th>Expire Day</th> 
                                     <th>Action</th>
@@ -149,17 +148,16 @@
                                     <td>{{ $product->idPromotion }}</td>
                                     @if ($product->promotionType==1)
                                     <td>
-                                     Percent
+                                     Percent discount
                                     </td>
                                     @elseif ($product->promotionType==2) 
                                     <td>
-                                     Money
+                                     Money discount
                                     </td>
                                     @endif
                                     <td>{{ $product->promotionCode }}</td>
                                     <td>{{ $product->percentPromo }}</td>
                                     <td>{{ $product->moneyPromo }}</td>
-                                    <td>{{ $product->moneyLimit }}</td>
                                                            
                                     @if ($product->status==1)
                                         <td class="delivered">

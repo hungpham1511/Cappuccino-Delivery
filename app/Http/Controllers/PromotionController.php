@@ -25,7 +25,7 @@ class PromotionController extends Controller
                 }
             }]
         ])
-        ->orderBy("idPromotion")
+        ->orderBy("idPromotion", 'desc')
         ->paginate(10);
 
 
@@ -44,9 +44,8 @@ class PromotionController extends Controller
         $request->validate([
             'promotionType'=> 'required',
             'promotionCode'=> 'required',
-            'percentPromo'=> 'required',
-            'moneyPromo'=> 'required',
-            'moneyLimit'=> 'required',
+            'percentPromo',
+            'moneyPromo',
             'expireDay'=> 'required',
         ]);
         $data = $request->all();
@@ -70,11 +69,10 @@ class PromotionController extends Controller
     public function update(Request $request, Promotion $data)
     {
         $request->validate([
-            'promotionType'=> 'required',
+            'promotionType',
             'promotionCode'=> 'required',
-            'percentPromo'=> 'required',
-            'moneyPromo'=> 'required',
-            'moneyLimit'=> 'required',
+            'percentPromo',
+            'moneyPromo',
             'expireDay'=> 'required',
         ]);
         $dt = $request->all();

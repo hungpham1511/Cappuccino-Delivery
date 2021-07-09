@@ -98,44 +98,45 @@
     </div>
     @endif
   
-    <form action="{{ route('promotion.store') }}" method="POST" >
+    <form action="{{ route('promotion.store') }}" method="POST" id="createPromo">
         @csrf
 
         <div class="row">
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" class="form-control" placeholder="1:Percent   2:Money">
+                    <select class="form-control" id="promotionType" name="promotionType" onclick="typeChanged(this)" required focus>
+                        <option value="" hidden disabled selected></option>
+                        <option value="1">Percent discount</option>
+                        <option value="2">Money discount</option>
+                    </select>
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Code</strong>
-                    <input type="text" name="promotionCode" class="form-control" placeholder="DELI123">
+                    <input type="text" name="promotionCode" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Percent discount</strong>
-                    <input type="text" name="percentPromo" class="form-control" placeholder="10">
+                    <input type="text" id="percentPromo" name="percentPromo" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Money discout</strong>
-                    <input type="text" name="moneyPromo" class="form-control" placeholder="50000">
+                    <strong>Money discount</strong>
+                    <input type="text" id="moneyPromo" name="moneyPromo" class="form-control">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Money limit</strong>
-                    <input type="text" name="moneyLimit" class="form-control" placeholder="50000">
-                </div>
-            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="date" name="expireDay" class="form-control" value="2021-07-02" min="2020-07-11" max="2022-12-31">
+                    <input type="date" name="expireDay" class="form-control" min="2020-07-11" max="2022-12-31">
                 </div>
             </div>
 
@@ -145,4 +146,5 @@
         </div>
     </form>
 </div>
+<script src="{{ asset('js/promotion.js') }}"></script>
 @endsection
