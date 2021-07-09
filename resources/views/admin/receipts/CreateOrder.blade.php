@@ -119,12 +119,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Note</strong>
-                    <input type="text" name="note" class="form-control" placeholder="Before 5pm.">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Status</strong>
                     <input type="number" name="status" class="form-control" placeholder="1: Order Received    2: Payment received    3: Delivering    4: Finished">
                 </div>
@@ -139,6 +133,12 @@
                 <div class="form-group">
                     <strong>Total</strong>
                     <input type="number" name="total" class="form-control" placeholder="100000">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Note</strong>
+                    <input type="text" name="note" class="form-control" placeholder="Before 5pm.">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

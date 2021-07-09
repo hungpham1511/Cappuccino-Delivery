@@ -143,12 +143,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Note</strong>
-                    <input type="text" name="note" value="{{ $receipt->note }}"class="form-control">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Status</strong>
                         <select class="form-control" id="status" name="status" onclick="editChanged(this)" required focus>
                             <option value="{{ $receipt->status }} " hidden disabled selected>
@@ -178,13 +172,33 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Weekly book</strong>
-                    <input type="number" name="isWeeklyBook" value="{{ $receipt->isWeeklyBook }}" class="form-control" placeholder="0: none 1: booked">
+                    <select class="form-control" id="isWeeklyBook" name="isWeeklyBook" onclick="editChanged(this)" required focus>
+                        <option value="{{ $receipt->isWeeklyBook }} " hidden disabled selected>
+                            @if ($receipt->status==0)
+                                <td>None</td>
+                            @elseif ($receipt->status ==1) 
+                                <td>Booked</td>
+                            @endif
+                        </option>
+                        <option value="0">None</option>
+                        <option value="1">Booked</option>
+                        <!--@if ($receipt->isWeeklyBook==0)
+                        @elseif ($receipt->isWeeklyBook ==1) 
+                        @endif-->
+                    </select>
+                    {{-- <input type="number" name="isWeeklyBook" value="{{ $receipt->isWeeklyBook }}" class="form-control" placeholder="0: none 1: booked"> --}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Total</strong>
                     <input type="number" name="total" value="{{ $receipt->total }}"class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Note</strong>
+                    <input type="text" name="note" value="{{ $receipt->note }}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
