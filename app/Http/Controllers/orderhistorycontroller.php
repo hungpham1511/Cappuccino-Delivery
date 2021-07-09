@@ -42,8 +42,10 @@ class OrderhistoryController extends Controller
         $menu = DB::table('menu')
         ->select('*')
         ->get();
-
-        return view('orderhistory',compact('receipt','detail','menu'));
+        $topping = DB::table('topping')
+        ->select('*')
+        ->get();
+        return view('orderhistory',compact('receipt','detail','menu','topping'));
     
     }
 

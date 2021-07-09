@@ -136,7 +136,7 @@
                 @endif
                 <td>{{ $receipt->total }}</td>
                 <td>
-                    <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}', '{{$receipt->idReceipt}}')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show Detail Receipt</button>
+                    <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$receipt->idReceipt}}')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show Detail Receipt</button>
                 </td>
                
             </tr>
