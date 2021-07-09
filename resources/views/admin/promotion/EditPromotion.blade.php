@@ -122,7 +122,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Money discout</strong>
+                    <strong>Money discount</strong>
                     <input type="text" name="moneyPromo" value="{{ $data->moneyPromo }}" class="form-control" placeholder="50000">
                 </div>
             </div>

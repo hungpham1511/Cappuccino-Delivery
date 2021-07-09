@@ -56,7 +56,6 @@ class ReceiptController extends Controller
         $request->validate([
             'receiptDate' => 'required',
             'payment' => 'required',
-            'note' => 'required',
             'status' => 'required',
             'total' => 'required'
         ]);
@@ -77,7 +76,6 @@ class ReceiptController extends Controller
         $request->validate([
             'receiptDate' => 'required',
             'payment' => 'required',
-            'note' => 'required',
             'status' => 'required',
             'total' => 'required'
         ]);

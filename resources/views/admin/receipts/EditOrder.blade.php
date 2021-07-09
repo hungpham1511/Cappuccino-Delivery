@@ -114,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ReceiptDate</strong>
-                    <input type="date" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
+                    <input type="text" name="receiptDate" value="{{ $receipt->receiptDate }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -132,7 +132,20 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                    <input type="number" name="status" value="{{ $receipt->status }}" class="form-control">
+                        <select class="form-control" id="status" name="status" value="{{ $receipt->status }}" required focus>
+                            <option value="" disabled selected>Please select status</option>
+                            <option value="1">Order Received</option>
+                            <option value="2">Payment Received</option>
+                            <option value="3">Delivering</option>  
+                            <option value="3">Finished</option>  
+                                                         
+                        @error('status')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </select> 
+                    {{-- <input type="text" name="status" value="{{ $receipt->status }}" class="form-control"> --}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
