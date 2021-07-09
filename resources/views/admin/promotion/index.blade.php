@@ -148,11 +148,11 @@
                                     <td>{{ $product->idPromotion }}</td>
                                     @if ($product->promotionType==1)
                                     <td>
-                                     Percent
+                                     Percent discount
                                     </td>
                                     @elseif ($product->promotionType==2) 
                                     <td>
-                                     Money
+                                     Money discount
                                     </td>
                                     @endif
                                     <td>{{ $product->promotionCode }}</td>

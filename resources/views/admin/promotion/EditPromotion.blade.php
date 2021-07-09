@@ -22,7 +22,6 @@
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                 <span>Today Order</span></a>
         </li>
-        
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -59,8 +58,10 @@
                 <span>Customers</span>
             </a>
         </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
+
         <!-- Nav Item - Promotions -->
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('promotion.index') }}">
@@ -78,6 +79,7 @@
 
 @section('content')
 <div class="container">
+    
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0">Edit Promotion</h1>
         <div class="pull-left">
@@ -85,29 +87,49 @@
         </div>
     </div>
 
-
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Oops!</strong> Please fill the blank!<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <strong>Oops!</strong> Please fill the blank!<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
-
-    <form action="{{ route('promotion.update',$data->idPromotion) }}" method="POST">
+  
+    <form action="{{ route('promotion.update',$data->idPromotion) }}" method="POST" id="editPromo">
         @csrf
         @method('PUT')
-
         <div class="row">
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Type</strong>
-                    <input type="text" name="promotionType" value="{{ $data->promotionType }}" class="form-control">
+                    <select class="form-control" id="promotionType" name="promotionType" onclick="editChanged(this)" required focus>
+                        
+                        <option value="{{ $data->promotionType }} " disabled selected>
+                            @if ($data->promotionType==1)
+                                    <td>
+                                     Percent discount
+                                    </td>
+                                    @elseif ($data->promotionType ==2) 
+                                    <td>
+                                     Money discount
+                                    </td>
+                                @endif
+                        </option>
+                        <option value="1">Percent discount</option>
+                        <option value="2">Money discount</option>
+                        <!--@if ($data->promotionType==1)
+                            <option value="2">Money discount</option>
+                        @elseif ($data->promotionType ==2) 
+                            <option value="1">Percent discount</option>
+                        @endif-->
+                    </select>
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Promotion Code</strong>
@@ -117,26 +139,28 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Percent discount</strong>
-                    <input type="text" name="percentPromo" value="{{ $data->percentPromo }}" class="form-control" placeholder="10">
+                    <input type="text" id="percentPromo" name="percentPromo"  value="{{ $data->percentPromo }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Money discout</strong>
-                    <input type="text" name="moneyPromo" value="{{ $data->moneyPromo }}" class="form-control" placeholder="50000">
+                    <strong>Money discount</strong>
+                    <input type="text" id="moneyPromo" name="moneyPromo" value="{{ $data->moneyPromo }}" class="form-control">
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Expire Day</strong>
-                    <input type="text" name="expireDay" value="{{ $data->expireDay }}" class="form-control" placeholder="20/07/2021">
+                    <input type="text" name="expireDay" value="{{ $data->expireDay }}" class="form-control" min="2020-07-11" max="2022-12-31">
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
     </form>
 </div>
+<script src="{{ asset('js/promotion.js') }}"></script>
 @endsection
