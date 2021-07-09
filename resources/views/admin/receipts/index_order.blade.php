@@ -195,7 +195,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="justify-content: center">
                 <h4 class="modal-title" style="color: #7e4815">Detail Receipt</h4>
             </div>
             <div class="modal-body">
