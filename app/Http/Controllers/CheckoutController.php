@@ -28,15 +28,12 @@ class CheckoutController extends Controller
         $promotion = DB::table('promotion')
                         ->select('*')
                         ->get();
-        return view('checkout', compact('promotion'));
-    }
-
-    public function drinkimg(int $id)
-    {
-        return DB::table('menu') 
-        ->select('picture')
-        ->where('idDrink','=', $id)
-        ->value('menu');
+        $idUser = Auth::user()->idUser;
+        $user = DB::table('users')
+                ->select('*')
+                ->where('idUser','=', $idUser)
+                ->get();
+        return view('checkout', compact('promotion', 'user'));
     }
 
     public function create(Request $request)
