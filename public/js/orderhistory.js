@@ -1,4 +1,12 @@
-function showDetailReceipt(detail, menu, topping, detailTopping, detailWeekly, idReceipt, idWeekly) {
+function showDetailReceipt(
+    detail,
+    menu,
+    topping,
+    detailTopping,
+    detailWeekly,
+    idReceipt,
+    idWeekly
+) {
     const detailObj = JSON.parse(detail);
     const menuObj = JSON.parse(menu);
     const toppingObj = JSON.parse(topping);
@@ -31,34 +39,50 @@ function showDetailReceipt(detail, menu, topping, detailTopping, detailWeekly, i
                     }
                 }
             }
-            var weeklybook = "Your drink will delivery on ";
-            for (let j = 0; j < detailWeeklyObj.length; j++) {
-                if (idWeekly == detailWeeklyObj[j].idDetailWeeklyBook) {
-                    if (detailWeeklyObj[j].mon == 1) weeklybook += 'monday ';
-                    if (detailWeeklyObj[j].tue == 1) weeklybook += 'tuesday ';
-                    if (detailWeeklyObj[j].wed == 1) weeklybook += 'wednesday ';
-                    if (detailWeeklyObj[j].thu == 1) weeklybook += 'thursday ';
-                    if (detailWeeklyObj[j].fri == 1) weeklybook += 'friday ';
-                    if (detailWeeklyObj[j].sat == 1) weeklybook += 'saturday ';
-                    if (detailWeeklyObj[j].sun == 1) weeklybook += 'sunday ';
-                    weeklybook += "at " + detailWeeklyObj[j].deliveryTime + " from " + detailWeeklyObj[j].startDay +" to " + detailWeeklyObj[j].finishDay;
-                }
-            }
 
             var message = ` <div class="m-body">
-                                <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Drink: </span>${menuObj[idDrink].name}</p>
+                                <p><span>Size: </span>${detailObj[i].size}</p>
+                                <p><span>Price: </span>${menuObj[idDrink].price}</p>
+                                <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Topping: </span>${displayTopping}</p>
-                                <p><span>Weeklybook: </span>${weeklybook}</p>
+                                <p><span> ------------- </span></p>
+
                             </div>
             `;
-
             document
                 .querySelector(".modal-body")
                 .insertAdjacentHTML("afterbegin", message);
         }
     }
-    // console.log(detailObj[3].idDrink);
+    var weeklybook = "";
+        for (let j = 0; j < detailWeeklyObj.length; j++) {
+            if (idWeekly == detailWeeklyObj[j].idDetailWeeklyBook) {
+                weeklybook +=
+                    " at " +
+                    detailWeeklyObj[j].deliveryTime +
+                    " from " +
+                    detailWeeklyObj[j].startDay +
+                    " to " +
+                    detailWeeklyObj[j].finishDay +
+                    " on ";
+                if (detailWeeklyObj[j].mon == 1) weeklybook += "Monday/";
+                if (detailWeeklyObj[j].tue == 1) weeklybook += "Tuesday/";
+                if (detailWeeklyObj[j].wed == 1) weeklybook += "Wednesday/";
+                if (detailWeeklyObj[j].thu == 1) weeklybook += "Thursday/";
+                if (detailWeeklyObj[j].fri == 1) weeklybook += "Friday/";
+                if (detailWeeklyObj[j].sat == 1) weeklybook += "Saturday/";
+                if (detailWeeklyObj[j].sun == 1) weeklybook += "Sunday/";
+            }
+        }
+        weeklybook = weeklybook.slice(0, weeklybook.length - 1);
+        var message = ` <div class="m-body">
+                                <p><span>Weeklybook service: Your drink will delivery</span>${weeklybook}</p>
+                            </div>
+            `;
+        document
+            .querySelector(".modal-body")
+            .insertAdjacentHTML("afterbegin", message);
 }
 
 function clearDetail() {

@@ -92,7 +92,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </select> 
+                                    </select> 
                                 </div>
                             </div>
 
