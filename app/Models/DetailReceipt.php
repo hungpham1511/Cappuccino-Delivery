@@ -11,6 +11,15 @@ class DetailReceipt extends Model
     protected $table = 'detail_receipt';
     public $timestamps = true;
     protected $primaryKey = 'idDetailReceipt';
+    protected $fillable = [
+        'idDrink',
+        'idReceipt',
+        'amount',
+        'size',
+        'price',
+        'created_at',
+        'updated_at'
+    ];
     public function receipt()
     {
         return $this->belongsTo('App\Receipt','idReceipt');

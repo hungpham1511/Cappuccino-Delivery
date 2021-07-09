@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\DetailReceipt;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -55,12 +55,9 @@ class ReceiptController extends Controller
 
     public function show(Receipt $receipt)
 	{
-        $receipt = Receipt::with('detail_receipt')->get();
-        // $receipt = DB::table('receipt')
-        //                 ->join('detail_receipt', 'receipt.idReceipt', '=', 'detail_receipt.idReceipt')
-        //                 ->select('*')
-        //                 ->get();
-		return view('admin.receipts.ShowDetail',compact('receipt'));
+        $dt = $receipt->idReceipt;
+        $detail = DetailReceipt::where('idReceipt', $dt)->first();
+		return view('admin.receipts.ShowDetail',compact('detail','receipt'));
 	}
 
     public function edit(Receipt $receipt)

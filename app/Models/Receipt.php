@@ -28,10 +28,10 @@ class Receipt extends Model
     ];
     public function weeklyBook()
     {
-        return $this->hasOne('App\DetailWeeklyBook','foreign_key');
+        return $this->hasOne('App\Models\DetailWeeklyBook','idReceipt');
     }
     public function detail_receipt()
     {
-        return $this->hasMany('App\DetailReceipt','foreign_key');
+        return $this->hasMany('App\Models\DetailReceipt','idReceipt');
     }
 }

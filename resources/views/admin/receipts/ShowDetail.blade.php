@@ -94,10 +94,6 @@
             </ul>
         </div>
     @endif
-
-    <form action="{{ route('receipts.show',$receipt->idReceipt) }}" method="POST">
-        @csrf
-        @method('PUT')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -107,29 +103,38 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>IdReceipt:</strong>
+                    <strong>Id Receipt:</strong>
                     {{ $receipt->idReceipt }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Id Drink:</strong>
+                    {{ $detail->idDrink }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Amount:</strong>
-                    {{ $receipt->amount }}
+                    {{ $detail->amount }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Size:</strong>
-                    {{ $receipt->size }}
+                    @if($detail->size==1) S
+                    @elseif($detail->size==2)M
+                    @elseif($detail->size==3)L
+                    @endif
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Price:</strong>
-                    {{ $receipt->price }}
+                    {{ $detail->price }}
                 </div>
             </div> 
         </div>
-    </form>
+ 
 </div>
 @endsection

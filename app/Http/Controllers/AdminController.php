@@ -26,16 +26,6 @@ class AdminController extends Controller
      */
     public function dashboard(Request $request)
     {
-        $receipts = Receipt::where([
-            ['idReceipt', '!=', Null],
-            [function ($query) use ($request) {
-                if (($term = $request->term)) {
-                    $query->orWhere(Carbon::parse($r['receiptDate'])->isToday()==true)->get();
-                }
-            }]
-        ])
-        ->orderBy("idReceipt")
-        ->paginate(10);
 
         $dt = Carbon::today();
 
@@ -45,7 +35,7 @@ class AdminController extends Controller
         })
         ->get();
         
-        return view('admin.dashboard', compact('receipts','check'))
+        return view('admin.dashboard', compact('check'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

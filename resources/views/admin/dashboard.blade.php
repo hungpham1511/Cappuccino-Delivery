@@ -177,9 +177,6 @@
                                     </tr>
                                 @endforeach
                             </table>
-                            <div class="d-flex justify-content-center">
-                                {!! $receipts->links() !!}
-                            </div>
                         </div>
                     </div>
                 </div>
