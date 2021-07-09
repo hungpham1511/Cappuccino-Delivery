@@ -40,7 +40,9 @@ function showDetailReceipt(detail, menu, topping, idReceipt) {
 
 function clearDetail() {
     console.log("clear");
-    document
-        .querySelector(".m-body")
-        .remove();
+    var details = document.querySelectorAll(".m-body")
+    details.forEach(detailRemove);
+    function detailRemove(detail) {
+        detail.remove();
+    }
 }
