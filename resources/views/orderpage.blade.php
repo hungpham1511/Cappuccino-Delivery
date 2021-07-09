@@ -301,12 +301,6 @@
                             </div>
                             @endforeach
                         </div>
-                        <div class="order-note">
-                            <div class="item">
-                                <p class="p-model">Note:</p>
-                                <input type="text" class="note-detail" id="note">
-                            </div>
-                        </div>
                     </div>
                     <div class="order-checkout">
                         <div class="counter">
