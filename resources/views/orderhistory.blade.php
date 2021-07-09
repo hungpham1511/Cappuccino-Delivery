@@ -123,7 +123,7 @@
                     @endif
                     <td>{{ $receipt->total }}</td>
                     <td>
-                        <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" style="background-color: #B78546 " type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show Detail Receipt</button>
+                        <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" style="background-color: #B78546" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show Detail Receipt</button>
                     </td>
                
                 </tr>
@@ -144,7 +144,7 @@
                     <div class="modal-body">
                     </div>
                     <div class="modal-footer">
-                        <button onclick="clearDetail()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button onclick="clearDetail()" type="button" style="font-size: 16px" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
