@@ -25,17 +25,28 @@ function editChanged(obj)
 {
     var value = document.getElementById("promotionType").value;
     if (value === '1'){
-        
-        document.getElementById('moneyPromo').value = null;
+        document.getElementById("moneyDis").style.display = 'none';
+        document.getElementById("percentDis").style.display = 'block';
         //document.getElementById("editPromo").moneyPromo.disabled = true;
-        //document.getElementById("editPromo").percentPromo.disabled = false;
-        
+        //document.getElementById("editPromo").percentPromo.disabled = false;       
     }
     else if (value === '2'){
-        document.getElementById('percentPromo').value = null;
+        document.getElementById("percentDis").style.display = 'none';
+        document.getElementById("moneyDis").style.display = 'block';
         //document.getElementById("editPromo").percentPromo.disabled = true;
         //document.getElementById("editPromo").moneyPromo.disabled = false;
         
     }
     
+}
+
+function updateChanged(obj)
+{
+    var value = document.getElementById("promotionType").value;
+    if (value === '1'){
+        document.getElementById('moneyPromo').value = null;        
+    }
+    else if (value === '2'){
+        document.getElementById('percentPromo').value = null;        
+    }   
 }

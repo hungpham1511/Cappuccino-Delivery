@@ -108,7 +108,7 @@
                     <strong>Promotion Type</strong>
                     <select class="form-control" id="promotionType" name="promotionType" onclick="editChanged(this)" required focus>
                         
-                        <option value="{{ $data->promotionType }} " disabled selected>
+                        <option value="{{ $data->promotionType }} " hidden disabled selected>
                             @if ($data->promotionType==1)
                                     <td>
                                      Percent discount
@@ -137,13 +137,13 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group" id="percentDis">
                     <strong>Percent discount</strong>
                     <input type="text" id="percentPromo" name="percentPromo"  value="{{ $data->percentPromo }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group" id="moneyDis">
                     <strong>Money discount</strong>
                     <input type="text" id="moneyPromo" name="moneyPromo" value="{{ $data->moneyPromo }}" class="form-control">
                 </div>
@@ -157,7 +157,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success" onclick="updateChanged(this)">Submit</button>
             </div>
         </div>
     </form>
