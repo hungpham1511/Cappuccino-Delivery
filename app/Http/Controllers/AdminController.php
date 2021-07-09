@@ -42,6 +42,9 @@ class AdminController extends Controller
         $detailTopping = DB::table('detail_topping')
         ->select('*')
         ->get();
+        $detailWeekly = DB::table('detail_weekly_book')
+        ->select('*')
+        ->get();
         $dt = Carbon::today();
 
         $condition = true;
@@ -50,7 +53,8 @@ class AdminController extends Controller
         })
         ->get();
         
-        return view('admin.dashboard', compact('receipts','receipt','detail','menu','topping', 'detailTopping'))
+        return view('admin.dashboard', compact('receipts','receipt','detail','menu','topping', 'detailWeekly', 'detailTopping'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+            
     }
 }

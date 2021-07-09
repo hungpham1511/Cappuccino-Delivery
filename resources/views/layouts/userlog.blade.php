@@ -49,9 +49,8 @@
                 </div>
         </nav>
 
-        <div class="py-4">
+        <div>
             @yield('content')
-            @yield('edit')
         </div>
     </div>    
 </body>

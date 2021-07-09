@@ -1,9 +1,9 @@
 @extends('layouts.userlog')
 
-@section('edit')
+@section('content')
 
 <div class="row">
-    <div style="top: 23%; left:3%; " class="navback-btn col-auto position-absolute">
+    <div style="top: 23%; left:3%; " class="navback-btn col-auto">
         <a href="{{ route('orderpage') }}" class="btn">
             <i class="fas fa-arrow-left back" aria-hidden="true"></i>
         </a>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
+                        <div class="col-md-6 offset-md-4 text-center">
                             <button type="submit" class="btn btn-signin" style="margin-bottom:5%">
                                 {{ __('Edit') }}
                             </button>

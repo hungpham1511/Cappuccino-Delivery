@@ -168,8 +168,8 @@
                                     
                                     <td>
                                         <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">                                   
-                                            <a onclick="showDetailReceipt('{{$detail}}', '{{$menu}}', '{{$topping}}','{{$detailTopping}}','{{$receipt->idReceipt}}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show</a>                                          
-                                            
+                                            <a onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show</a>                                          
+                                            {{-- <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" style="background-color: #B78546 " type="button" class="btn btn-info btn-lg" ></button> --}}
                                             <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
@@ -195,8 +195,8 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Detail Receipt</h4>
+            <div class="modal-header" style="justify-content: center">
+                <h4 class="modal-title" style="color: #7e4815">Detail Receipt</h4>
             </div>
             <div class="modal-body">
             </div>

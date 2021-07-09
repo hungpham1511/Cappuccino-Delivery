@@ -76,10 +76,12 @@ function showDetailReceipt(
             }
         }
         weeklybook = weeklybook.slice(0, weeklybook.length - 1);
+        if (weeklybook != "") {
         var message = ` <div class="m-body">
                                 <p><span>Weeklybook service: Your drink will delivery</span>${weeklybook}</p>
                             </div>
             `;
+        }
         document
             .querySelector(".modal-body")
             .insertAdjacentHTML("afterbegin", message);
