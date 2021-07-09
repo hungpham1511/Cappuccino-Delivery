@@ -1,7 +1,8 @@
-function showDetailReceipt(detail, menu, topping, idReceipt) {
+function showDetailReceipt(detail, menu, topping, detailTopping, idReceipt) {
     const detailObj = JSON.parse(detail);
     const menuObj = JSON.parse(menu);
     const toppingObj = JSON.parse(topping);
+    const detailToppingObj = JSON.parse(detailTopping);
     console.log(detailObj);
     console.log(menuObj);
     console.log(toppingObj);
@@ -21,11 +22,25 @@ function showDetailReceipt(detail, menu, topping, idReceipt) {
                     break;
                 }
             }
+            var displayTopping = "";
+            for (let j = 0; j < detailToppingObj.length; j++) {
+                if (
+                    detailObj[i].idDetailReceipt == detailToppingObj[j].idDetailReceipt
+                ) {
+                    for (let k = 0; k < toppingObj.length; k++) {
+                        if (
+                            detailToppingObj[j].idTopping == toppingObj[k].idTopping
+                        ) {
+                            displayTopping += "/" + toppingObj[k].name;
+                        }
+                    }
+                }
+            }
 
             var message = ` <div class="m-body">
                                 <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Drink: </span>${menuObj[idDrink].name}</p>
-                                <p><span>Topping: </span>${toppingObj[i].name}</p>
+                                <p><span>Topping: </span>${displayTopping}</p>
                             </div>
             `;
 
