@@ -120,7 +120,19 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Payment</strong>
-                    <input type="number" name="payment" value="{{ $receipt->payment }}" class="form-control">
+                    <select class="form-control" id="payment" name="payment" required focus>
+                        <option value="{{ $receipt->payment }}" disabled selected>Please select payment</option>
+                        <option value="1">COD</option>
+                        <option value="2">Momo</option>
+                        <option value="3">Bank</option>  
+                                                     
+                    @error('payment')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </select> 
+                    {{-- <input type="number" name="payment" value="{{ $receipt->payment }}" class="form-control"> --}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
