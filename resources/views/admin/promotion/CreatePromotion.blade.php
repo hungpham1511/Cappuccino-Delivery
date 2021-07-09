@@ -122,14 +122,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Money discout</strong>
+                    <strong>Money discount</strong>
                     <input type="text" name="moneyPromo" class="form-control" placeholder="50000">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Money limit</strong>
-                    <input type="text" name="moneyLimit" class="form-control" placeholder="50000">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

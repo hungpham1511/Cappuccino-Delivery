@@ -128,12 +128,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Money limit</strong>
-                    <input type="number" name="moneyLimit" value="{{ $data->moneyLimit }}" class="form-control" placeholder="50000">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Expire Day</strong>
                     <input type="text" name="expireDay" value="{{ $data->expireDay }}" class="form-control" placeholder="20/07/2021">
                 </div>

@@ -39,6 +39,9 @@ class AdminController extends Controller
         $topping = DB::table('topping')
         ->select('*')
         ->get();
+        $detailTopping = DB::table('detail_topping')
+        ->select('*')
+        ->get();
         $dt = Carbon::today();
 
         $condition = true;
@@ -47,7 +50,7 @@ class AdminController extends Controller
         })
         ->get();
         
-        return view('admin.dashboard', compact('receipts','receipt','detail','menu','topping'))
+        return view('admin.dashboard', compact('receipts','receipt','detail','menu','topping', 'detailTopping'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
