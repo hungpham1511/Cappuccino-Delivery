@@ -37,8 +37,8 @@
 
 /* Header Style */
 
-header {
-    width: 100%;
+.header {
+    position: relative;
     background-color: #CFC6B7;
     height: 189px;
 }
