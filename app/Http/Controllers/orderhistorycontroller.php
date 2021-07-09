@@ -35,8 +35,15 @@ class OrderhistoryController extends Controller
        // $receipt = DB::table('receipt')->join('detail_receipt', 'receipt.idReceipt', '=', 'detail_receipt.idReceipt')->get();
         $receipt = DB::table('receipt')->where('idUser',auth::id())->select('idReceipt','idUser','receiptDate','payment','status','total')->get();
         
+        $detail = DB::table('detail_receipt')
+        ->select('*')
+        ->get();
 
-        return view('orderhistory',compact('receipt')); 
+        $menu = DB::table('menu')
+        ->select('*')
+        ->get();
+
+        return view('orderhistory',compact('receipt','detail','menu'));     
     
     }
 
