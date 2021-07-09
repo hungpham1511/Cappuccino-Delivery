@@ -162,7 +162,6 @@
             </div>
         </div>
 
-    </div>
 
     <script src="{{ asset('js/orderhistory.js') }}"></script>
 

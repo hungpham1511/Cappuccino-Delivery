@@ -167,8 +167,9 @@
                                     <td>{{ $receipt->total }}</td>
                                     
                                     <td>
-                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
-                                            <a class="btn btn-info" href="{{ route('receipts.show',$receipt->idReceipt) }}">Show</a>
+                                        <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">                                   
+                                            <a onclick="showDetailReceipt('{{$detail}}', '{{$menu}}', '{{$topping}}','{{$receipt->idReceipt}}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show</a>                                          
+                                            
                                             <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
@@ -188,7 +189,25 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detail Receipt</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button onclick="clearDetail()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- End of Main Content -->
+<script src="{{ asset('js/orderhistory.js') }}"></script>
+
 </div>
 @endsection

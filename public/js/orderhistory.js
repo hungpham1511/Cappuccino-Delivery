@@ -1,8 +1,10 @@
-function showDetailReceipt(detail, menu, idReceipt) {
+function showDetailReceipt(detail, menu, topping, idReceipt) {
     const detailObj = JSON.parse(detail);
     const menuObj = JSON.parse(menu);
+    const toppingObj = JSON.parse(topping);
     console.log(detailObj);
     console.log(menuObj);
+    console.log(toppingObj);
     console.log(idReceipt);
     var idDrink;
 
@@ -21,8 +23,9 @@ function showDetailReceipt(detail, menu, idReceipt) {
             }
 
             var message = ` <div class="m-body">
-                                <p><span>Ammount: </span>${detailObj[i].amount}</p>
+                                <p><span>Amount: </span>${detailObj[i].amount}</p>
                                 <p><span>Drink: </span>${menuObj[idDrink].name}</p>
+                                <p><span>Topping: </span>${toppingObj[i].name}</p>
                             </div>
             `;
 

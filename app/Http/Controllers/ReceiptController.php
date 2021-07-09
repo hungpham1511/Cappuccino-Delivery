@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Carbon\Carbon;
+use App\Models\User;
+use Auth;
 
 class ReceiptController extends Controller
 {
@@ -17,6 +19,18 @@ class ReceiptController extends Controller
     
     public function index(Request $request)
     {
+        $receipt = DB::table('receipt')->where('idUser',Auth::id())->select('idReceipt','idUser','receiptDate','payment','status','total')->get();
+        
+        $detail = DB::table('detail_receipt')
+        ->select('*')
+        ->get();
+
+        $menu = DB::table('menu')
+        ->select('*')
+        ->get();
+        $topping = DB::table('topping')
+        ->select('*')
+        ->get();
         $receipts = Receipt::where([
             ['idReceipt', '!=', Null],
             [function ($query) use ($request) {
@@ -28,7 +42,7 @@ class ReceiptController extends Controller
         ->orderBy("idReceipt")
         ->paginate(10);
 
-        return view('admin.receipts.index_order', compact('receipts'))
+        return view('admin.receipts.index_order', compact('receipts','receipt','detail','menu','topping'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -52,13 +66,6 @@ class ReceiptController extends Controller
         return redirect()->route('receipts.index')
             ->with('success', 'Congratulate! Order has been created successfully.');
     }
-
-    public function show(Receipt $receipt)
-	{
-        $dt = $receipt->idReceipt;
-        $detail = DetailReceipt::where('idReceipt', $dt)->first();
-		return view('admin.receipts.ShowDetail',compact('detail','receipt'));
-	}
 
     public function edit(Receipt $receipt)
     {

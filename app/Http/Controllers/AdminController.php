@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\DetailReceipt;
 use App\Models\Receipt;
 use App\Models\DetailWeeklyBook;
 use App\Http\Requests;
@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Carbon\Carbon;
+use App\Models\User;
 use DateTime;
-
+use Auth;
 
 
 class AdminController extends Controller
@@ -26,16 +27,27 @@ class AdminController extends Controller
      */
     public function dashboard(Request $request)
     {
+        $receipt = DB::table('receipt')->where('idUser',Auth::id())->select('idReceipt','idUser','receiptDate','payment','status','total')->get();
+        
+        $detail = DB::table('detail_receipt')
+        ->select('*')
+        ->get();
 
+        $menu = DB::table('menu')
+        ->select('*')
+        ->get();
+        $topping = DB::table('topping')
+        ->select('*')
+        ->get();
         $dt = Carbon::today();
 
         $condition = true;
-        $check = Receipt::when($condition, function ($query) use ($dt) {
+        $receipts = Receipt::when($condition, function ($query) use ($dt) {
             return $query->where('receiptDate', $dt);
         })
         ->get();
         
-        return view('admin.dashboard', compact('check'))
+        return view('admin.dashboard', compact('receipts','receipt','detail','menu','topping'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
