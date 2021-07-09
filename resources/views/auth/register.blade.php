@@ -82,7 +82,7 @@
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
                                     <select class="form-control" id="gender" name="gender" required focus>
-                                        <option value="" disabled selected>Please select gender</option>
+                                        <option value="" hidden disabled selected></option>
                                         <option value="1">Male</option>
                                         <option value="2">Female</option>
                                         <option value="3">Other</option>  
@@ -92,7 +92,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </select> 
+                                    </select> 
                                 </div>
                             </div>
 

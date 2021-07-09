@@ -120,7 +120,25 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Payment</strong>
-                    <input type="number" name="payment" value="{{ $receipt->payment }}" class="form-control">
+                    <select class="form-control" id="payment" name="payment" onclick="editChanged(this)" required focus>
+                        <option value="{{ $receipt->payment }} " hidden disabled selected>
+                            @if ($receipt->payment==1)
+                                <td>COD</td>
+                            @elseif ($receipt->payment ==2) 
+                                <td>Momo</td>
+                            @elseif ($receipt->payment ==3) 
+                                <td>Bank</td>
+                            @endif
+                        </option>
+                        <option value="1">COD</option>
+                        <option value="2">Momo</option>
+                        <option value="3">Bank</option>
+                        <!--@if ($receipt->payment==1)
+                        @elseif ($receipt->payment ==2) 
+                        @elseif ($receipt->payment ==3) 
+                        @endif-->
+                    </select>
+                    {{-- <input type="number" name="payment" value="{{ $receipt->payment }}" class="form-control"> --}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -132,7 +150,29 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status</strong>
-                    <input type="number" name="status" value="{{ $receipt->status }}" class="form-control">
+                        <select class="form-control" id="status" name="status" onclick="editChanged(this)" required focus>
+                            <option value="{{ $receipt->status }} " hidden disabled selected>
+                                @if ($receipt->status==1)
+                                    <td>Order Received</td>
+                                @elseif ($receipt->status ==2) 
+                                    <td>Payment Received</td>
+                                @elseif ($receipt->status ==3) 
+                                    <td>Delivering</td>
+                                @elseif ($receipt->status ==3) 
+                                    <td>Finished</td>
+                                @endif
+                            </option>
+                            <option value="1">Order Received</option>
+                            <option value="2">Payment Received</option>
+                            <option value="3">Delivering</option>
+                            <option value="4">Finished</option>
+                            <!--@if ($receipt->status==1)
+                            @elseif ($receipt->status ==2) 
+                            @elseif ($receipt->status ==3) 
+                            @elseif ($receipt->status ==4) 
+                            @endif-->
+                        </select>
+                    {{-- <input type="text" name="status" value="{{ $receipt->status }}" class="form-control"> --}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
