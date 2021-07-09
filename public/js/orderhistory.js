@@ -10,14 +10,10 @@ function showDetailReceipt(detail, menu, topping, detailTopping, idReceipt) {
     var idDrink;
 
     for (let i = 0; i < detailObj.length; i++) {
-        if (
-            idReceipt == detailObj[i].idReceipt
-        ) {
+        if (idReceipt == detailObj[i].idReceipt) {
             console.log(1);
             for (let j = 0; j < menuObj.length; j++) {
-                if (
-                    detailObj[i].idDrink == menuObj[j].idDrink
-                ) {
+                if (detailObj[i].idDrink == menuObj[j].idDrink) {
                     idDrink = j;
                     break;
                 }
@@ -25,13 +21,17 @@ function showDetailReceipt(detail, menu, topping, detailTopping, idReceipt) {
             var displayTopping = "";
             for (let j = 0; j < detailToppingObj.length; j++) {
                 if (
-                    detailObj[i].idDetailReceipt == detailToppingObj[j].idDetailReceipt
+                    detailObj[i].idDetailReceipt ==
+                    detailToppingObj[j].idDetailReceipt
                 ) {
                     for (let k = 0; k < toppingObj.length; k++) {
                         if (
-                            detailToppingObj[j].idTopping == toppingObj[k].idTopping
+                            detailToppingObj[j].idTopping ==
+                            toppingObj[k].idTopping
                         ) {
-                            displayTopping += "/" + toppingObj[k].name;
+                            if (displayTopping == "")
+                                displayTopping += toppingObj[k].name;
+                            else displayTopping += "/" + toppingObj[k].name;
                         }
                     }
                 }
@@ -50,12 +50,11 @@ function showDetailReceipt(detail, menu, topping, detailTopping, idReceipt) {
         }
     }
     // console.log(detailObj[3].idDrink);
-
 }
 
 function clearDetail() {
     console.log("clear");
-    var details = document.querySelectorAll(".m-body")
+    var details = document.querySelectorAll(".m-body");
     details.forEach(detailRemove);
     function detailRemove(detail) {
         detail.remove();
