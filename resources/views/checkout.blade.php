@@ -31,14 +31,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Datetime Picker -->
-
     <!-- Font Awesome-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div id="app">
+    <div>
         <nav>
             {{-- <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Sign in') }}
@@ -48,7 +48,7 @@
                 <p class="logo-name">CAPPUCCINO <br>DELIVERY</p>
             </header>
         </nav>
-        <main class="py-4" style="margin-bottom: 10%;">
+        <main>
             <div>
                 <div class="navback-btn col-auto position-absolute">
                     <a href="{{ url('/home') }}" class="btn">
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <div class="container-fluid section-border anchor py-3 px-3">
+                            <div class="container-fluid section-border anchor py-3 px-3 mb-4">
                                 <h3 class="mb-3">4. Receipt</h3>
                                 <table class="table table-striped">
                                     <thead>
@@ -220,6 +220,21 @@
                                     </tfoot>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <div class="footer">
+                    <div class="row mx-0">
+                        <div class="col-lg-4 logo-brand">
+                            <img class="logo-img2" src="{{asset('picture/Frame2.png')}}" alt="logo image">
+                            <h4 class="logo-name2">CAPPUCCINO <br>DELIVERY</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <i class="footer-contact fa fa-facebook" aria-hidden="true">cappuccino.com</i>
+                            <i class="footer-contact fa fa-instagram" aria-hidden="true">_ilovecappu</i>
+                            <i class="footer-contact fa fa-phone" aria-hidden="true">0898536271</i>
+                            <i class="footer-contact fa fa-building" aria-hidden="true">86-88 Cao Thắng, phường 4, quận 3, Hồ Chí Minh</i>
                         </div>
                     </div>
                 </div>
