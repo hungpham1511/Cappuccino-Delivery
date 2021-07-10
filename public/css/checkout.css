@@ -1,5 +1,4 @@
 /* Customize button, radio & checkbox */
-
 .navback-btn {
     z-index: 2;
 }
@@ -158,4 +157,43 @@ h3 {
     font-size: 20px;
     line-height: 28px;
     color: #603813;
+}
+
+/* Footer */
+.footer {
+    background-color: #CFC6B7;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.logo-img2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2px;
+}
+
+.logo-name2 {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.fa {
+    display: block !important;
+    font-weight: normal !important;
+    font: normal normal normal 14px/1 'FontAwesome'!important;
+}
+
+.fa-facebook::before,
+.fa-instagram::before,
+.fa-phone::before,
+.fa-building::before {
+    padding-right: 28px;
+}
+
+.footer-contact {
+    font-size: 24px !important;
+    padding-bottom: 18px;
+    padding-left: 5%;
 }
