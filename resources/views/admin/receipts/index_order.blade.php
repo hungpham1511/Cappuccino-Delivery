@@ -125,7 +125,7 @@
                                     <th>IdUser</th>
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
-                                    <th>Note</th>
+                                    <th style="width:120px">Note</th>
                                     <th>Status</th> 
                                     <th>Weekly Book</th> 
                                     <th>Total</th>                                   

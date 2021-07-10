@@ -81,9 +81,6 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Receipts</h1>
-            <div class="pull-left">
-                <a class="btn btn-primary" href="{{ route('receipts.create') }}" title="Create an receipt"> <i class="fas fa-plus-circle" style="padding-top: 5%">&nbsp;Add Receipts</i></a>
-            </div>
         </div>
    
     <!-- DataTales Example -->
@@ -128,7 +125,7 @@
                                     <th>IdUser</th>
                                     <th>ReceiptDate</th>
                                     <th>Payment</th>
-                                    <th>Note</th>
+                                    <th style="width:120px">Note</th>
                                     <th>Status</th> 
                                     <th>Weekly Book</th> 
                                     <th>Total</th>                                   
