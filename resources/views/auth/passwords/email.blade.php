@@ -9,8 +9,10 @@
 
                 <div class="card-body">
                     @if (session('status'))
+                        
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+                            {{ __('Check your spam folder in gmail.') }}
                         </div>
                     @endif
 
@@ -32,7 +34,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4"  style="text-align: center;">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
