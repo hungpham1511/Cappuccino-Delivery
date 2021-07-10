@@ -146,11 +146,11 @@
                                 @foreach ($data as $product)
                                 <tr>
                                     <td>{{ $product->idPromotion }}</td>
-                                    @if ($product->promotionType==1)
+                                    @if ($product->promotionType==0)
                                     <td>
                                      Percent discount
                                     </td>
-                                    @elseif ($product->promotionType==2) 
+                                    @elseif ($product->promotionType==1) 
                                     <td>
                                      Money discount
                                     </td>
