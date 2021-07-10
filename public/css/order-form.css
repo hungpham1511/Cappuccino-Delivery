@@ -74,7 +74,12 @@ html {
 /* Order name */
 
 .order-container {
-    height: 540px;
+    position: relative;
+    display: table;
+    overflow-y: auto;    
+    overflow-x: auto;
+    height: auto;
+    padding-bottom: 2rem;
     width: 520px;
     background-color: var(--white-color);
     border-radius: 5px;
