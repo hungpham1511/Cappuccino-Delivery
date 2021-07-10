@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="row">
-    <div style="top: 23%; left:3%; " class="navback-btn col-auto">
+<div>
+    <div style="top: 23%; left:3%;" class="navback-btn col-12 px-0">
         <a href="{{ route('orderpage') }}" class="btn">
             <i class="fas fa-arrow-left back" aria-hidden="true"></i>
         </a>
