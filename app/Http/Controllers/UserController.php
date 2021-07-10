@@ -42,7 +42,7 @@ class UserController extends Controller
 
             $user->save();
 
-            return back();
+            return redirect()->route('orderpage');
         } else {
             $this->validate(request(), [
                 'username' => 'required',

@@ -129,7 +129,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Picture</strong>
-                    <input type="text" name="picture" class="form-control" placeholder="Picture">
+                    <input type="text" name="picture" value="{{ $drink->picture }}" class="form-control" placeholder="Picture">
                     <img src="{{ $drink->picture }}" width="300px">
                 </div>
             </div>

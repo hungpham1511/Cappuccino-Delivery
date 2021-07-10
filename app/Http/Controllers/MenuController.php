@@ -24,7 +24,7 @@ class MenuController extends Controller
                 }
             }]
         ])
-        ->orderBy("idDrink")
+        ->orderBy("idDrink", 'desc')
         ->paginate(10);
 
 

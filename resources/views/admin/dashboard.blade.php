@@ -168,7 +168,7 @@
                                     
                                     <td>
                                         <form action="{{ route('receipts.destroy',$receipt->idReceipt) }}" method="POST">
-                                            <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show</button>                                   
+                                            <button onclick="showDetailReceipt('{{$detail}}', '{{$menu}}','{{$topping}}', '{{$detailTopping}}', '{{$detailWeekly}}', '{{$receipt->idReceipt}}', '{{$receipt->idDetailWeeklyBook}}')" style="background-color: #B78546; border-color: #B78546" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show</button>                                   
                                                                                      
                                             
                                             <a class="btn btn-warning" href="{{ route('receipts.edit',$receipt->idReceipt) }}">Edit</a>

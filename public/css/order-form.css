@@ -74,7 +74,9 @@ html {
 /* Order name */
 
 .order-container {
-    height: 540px;
+    /* height: 540px; */
+    min-height: none;
+    max-height: none;
     width: 520px;
     background-color: var(--white-color);
     border-radius: 5px;
