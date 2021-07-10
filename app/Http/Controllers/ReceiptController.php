@@ -49,7 +49,7 @@ class ReceiptController extends Controller
                 }
             }]
         ])
-        ->orderBy("idReceipt", 'desc')
+        ->orderBy("idReceipt")
         ->paginate(10);
 
         return view('admin.receipts.index_order', compact('receipts','receipt','detail','menu','topping', 'detailWeekly','detailTopping'))

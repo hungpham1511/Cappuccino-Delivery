@@ -30,7 +30,79 @@ class DatabaseSeeder extends Seeder
                 'fullName'=> 'User',
                 'gender'=> '3',
                 'phone' => '1234567890',
-                'address' => 'abc',
+                'address' => 'Thuận Kiều Plaza, Quận 5, Tp.HCM',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Quân',
+                'email' => 'quan@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Đặng Minh Quân',
+                'gender'=> '1',
+                'phone' => '0123456788',
+                'address' => '196 Võ Văn Ngân, Bình Thọ, Thủ Đức',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Ngân',
+                'email' => 'maithihangan@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Mai Thị Hà Ngân',
+                'gender'=> '2',
+                'phone' => '0843085555',
+                'address' => 'Ktx khu A, Linh Trung, Thủ Đức',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Ngọc',
+                'email' => 'ngoc@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Trần Nguyễn Minh Ngọc',
+                'gender'=> '2',
+                'phone' => '0935452777',
+                'address' => 'Suối Tân, Cam Lâm, Khánh Hòa',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Hưng',
+                'email' => 'hung@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Phạm Quốc Duy Hưng',
+                'gender'=> '1',
+                'phone' => '0389651234',
+                'address' => '20 Trần Phú, Lộc Thọ, Thành phố Nha Trang, Khánh Hòa',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Đạo',
+                'email' => 'dao@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Dương Đức Đạo',
+                'gender'=> '1',
+                'phone' => '038659147',
+                'address' => 'Ktx khu B, Dĩ An, Bình Dương',
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'Dung',
+                'email' => 'dung@gmail.com',
+                'password' => bcrypt('12345678'),
+                'fullName'=> 'Nguyễn Thị Mỹ Dung',
+                'gender'=> '2',
+                'phone' => '038659547',
+                'address' => '129 Đường Man Thiện, Hiệp Phú, Quận 9, Tp.HCM',
             ]
         ]);
 
