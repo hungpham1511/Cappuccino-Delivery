@@ -71,18 +71,18 @@
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                                     <label>Address</label>
                                     <input type="text" class="require form-control mb-3" id="address"
-                                        placeholder="Your address" name="address" value={{ $user[0]->address }} required>
+                                        placeholder="Your address" name="address" value="{{ $user[0]->address }}" required>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Full name</label>
                                         <input type="text" class="require form-control" id="name"
-                                            placeholder="Your name" name="name" value={{ $user[0]->fullName }} required>
+                                            placeholder="Your name" name="name" value="{{ $user[0]->fullName }}" required>
                                     </div>
                                     <div class="col-lg-6 form-group pmd-textfield pmd-textfield-floating-label">
                                         <label>Phone number</label>
                                         <input type="number" class="require form-control" id="phone"
-                                            placeholder="Your phone number" name="number" value={{ $user[0]->phone }} required>
+                                            placeholder="Your phone number" name="number" value="{{ $user[0]->phone }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
