@@ -26,6 +26,22 @@ document.querySelectorAll(".form-control.require").forEach((input) => {
     });
 });
 
+window.onload = () => {
+    document.querySelectorAll(".form-control.require").forEach((input) => {
+        if (input.checkValidity()) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+        } else {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+        }
+        var is_valid =
+            $(".form-control.require").length ===
+            $(".form-control.is-valid.require").length;
+        $("#modalbtn").attr("disabled", !is_valid);
+    });
+};
+
 (function () {
     "use strict";
     var forms = document.querySelectorAll(".needs-validation");
@@ -96,7 +112,7 @@ total.innerHTML = `${sumMoney + 5000} VND`;
 function submitPromo(promo) {
     const promoObj = JSON.parse(promo);
     for (let i = 0; i < promoObj.length; i++) {
-        console.log(promoObj[i].promotionCode);
+        console.log(promoObj);
         console.log(document.getElementById("promotion").value);
         if (
             document.getElementById("promotion").value ==
