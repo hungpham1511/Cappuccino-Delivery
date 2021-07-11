@@ -134,7 +134,7 @@ class CheckoutController extends Controller
                 ->select('percentPromo')
                 ->where('idPromotion', '=', $promotion)
                 ->value('percentPromo');
-                $totalprice *= ($percent/100);
+                $totalprice *= ((100-$percent)/100);
             }
             else {
                 $moneyDiscount = DB::table('promotion')

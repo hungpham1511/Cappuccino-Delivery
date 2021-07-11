@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'username' => 'Ngân',
-                'email' => 'maithihangan@gmail.com',
+                'email' => 'ngan@gmail.com',
                 'password' => bcrypt('12345678'),
                 'fullName'=> 'Mai Thị Hà Ngân',
                 'gender'=> '2',

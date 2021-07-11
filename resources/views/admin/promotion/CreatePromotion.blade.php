@@ -108,8 +108,8 @@
                     <strong>Promotion Type</strong>
                     <select class="form-control" id="promotionType" name="promotionType" onclick="typeChanged(this)" required focus>
                         <option value="" hidden disabled selected></option>
-                        <option value="1">Percent discount</option>
-                        <option value="2">Money discount</option>
+                        <option value="0">Percent discount</option>
+                        <option value="1">Money discount</option>
                     </select>
                 </div>
             </div>

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $user = Auth::user();
-        return view('edituser', compact('user'));
+        return redirect()->route('orderpage');
     }
     
     public function update(User $user)

@@ -109,21 +109,21 @@
                     <select class="form-control" id="promotionType" name="promotionType" onclick="editChanged(this)" required focus>
                         
                         <option value="{{ $data->promotionType }} " hidden disabled selected>
-                            @if ($data->promotionType==1)
+                            @if ($data->promotionType==0)
                                     <td>
                                      Percent discount
                                     </td>
-                                    @elseif ($data->promotionType ==2) 
+                                    @elseif ($data->promotionType ==1) 
                                     <td>
                                      Money discount
                                     </td>
                                 @endif
                         </option>
-                        <option value="1">Percent discount</option>
-                        <option value="2">Money discount</option>
-                        <!--@if ($data->promotionType==1)
+                        <option value="0">Percent discount</option>
+                        <option value="1">Money discount</option>
+                        <!--@if ($data->promotionType==0)
                             <option value="2">Money discount</option>
-                        @elseif ($data->promotionType ==2) 
+                        @elseif ($data->promotionType ==1) 
                             <option value="1">Percent discount</option>
                         @endif-->
                     </select>

@@ -123,7 +123,7 @@ function submitPromo(promo) {
             var total = document.querySelector(".total");
             if (promoObj[i].promotionType == 0)
                 total.innerHTML = `${
-                    (sumMoney * promoObj[i].percentPromo) / 100 + 5000
+                    (sumMoney * (100 - promoObj[i].percentPromo)) / 100 + 5000
                 } VND`;
             else
                 total.innerHTML = `${
